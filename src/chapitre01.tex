@@ -1,0 +1,40 @@
+\chapter{Normes, applications linéaires et multilinéaires}
+
+
+Nous commencerons par rappeler la définition d'une norme, de la topologie
+associée à une norme et d'équivalence de norme. Nous rappelerons aussi le
+théorème de Riesz et de l'équivalence des normes en dimension finie.
+
+Dans un deuxième temps, nous regarderons les applications linéaire et la notion
+de continuité.
+
+Pour finir, nous généraliserons aux applications multilinéaires.
+
+\begin{definition}
+    Soit E un espace vectoriel, et \GSfunction{N}{E}{$\mathbb{R}$} une fonction.
+    N est une norme si elle vérifie :
+    \begin{enumerate}
+        \item $\forall x \in E$, $N(x) \geq 0$
+        \item $\forall x \in E$, $(N(x) = 0 \Rightarrow x = 0)$
+        \item $\forall x, y \in E$, $N(x + y) \leq N(x) + N(y)$ (inégalité
+            triangulaire)
+        \item $\forall \lambda \in \mathbb{K}$, $\forall x \in E$, $N(\lambda x)
+            \leq |\lambda| N(x)$
+    \end{enumerate}
+    Cette application est souvent dénotée par \GSnormeDef{.}{E} ou tout simplement
+    \GSnorme{.}
+\end{definition}
+
+\begin{exercice}
+    Montrer qu'on a
+    $\forall \lambda \in \mathbb{K}$, $\forall x \in E$, $N(\lambda x) =
+    |\lambda| N(x)$
+\end{exercice}
+
+\begin{definition}
+    Soient deux normes \GSnormeDef{.}{1} \GSnormeDef{.}{2} sur E. On dit qu'elles
+    sont équivalentes si $\forall x \in E$, $\exists k_{1}, k_{2} \in
+    \mathbb{K}$ tel que $k_{1}$\GSnormeDef{x}{1}$\leq$\GSnormeDef{x}{2}$\leq$
+    $k_{2}$\GSnormeDef{x}{1}
+\end{definition}
+
