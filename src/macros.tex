@@ -1,0 +1,42 @@
+\usepackage{amsmath}
+
+%GSsequence :
+%		#1 : represention of elements of the sequences
+%		#2 : indices
+%		#3 : set definition
+\newcommand{\GSsequence}[3]{$(#1_{#2})_{#2 \in #3}$}
+
+%GSset :
+%		#1 : global set
+%		#2 : condition
+\newcommand{\GSset}[2]{$\left\{#1 \, | \, #2 \right\}$}
+
+
+%Analysis :
+
+%GSApplication :
+%       #1 : name funtion
+%       #2 : begin set
+%       #3 : end set
+\newcommand{\GSfunction}[3]{#1 : #2 $\rightarrow$ #3}
+%GSnorme :
+%		#1 : elements which norme is applied on
+\newcommand{\GSnorme}[1]{$||#1||$}
+
+%GSnormeDef :
+%		#1 : elements which norme is applied on
+%		#2 : norme indice
+\newcommand{\GSnormeDef}[2]{$||#1||_{#2}$}
+
+%GSnormedSpace :
+%		#1 : vectorial space
+%		#2 : \GSnorme[Def] with dot as element.
+\newcommand{\GSnormedSpace}[2]{$($ #1, #2 $)$}
+
+%GSdual
+%		#1 : vectorial space
+\newcommand{\GSdual}[1]{#1^{*}}
+
+%GSbidual
+%		#1 : vectorial space
+\newcommand{\GSbidual}[1]{#1^{**}}
