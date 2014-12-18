@@ -1,6 +1,5 @@
 \chapter{Normes, applications linéaires et multilinéaires}
 
-
 Nous commencerons par rappeler la définition d'une norme, de la topologie
 associée à une norme et d'équivalence de norme. Nous rappelerons aussi le
 théorème de Riesz et de l'équivalence des normes en dimension finie.
@@ -9,6 +8,8 @@ Dans un deuxième temps, nous regarderons les applications linéaire et la notio
 de continuité.
 
 Pour finir, nous généraliserons aux applications multilinéaires.
+
+\section{Normes et espace de Banach}
 
 \begin{definition}
     Soit E un espace vectoriel, et \GSfunction{N}{E}{$\mathbb{R}$} une fonction.
@@ -31,10 +32,183 @@ Pour finir, nous généraliserons aux applications multilinéaires.
     |\lambda| N(x)$
 \end{exercice}
 
+En particulier, on a que E est un espace métrique ($d(x, y)$ = \GSnorme{x - y}).
+
+La notion d'équivalence de norme est très intéressante, comme on le verra par
+après. Elle permet de classer les espaces vectoriels normés.
+
 \begin{definition}
-    Soient deux normes \GSnormeDef{.}{1} \GSnormeDef{.}{2} sur E. On dit qu'elles
-    sont équivalentes si $\forall x \in E$, $\exists k_{1}, k_{2} \in
-    \mathbb{K}$ tel que $k_{1}$\GSnormeDef{x}{1}$\leq$\GSnormeDef{x}{2}$\leq$
-    $k_{2}$\GSnormeDef{x}{1}
+    Soient deux normes \GSnormeDef{.}{1} \GSnormeDef{.}{2} sur E. On dit
+	qu'elles sont équivalentes si $\exists k_{1}, k_{2} \in \mathbb{K}$ $\forall
+	x \in E$ tel que $k_{1}$\GSnormeDef{x}{1}$\leq$\GSnormeDef{x}{2}$\leq$
+	$k_{2}$\GSnormeDef{x}{1}
 \end{definition}
 
+Ce cours se base principalement sur les espaces de Banach, qui est une classe
+intéressante d'espace vectoriel normé. Lorsque ce ne sera pas spécifié, l'espace
+vectoriel étudié sera de Banach. Donnons maintenant la définition :
+
+\begin{definition}
+	Soit \GSnormedSpace{E}{\GSnorme{.}}. E est un espace de Banach si E est
+	complet pour \GSnorme{.}.
+\end{definition}
+
+\begin{exercice}
+	Soit E un $\mathbb{K}$ espace vectoriel, N une norme quelconque sur E, et
+	$\mathbb{K}$ complet. 
+	Montrez que E est un espace de Banach pour N.
+	
+	Pour cela, vous pouvez d'abord montrer que la convergence sur E se fait
+	composante par composante. Il restera à déduire sa complétude suivant
+	l'hypothèse sur $\mathbb{K}$.
+\end{exercice}
+
+\begin{exemple}
+	Par l'exercice précédent, on en déduit que $M_{n}(\mathbb{K})$, l'ensemble
+	des matrices carrées de dimension n à cofficients dans un corps complet
+	$\mathbb{K}$ est un espace de Banach. En effet, celui-ci est de dimension
+	finie $n^{2}$.
+\end{exemple}
+
+\begin{proposition}
+	Soit $E = $\GSprodSet{i}{1}{n}{E} où \GSnormedSpace{$E_{i}$}{\GSnormeDef{.}{i}}
+	est un espace de Banach pour $1 \leq i \leq n$.
+	On note pour $x \in E$, $x = (x_{1}, \ldots, x_{n})$ où $x_{i} \in
+	E_{i}$ pour $1 \leq i \leq n$.
+	
+	Alors, on peut définir les normes suivantes sur E :
+	\begin{enumerate}
+		\item \GSnormeDef{x}{1} = \GSsum{i}{1}{n}{\GSnormeDef{x_{i}}{i}}.
+		\item \GSnormeDef{x}{\infty} = $\underset{1 \leq i \leq
+			n}{max}$\GSnormeDef{x_{i}}{i}
+	\end{enumerate}
+
+	De plus, E est un espace de Banach pour ces deux normes.
+\end{proposition}
+
+\begin{exemple}
+	On peut faire le lien avec la norme 1 et la norme infinie sur
+	$\mathbb{R}^{n}$. On en déduit alors que $\mathbb{R}^{n}$ est un espace de
+	Banach, qui avait été montré précédemment.
+\end{exemple}
+
+\begin{question}
+	\begin{enumerate}
+		\item Peut-on construire une norme sur tout espace vectoriel ?
+			Sinon, quelle(s) condition(s) supplémentaire(s) a-t-on besoin ?
+		\item Est-ce qu'un produit quelconque d'espaces de Banach est un
+			espace de Banach ? (En supposant qu'on peut constuire une norme
+			sur le produit.)
+	\end{enumerate}
+\end{question}
+
+\section{Topologie des normes}
+
+Sur un espace vectoriel normé donné, nous pouvons aussi construire une
+topologie. Cela permettra de définir la continuité.
+
+\begin{definition}
+	Soit une norme \GSnorme{.} sur E. La topologie sur E associée à \GSnorme{.}
+	est définie par l'ensemble des unions quelconques et des intersections
+	finies de boules ouvertes associées à la norme \GSnorme{.}.
+\end{definition}
+
+\begin{proposition}
+	Deux normes sont équivalentes si et seulement si elles définissent la même topologie.
+\end{proposition}
+
+Regardons maintenant deux théorèmes très importants. Nous supposons E un espace
+vectoriel normé.
+
+\begin{theorem}
+	E est de dimension finie si et seulement si toutes les normes sont équivalentes.
+\end{theorem}
+
+\begin{theorem}
+	\label{Riesz}
+	E est de dimension finie si et seulement si sa boule unité fermée est compacte.
+\end{theorem}
+
+On en déduit alors une propriété assez intéressante :
+
+\begin{proposition}
+	Toutes les normes sur un espace vectoriel de dimension finie définissent la
+	même topologie. Nous parlerons alors de \textbf{la} topologie de \textbf{la} norme de E.
+\end{proposition}
+
+\section{Application linéaire}
+Nous allons maintenant étudier les applications linéaires. Nous savons déjà que
+celles-ci représentent les morphismes entre espaces vectoriels, c'est-à-dire
+qu'elles permettent de relier les structures entre deux espaces vectoriels.
+
+Nous avons vu précédemment que lorsqu'on est sur un espace vectoriel normé, on
+peut définir une norme, et que celle-ci définissait une topologie. Nous pouvons
+alors parlé de continuité.
+
+\begin{definition}
+	L'ensemble des applications linéaire forme un espace vectoriel pour la
+	multiplication scalaire habituelle et l'addition de fonction habituelle.
+	Nous notons \GShomomorphisme{E}{F} l'espace vectoriel des applications
+	linéaire de E dans F. (Si E = F, \GShomomorphisme{E}{F} =
+	\GSendomorphism{E})
+\end{definition}
+
+Prenons une fonction $f \in$ \GShomomorphisme{E}{F} et $a \in E$.
+
+\begin{proposition}
+	Les assertions suivantes sont équivalentes :
+
+	\begin{enumerate}
+		\item f est continue.
+		\item f est continue en a.
+		\item f est continue en 0.
+		\item f est bornée sur la boule unité de E.
+		\item f est bornée sur tout ensemble bornée de E.
+		\item $\exists k > 0, \forall x \in E,$ \GSnormeDef{f(x)}{F} $\leq$ k
+			\GSnormeDef{x}{E}.
+		\item f est lipschitzienne.
+		\item f est uniformément continue.
+	\end{enumerate}
+\end{proposition}
+
+On sait que la somme, le produit, la différence, ainsi que la multiplication par
+un scalaire d'une fonction continue reste continue. On a alors que l'ensemble
+des applications linéaire continues forment un espace vectoriel, dénoté
+\GScontinueHomo{E}{F}. (Si E = F, \GScontinueHomo{E}{F} =
+\GScontinueEndo{E})
+
+En particulier, \GScontinueHomo{E}{F} (resp \GScontinueEndo{E}) est un sous
+espaces vectoriel de \GShomomorphisme{E}{F} (resp \GSendomorphism{E}).
+
+\begin{remarque}
+	Pour une fonction quelconque entre deux espace métriques, nous avons
+	toujours que la continuité uniforme implique la continuité, mais pas
+	nécéssairement l'inverse (voir \GSfunction{f}{$\mathbb{R}$}{$\mathbb{R}$} : x $\rightarrow$ $x^2$ qui est continue mais pas uniformément).
+\end{remarque}
+
+Le théorème suivant nous donne une condition suffisante pour qu'une fonction
+continue soit uniformément continue.
+
+\begin{theorem} [Heine]
+	Soit K un compact de E à valeur dans F, où E et F sont des espaces
+	métriques. Soit \GSfunction{f}{K}{F} continue. Alors f est uniformément
+	continue.
+	\label{Heine}
+\end{theorem}
+
+\begin{exemple}
+	Tout fonction f d'un intervalle \GSintervalCC{a}{b} dans $\mathbb{R}$, continue, est
+	uniformément continue, comme
+	\GSfunction{f}{\GSintervalCC{-1}{1}}{$\mathbb{R}$} : x $\rightarrow$ $x^2$.
+\end{exemple}
+
+Encore une fois, nous allons montrer une résultat important quand E est de
+dimension finie.
+
+\begin{proposition}
+	Soit E de dimension finie, et F de dimension quelconque.
+	
+	Alors \GShomomorphisme{E}{F} = \GScontinueHomo{E}{F}, c'est-à-dire toute
+	application linéaire est continue lorsque l'espace de départ est de
+	dimension finie.
+\end{proposition}
