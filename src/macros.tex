@@ -1,5 +1,6 @@
 \usepackage{amsmath}
 
+
 %GSsequence :
 %		#1 : represention of elements of the sequences
 %		#2 : indices
@@ -11,6 +12,21 @@
 %		#2 : condition
 \newcommand{\GSset}[2]{$\left\{#1 \, | \, #2 \right\}$}
 
+%GSprodSet :
+%		#1 : indice
+%		#2 : begin indice
+%		#3 : end indice
+%		#4 : set
+\newcommand{\GSprodSet}[4]{$\displaystyle \prod_{#1 = #2}^{#3} #4_{#1}$}
+
+%GSsum :
+%		#1 : indice
+%		#2 : begin indice
+%		#3 : end indice
+%		#4 : element
+\newcommand{\GSsum}[4]{$\displaystyle \sum_{#1 = #2}^{#3}$ #4}
+
+\newcommand{\GSintervalCC}[2]{$\left[#1, #2\right]$}
 
 %Analysis :
 
@@ -31,7 +47,7 @@
 %GSnormedSpace :
 %		#1 : vectorial space
 %		#2 : \GSnorme[Def] with dot as element.
-\newcommand{\GSnormedSpace}[2]{$($ #1, #2 $)$}
+\newcommand{\GSnormedSpace}[2]{$($#1, #2$)$}
 
 %GSdual
 %		#1 : vectorial space
@@ -40,3 +56,15 @@
 %GSbidual
 %		#1 : vectorial space
 \newcommand{\GSbidual}[1]{#1^{**}}
+
+%GSendomorphism
+\newcommand{\GSendomorphism}[1]{End(#1)}
+
+%GShomomorphisme
+\newcommand{\GShomomorphisme}[2]{Hom(#1, #2)}
+
+%GScontinueEndo
+\newcommand{\GScontinueEndo}[1]{$\mathcal{L}(#1)$}
+
+%\GScontinueHomo
+\newcommand{\GScontinueHomo}[2]{$\mathcal{L}(#1, #2)$}
