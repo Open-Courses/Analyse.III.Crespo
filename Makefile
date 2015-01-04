@@ -1,9 +1,14 @@
 SRC_DIR	= src
-NAME	= main
+NAME	= Analyse-Differentiabilite
 SRC		= $(NAME).tex
 
 $(NAME):
 	cd $(SRC_DIR) && pdflatex -output-directory ../ $(SRC)
+
+tar: fclean $(NAME)
+	$(MAKE) $(NAME)
+	$(MAKE) clean
+	zip -r $(NAME).zip . -x *.git*
 
 clean:
 	rm -f $(NAME).aux $(NAME).toc $(NAME).log $(NAME).tex.backup
