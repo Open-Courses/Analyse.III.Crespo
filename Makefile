@@ -4,9 +4,9 @@ SRC		= $(NAME).tex
 
 $(NAME):
 	cd $(SRC_DIR) && pdflatex -output-directory ../ $(SRC)
+	cd $(SRC_DIR) && pdflatex -output-directory ../ $(SRC)
 
 zip: fclean $(NAME)
-	$(MAKE) $(NAME)
 	$(MAKE) clean
 	zip -r $(NAME).zip . -x *.git*
 
