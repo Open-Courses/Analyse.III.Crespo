@@ -11,7 +11,7 @@ zip: fclean $(NAME)
 	zip -r $(NAME).zip . -x *.git*
 
 clean:
-	rm -f $(NAME).aux $(NAME).toc $(NAME).log $(NAME).tex.backup $(NAME).zip
+	rm -f $(NAME).aux $(NAME).toc $(NAME).log $(NAME).tex.backup $(NAME).zip $(NAME).out
 
 fclean: clean
 	rm -f $(NAME).pdf
