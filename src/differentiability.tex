@@ -5,17 +5,142 @@
 	approcher l'image de la fonction sur un interval grace à une fonction
 	affine, facile à calculer.
 
+	% schema ?
+
 \section{Définition et propriétés}
+
+\begin{definition} [Différentielle en un point a]
+	Soit $E$ et $F$ deux espaces vectoriels normés.
+	Soit $\mathcal{U}$ un ouvert de $E$, et soit $a \in \mathcal{U}$.
+
+	Soit \GSfunction{$f$}{$\mathcal{U}$}{$F$} une application.
+
+	On dit que $f$ est \textbf{différentiable en $a$} si il existe $\mathcal{L}
+	\in \GShomomorphisme{E}{F}$ tel que
+	
+	$\forall h \in \mathcal{U}$,
+	$f(a + h) = f(a) + \mathcal{L}(h) + \psi(h)$ où
+	et $\phi(h) = o($\GSnormeDef{h}{E}$)$.
+
+	\label{a_differential}
+\end{definition}
+
+On appelle $\mathcal{L}$ \textbf{la différentielle de $f$ en $a$}, et on la note
+$df(a)$.
+
+Si f est différentiable en tout point $a \in \mathcal{U}$, on définit alors
+\textbf{la fonction différentielle}
+\GSfunction{$df$}{$\mathcal{U}$}{$\GShomomorphisme{E}{F}$}, qui a tout point $a$
+de $\mathcal{U}$, associe $df(a)$, l'application linéaire qui permet
+d'approximer la fonction dans un voisinage de $a$.
+
+Pour pouvoir utiliser l'article \textbf{la} pour la différentielle, il faut
+montrer que celle-ci est unique :
+
+\begin{proposition}
+	Soit $\mathcal{L}_{1}$, $\mathcal{L}_{2} \in \GShomomorphisme{E}{F}$
+	vérifiant la définition \ref{a_differential} pour une fonction $f$.
+
+	Alors $\mathcal{L}_{1} = \mathcal{L}_{2}$.
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+De manière évidente, on a que si $f$ est différentiable en $a$, alors $-f$ est
+différentiable en $a$.
+
+La définition dépend, à première vue, de la norme choisie sur $E$, et $F$. Est-ce
+qu'une application différentiable pour une norme l'est telle également pour une
+autre ?
+
+La proposition suivante nous montre que la notion de différentiabilité reste
+vraie dans une même classe de norme.
+
+\begin{proposition}
+	Soient deux normes équivalentes sur $E$, et deux normes équivalentes sur
+	$F$, alors $f$ est différentiable pour l'une d'entre elle ssi elle l'est
+	pour l'autre.
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{question}
+	Pouvons-nous caractériser la différientiabilité entre deux classes de normes
+	? C'est-à-dire, peut-on donner une condition nécéssaire et suffisante pour
+	que la notion de différentiabilité reste vraie dans deux classes (ou
+	sous-classes) de normes.
+\end{question}
+%Pour l'instant, nous avons étudier la différentiabilité d'une fonction.
+%Supposons qu'on note l'ensemble des fonctions différentiables par $D(E, F)$, qui
+%est un sous ensemble de $\GShomomorphisme{E}{F}$.
+
+%On peut alors construire la fonction $d : D(E, F) \rightarrow
+%\GShomomorphisme{\mathcal{U}}{\GShomomorphisme{E}{F}} : f \rightarrow df$.
+
+%Dans la section suivante, nous allons étudier $D(E, F)$ et $d$.
+
+Intéressons nous maintenant à des fonctions particulières : \textbf{les applications
+linéaires}.
+Celles-ci ont la propriété suivante :
+
+\begin{proposition}
+	Soit $f \in \GShomomorphisme{E}{F}$ où $E$ et $F$ sont normés. Alors $f$ est
+	différentiable en tout point $a$ de $E$, et $df(a) = f$, c'est-à-dire que
+	l'application $df$ est constante.
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
 
 \section{Règles de calcul}
 
-addition
+%Nous allons montrer que $D(E, F)$ est un sous-espace vectoriel de
+%$\GShomomorphisme{E}{F}$ et en même temps que $d$ est une application linéaire.
 
-soustraction
+%\begin{proposition}
+%	$D(E, F)$ est un sous-espace vectoriel de $\GShomomorphisme{E}{F}$ et
+%	$\forall f, g \in D(E, F)$, $d(f + g) = df + dg$
+%\end{proposition}
+%
 
-multiplication
+Prenons un ouvert $\mathcal{U}$ de $E$, un point $a \in \mathcal{U}$ et deux
+fonctions $f$ et $g$ définie sur l'ouvert $\mathcal{U}$ à valeurs dans $F$.
 
-composée
+\begin{proposition}
+	Si $f$ et $g$ sont différentiables en $a$, alors $f + g$ est différentiable
+	en $a$, et $d(f + g)(a) = df(a) + dg(a)$.
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+Le théorème suivant, appelé parfois Chain Rules, donne un résultat intéressant
+lorsqu'on regarde la composition de deux fonctions différentiables. En effet, on
+peut se demander si, quand on deux une composée de deux fontions différentiable
+si elle est elle-même différentiable, et comment calculer sa différentielle. La
+Chain Rules nous montre que c'est différentiable, et nous donne en plus une
+formule pour la calculer.
+
+\begin{theorem}
+	Soit $E$, $F$, $G$ trois espaces vectoriels normés.
+	Soit $\mathcal{U}$ un ouvert de $E$, et $\mathcal{V}$ un ouvert de $F$.
+	Soit \GSfunction{$f$}{$\mathcal{U}$}{$F$} et
+	\GSfunction{$g$}{$\mathcal{V}$}{$G$}.
+	Soit $a \in \mathcal{U}$.
+	Supposons que $f(\mathcal{U}) \subseteq \mathcal{V}$ pour pouvoir définir $g
+	\circ f$.
+
+	Alors, si $f$ est différentiable en $a$, et $g$ est différentiable en
+	$f(a)$, alors \textbf{$g \circ f$ est différentiable en $a$} et
+	$d(g \circ f)(a) = dg(f(a)) \circ df(a)$.
+	\label{composition_differential}
+\end{theorem}
 
 \section{Différentielle de l'application inverse}
 
@@ -23,6 +148,6 @@ composée
 
 \section{Différentielle des applications multilinéaires}
 
-\section{Formule de Leibniz}
+\section{Formule de Leibniz et produit de fonction différentiable}
 
 \section{Dérivée directionnelle et dérivée partielle}
