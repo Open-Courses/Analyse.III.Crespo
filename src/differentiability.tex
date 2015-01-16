@@ -1,5 +1,5 @@
 \chapter{Applications différentiables}
-
+\label{chapter_differential}
 \section{Motivation}
 	Étant donné une application entre deux espaces vectoriels, on veut pouvoir
 	approcher l'image de la fonction sur un interval grace à une fonction
@@ -142,12 +142,79 @@ formule pour la calculer.
 	\label{composition_differential}
 \end{theorem}
 
+\begin{proof}
+	
+\end{proof}
+
 \section{Différentielle de l'application inverse}
 
-\section{Différentielle composante}
+On a parlé dans le premier chapitre de l'application inverse
+\GSfunction{$\phi$}{$Isom(E, F)$}{\GShomomorphisme{$F$, $E$}} : $u \rightarrow
+u^{-1}$ qui est continue, et où $Isom(F, E)$ est ouvert dans
+$\GShomomorphisme{F, E}$.
+On peut alors se demander si $\phi$ est différentiable.
+
+Remarquons d'abord que si $\phi$ est différentiable, sa différentielle serait
+une fonction allant de $Isom(E, F)$ dans \GShomomorphisme{$Isom(E,
+F)$}{\GShomomorphisme{$F$}{$E$}}.
+
+On va montrer que $\phi$ est différentiable et donner sa différentielle.
+
+\begin{theorem}
+	L'application inverse $\phi$ est différentiable en tout point $u \in Isom(E,
+	F)$, et sa différentielle en $u$, appliqué en un point $h$ vaut $d\phi(u)(h)
+	= -u^{-1} \circ h \circ u^{-1}$.  \label{differential_inverse_application}
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+
+\section{Différentielle composante par composante}
+\label{section_differential_composante}
+
+On a vu précédemment qu'on pouvait mettre une stuctures d'espace vectoriel
+normé sur un produit fini d'espaces vectoriels normés (voir
+\ref{product_norm_space})
+
+Soit $E$ un espace vectoriel normé et $F = $ \GSprodSet{i}{1}{n}{F} où chaque 
+$F_{i}$ est un espace vectoriel normé.
+
+Soit $f : E \rightarrow F : x \rightarrow (f_{1}(x), \ldots, f_{n}(x))$
+(notation \ref{composante_function})
+
+On a alors le théorème suivant :
+
+\begin{theorem}
+	Soit $\mathcal{U}$ un ouvert de $E$, et $a \in \mathcal{U}$. Alors, 
+	$f = (f_{1}, \ldots, f_{n})$ est différentiable en $a$ ssi pour tout $i$
+	entre $1$ et $n$, $f_{i}$ est différentiable en $a$. On a alors $df_{i}(a) =
+	p_{i} \circ df(a)$.
+	\label{differential_composante}
+\end{theorem}
+
+\begin{proof}
+	Remarquons d'abord que les espaces auxquelles appartiennent les fonctions
+	sont bonnes. On a $df_{i}(a) \in $ \GShomomorphisme{$E$}{$F_{i}$}, $df(a) \in
+	$ \GShomomorphisme{E}{F} et donc $p_{i} \circ df(a) \in $
+	\GShomomorphisme{$E$}{$F_{i}$} car $p_{i} \in $
+	\GShomomorphisme{$F$}{$F_{i}$}.
+\end{proof}
+
+\section{Dérivée directionnelle et dérivée partielle}
+
+\begin{definition}
+	\label{directionnal_application_definition}
+
+\end{definition}
+
+\begin{definition}
+	\label{partial_application_definition}
+
+\end{definition}
 
 \section{Différentielle des applications multilinéaires}
 
 \section{Formule de Leibniz et produit de fonction différentiable}
 
-\section{Dérivée directionnelle et dérivée partielle}

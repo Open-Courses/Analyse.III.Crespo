@@ -73,6 +73,7 @@ distinguer les liens entre les normes.
 \end{exemple}
 
 \begin{proposition}
+	\label{product_norm_space}
 	Soit $E = $\GSprodSet{i}{1}{n}{E} où \GSnormedSpace{$E_{i}$}{\GSnormeDef{.}{i}}
 	est un espace de Banach pour $1 \leq i \leq n$.
 	On note pour $x \in E$, $x = (x_{1}, \ldots, x_{n})$ où $x_{i} \in
@@ -225,3 +226,42 @@ dimension finie.
 	On a $x = $\GSsum{i}{1}{n}{$x_{i}e_{i}$}.
 	On a $f(x) = f($\GSsum{i}{1}{n}{$x_{i}e_{i}$})
 \end{proof}
+\section{Application multilinéaires}
+
+\section{Application projection et injection canonique}
+
+On a vu que si on prend un produit d'espace vectoriel normé, on pouvait
+contruire une structure d'espace vectoriel normé dessus (voir \ref{product_norm_space}).
+
+Soit $E = $ \GSprodSet{i}{1}{n}{E}.
+\begin{definition}
+	Pour tout $k$ allant de $1$ à $n$, on définit \textbf{la projection
+		canonique sur $E_{k}$} comme la fonction
+		\GSfunction{$p_{k}$}{$E$}{$E_{k}$} : $(x_{1}, \ldots, x_{n}) \rightarrow
+		x_{k}$ et \textbf{l'injection canonique}
+		comme la fonction \GSfunction{$i_{k}$}{$E_{k}$}{$E$} : $x_{k}
+		\rightarrow (0, \ldots, x_{k}, \ldots, 0)$.
+	\label{injection_projection_definition}
+\end{definition}
+
+Il est facile de montrer que ces applications sont linéaires, et continues.
+De plus, pour la définition de l'injection canonique, nous pouvons remplacer les
+$0$ par n'importe quelle autre valeur, tant que celle-ci reste constante.
+
+Prenons maintenant une fonction \GSfunction{$f$}{$F$}{$E$} où $E$ est toujours
+le produit construit plus haut.
+On définit alors les fonctions composantes.
+
+\begin{definition}
+	\label{composante_function}
+	Soit $f$ à valeur dans un produit d'espace vectoriel normé. On définit
+	\textbf{les applications composantes} $f_{k}$ pour $k$ de $1$ à $n$ comme
+	$p_{k} \circ f$.
+\end{definition}
+
+Cette définition permet alors la notation $f(x) = (f_{1}(x), \ldots, f_{n}(x))$,
+ou tout simplement $f = (f_{1}, \ldots, f_{n})$.
+
+On utilisera cette notation dans le chapitre \ref{chapter_differential} lorsque nous
+étudierons la différentiabilité des applications à valeurs dans un produit
+d'espace vectoriel dans la section \ref{section_differential_composante}.
