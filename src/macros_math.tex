@@ -1,5 +1,10 @@
 \usepackage{amsmath}
 
+\newcommand{\naturel}{\mathbb{N}}
+\newcommand{\integer}{\mathbb{Z}}
+\newcommand{\rational}{\mathbb{Q}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\complex}{\mathbb{C}}
 
 %GSsequence :
 %		#1 : represention of elements of the sequences
@@ -17,14 +22,14 @@
 %		#2 : begin indice
 %		#3 : end indice
 %		#4 : set
-\newcommand{\GSprodSet}[4]{$\displaystyle \prod_{#1 = #2}^{#3} #4_{#1}$}
+\newcommand{\GSprodSet}[4]{$\prod\limits_{#1 = #2}^{#3} #4_{#1}$}
 
 %GSsum :
 %		#1 : indice
 %		#2 : begin indice
 %		#3 : end indice
 %		#4 : element
-\newcommand{\GSsum}[4]{$\displaystyle \sum_{#1 = #2}^{#3}$ #4}
+\newcommand{\GSsum}[4]{$\sum\limits_{#1 = #2}^{#3}$ #4}
 
 \newcommand{\GSintervalCC}[2]{$\left[#1, #2\right]$}
 
@@ -68,3 +73,28 @@
 
 %\GScontinueHomo
 \newcommand{\GScontinueHomo}[2]{$\mathcal{L}(#1, #2)$}
+
+%Model theory
+
+%Ultraproduct
+%	1 : indice elements
+%	2 : set which contains indices
+%	3 : ultrafilter
+%	4 : models represention
+\newcommand{\GSultraproduct}[4]{$\prod\limits_{#1 \in #2}^{#3}#4_{#1}$}
+
+%Ultrapower
+%	1 : indice elements
+%	2 : set which contains indices
+%	3 : ultrafilter
+%	4 : model
+\newcommand{\GSultrapower}[4]{$\prod\limits_{#1 \in #2}^{#3}#4$}
+
+%Substructures
+\newcommand{\GSsubstructure}[2]{$#1 \subseteq #2$}
+
+%Elementary Substructures.
+\newcommand{\GSelemSubstructure}[2]{$#1 \preceq #2$}
+
+%Elementary equivalent structures
+\newcommand{\GSelemEquivStructure}[3]{$#2 \equiv_{#1} #3$}

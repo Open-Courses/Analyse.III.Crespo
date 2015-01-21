@@ -1,13 +1,13 @@
 \chapter{Normes, applications linéaires et multilinéaires}
+\label{chapter_linear_application}
+%Nous commencerons par rappeler la définition d'une norme, de la topologie
+%associée à une norme et d'équivalence de norme. Nous rappelerons aussi le
+%théorème de Riesz et de l'équivalence des normes en dimension finie.
 
-Nous commencerons par rappeler la définition d'une norme, de la topologie
-associée à une norme et d'équivalence de norme. Nous rappelerons aussi le
-théorème de Riesz et de l'équivalence des normes en dimension finie.
+%Dans un deuxième temps, nous regarderons les applications linéaire et la notion
+%de continuité.
 
-Dans un deuxième temps, nous regarderons les applications linéaire et la notion
-de continuité.
-
-Pour finir, nous généraliserons aux applications multilinéaires.
+%Pour finir, nous généraliserons aux applications multilinéaires.
 
 \section{Normes et espace de Banach}
 
@@ -71,6 +71,9 @@ distinguer les liens entre les normes.
 	$\mathbb{K}$ est un espace de Banach. En effet, celui-ci est de dimension
 	finie $n^{2}$.
 \end{exemple}
+
+%Insérer une figure avec plusieurs espaces de départ, rassemblé dans un grand
+%pour représenter la construction de l'espace produit.
 
 \begin{proposition}
 	\label{product_norm_space}
@@ -221,28 +224,30 @@ dimension finie.
 	On a que E est isomorphe à $\mathbb{K}^{n}$. Prenons $(e_{1}, e_{2}, \ldots,
 	e_{n})$ une base de E.
 	Soit $f \in $\GShomomorphisme{E}{F}. Montrons que $\forall x \in E$,
-	\GSnormeDef{f(x)}{F}$ \leq $k\GSnormeDef{x}{E}.
-
-	On a $x = $\GSsum{i}{1}{n}{$x_{i}e_{i}$}.
-	On a $f(x) = f($\GSsum{i}{1}{n}{$x_{i}e_{i}$})
+	\GSnormeDef{f(x)}{F} $\leq$ k\GSnormeDef{x}{E}.
 \end{proof}
-\section{Application multilinéaires}
 
-\section{Application projection et injection canonique}
+\section{Projection et injection canonique}
 
 On a vu que si on prend un produit d'espace vectoriel normé, on pouvait
-contruire une structure d'espace vectoriel normé dessus (voir \ref{product_norm_space}).
+contruire une structure d'espace vectoriel normé dessus (voir~\ref{product_norm_space}).
+
+%Insérer une figure avec plusieurs espaces de départ, rassemblé dans un grand,
+%et ayant comme valeurs d'arrivée, un seul espace.
 
 Soit $E = $ \GSprodSet{i}{1}{n}{E}.
-\begin{definition}
+\begin{definition} [Injection et projection canonique]
+\label{injection_projection_definition}
 	Pour tout $k$ allant de $1$ à $n$, on définit \textbf{la projection
 		canonique sur $E_{k}$} comme la fonction
 		\GSfunction{$p_{k}$}{$E$}{$E_{k}$} : $(x_{1}, \ldots, x_{n}) \rightarrow
 		x_{k}$ et \textbf{l'injection canonique}
 		comme la fonction \GSfunction{$i_{k}$}{$E_{k}$}{$E$} : $x_{k}
 		\rightarrow (0, \ldots, x_{k}, \ldots, 0)$.
-	\label{injection_projection_definition}
 \end{definition}
+
+On remarque que \GSsum{k}{0}{n}{$i_{k} \circ p_{k}$} $ = Id_{F}$ et $p_{k} \circ
+i_{k} = Id_{F_{k}}$.
 
 Il est facile de montrer que ces applications sont linéaires, et continues.
 De plus, pour la définition de l'injection canonique, nous pouvons remplacer les
@@ -252,16 +257,267 @@ Prenons maintenant une fonction \GSfunction{$f$}{$F$}{$E$} où $E$ est toujours
 le produit construit plus haut.
 On définit alors les fonctions composantes.
 
-\begin{definition}
-	\label{composante_function}
+\begin{definition} [Fonction composante]
+\label{composante_function}
 	Soit $f$ à valeur dans un produit d'espace vectoriel normé. On définit
 	\textbf{les applications composantes} $f_{k}$ pour $k$ de $1$ à $n$ comme
 	$p_{k} \circ f$.
+
+	On a \GSfunction{$f_{k}$}{$E$}{$F_{k}$}.
 \end{definition}
 
 Cette définition permet alors la notation $f(x) = (f_{1}(x), \ldots, f_{n}(x))$,
 ou tout simplement $f = (f_{1}, \ldots, f_{n})$.
 
-On utilisera cette notation dans le chapitre \ref{chapter_differential} lorsque nous
+\begin{definition} [Application partielle]
+\label{partial_application}
+	Soit $f$ avec comme domaine un produit d'espaces vectoriels
+	\GSprodSet{i}{1}{n}{E} normés, et à valeur dans $F$. On définit
+	\textbf{les applications partielles} $f_{k}$ pour $k$ de $1$ à $n$ comme $f
+	\circ i_{k}$.
+
+	On a \GSfunction{$f_{k}$}{$E_{k}$}{$F$}.
+\end{definition}
+
+On utilisera cette notation dans le chapitre~\ref{chapter_differential} lorsque nous
 étudierons la différentiabilité des applications à valeurs dans un produit
-d'espace vectoriel dans la section \ref{section_differential_composante}.
+d'espace vectoriel dans la section~\ref{section_differential_composante}.
+
+\section{Application multilinéaires}
+
+\begin{definition}
+	Soit \GSfunction{$f$}{$E$}{$F$}. Alors $f$ est multilinéaire si chaque
+	application projection est linéaire. En d'autres termes, $f$ est
+	multilinéaire si elle est linéaire en chaque variable.
+\end{definition}
+
+On peut alors généraliser la continuité à cette classe d'applications, et on
+obtient des assertions proches du cas linéaire.
+
+\begin{proposition}
+	Les assertions suivantes sont équivalentes :
+
+	\begin{enumerate}
+		\item f est continue.
+		\item f est continue en $a = (a_{1}, \cdots, a_{n})$.
+		\item f est continue en $0$.
+		\item f est bornée sur la boule unité de $E$.
+		\item f est bornée sur tout ensemble bornée de $E$.
+		\item $\exists k > 0, \forall x \in E,$ \GSnormeDef{f(x_{1}, \cdots,
+			x_{n})}{F} $\leq$ k \GSnormeDef{x_{1}}{E_{1}} \ldots
+			\GSnormeDef{x_{n}}{E_{n}}
+	\end{enumerate}
+\end{proposition}
+
+On note \GScontinueHomo{E_{1}, \ldots, E_{n}}{F} l'ensemble des applications
+multilinéaires continues, et \GScontinueEndo{E_{1}, \ldots, E_{n}} si $F = $
+\GSprodSet{i}{1}{n}{E}.
+
+\begin{remarque}
+	Tout applications bilinéaire non nulle n'est pas uniformément continue. En
+	particulier, elle n'est pas lipschitzienne.
+\end{remarque}
+
+Dans le cas particulier où chaque $E_{i}$ est de dimension finie, on a que
+chaque applications linéaires continues, comme dans le cas linéaire.
+
+\begin{proposition}
+	Si chaque $E_{i}$ est de dimension finie, alors \GScontinueHomo{E_{1},
+	\ldots, E_{n}}{F} = \GShomomorphisme{$E_{1}, \ldots, E_{n}$}{$F$}.
+\end{proposition}
+
+\section{Séries}
+
+Dans cette section, nous allons nous intéresser aux suites
+\GSsequence{u}{n}{\naturel} à valeurs dans un espace vectoriel normé $E$.
+
+\begin{definition}
+\label{definition_serie_convergence}
+	\GSsequence{u}{n}{\naturel} converge dans $E$ si
+	la série des sommes partielles converge.
+\end{definition}
+
+\begin{definition}
+\label{definition_serie_normal_convergence}
+	Soit \GSsequence{u}{n}{\naturel} $\subseteq E$ où $E$ est un espace
+	vectoriel normé.
+
+	On dit que \GSsequence{u}{n}{\naturel} \textbf{converge normalement} si
+	\GSsum{n}{0}{\infty}{$||u_{n}||_{E}$} $< \infty$.
+\end{definition}
+
+\begin{proposition}
+\label{proposition_normal_imply_convergence}
+	Si $E$ est un espace de Banach, alors \GSsequence{u}{n}{\naturel} elle
+	converge si elle converge normalement. De plus,
+	$||$\GSsum{n}{0}{\infty}{$u_{n}$}$|| \leq $
+	\GSsum{u}{0}{\infty}{$||u_{n}||$}.
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{definition}
+\label{definition_neumann_serie}
+	Pour $u \in$ \GScontinueEndo{E}, on définit la série de Neumann comme la
+	série \GSsum{n}{0}{\infty}{$u^{n}$} avec comme convention $u^{0} = Id_{E}$.
+\end{definition}
+
+\begin{proposition}
+	Soit $u \in$ \GScontinueEndo{E} où $E$ est un espace de Banach, tel que
+	$||u||_{\mathcal{L}_{E}} < 1$. Alors
+	\GSsum{n}{0}{\infty}{$u^{n}$} converge.
+\end{proposition}
+
+\begin{proof}
+	Comme $E$ est de Banach, alors \GScontinueEndo{E} l'est aussi. Comme $||u||
+	< 1$, on a que la série \GSsum{n}{0}{\infty}{$||u^{n}||$} $\leq$
+	\GSsum{n}{0}{\infty}{$||u||^{n}$} converge. Donc
+	\GSsum{n}{0}{\infty}{$u^{n}$} converge
+	par~\ref{proposition_normal_imply_convergence}.
+\end{proof}
+
+\newcommand{\inverseU}[1]{\GSsum{n}{0}{\infty}{$(Id_{E} - #1)^{n}$}}
+
+\begin{proposition}
+\label{proposition_inverse_identity_u}
+	Soit $u \in$ \GScontinueEndo{E} tel que $||u||_{\mathcal{L}_{E}} < 1$. Alors
+	$(Id_{E} - u) \in$ \GScontinueEndo{E}. De plus $(Id_{E} - u)^{-1} =
+	$\GSsum{n}{0}{\infty}{$u^{n}$}.
+\end{proposition}
+
+
+\begin{proof}
+	Par~\ref{proposition_normal_imply_convergence}, on a
+	\GSsum{n}{0}{\infty}{$u^{n}$} qui converge, et par conséquence, $u^{n}$ tend
+	vers $0_{E}$.
+
+	Soit $N \in \naturel$. On a $(Id_{E} - u) \circ $\GSsum{n}{0}{N}{$u^{n}$} =
+	\GSsum{n}{0}{N}{$u^{n}$} $ - $ \GSsum{n}{1}{N + 1}{$u^{n}$} $ = u^{0} - u^{N
+	+ 1}$. Donc, quand $N$ tend vers $\infty$, on a la dernière égalité qui tend
+	vers $u^{0} - 0_{E} = Id_{E}$.
+\end{proof}
+
+\begin{corollary}
+	Soit $u \in$ \GScontinueEndo{E} tel que $||u||_{\mathcal{L}_{E}} < 1$.
+	
+	Alors $u^{-1} = $ \GSsum{n}{0}{\infty}{$(Id_{E} - u)^{n}$}.
+\end{corollary}
+
+\begin{proof}
+	Soit $v = Id_{E} - u$, alors $u = Id_{E} - v$. Il reste à montrer que
+	$||v||_{\mathcal{L}_{E}} < 1$ pour rentrer dans les conditions de la
+	proposition~\ref{proposition_inverse_identity_u}.
+\end{proof}
+
+
+\section{Isomorphisme et isométrie}
+
+\begin{proposition}
+	Toute application réciproque d'une application linéaire bijective est
+	linéaire.
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+
+Si on prend une application linéaire continue bijective entre deux espaces
+vectoriels normés quelconques, alors la réciproque n'est pas nécessairement
+continue. En effet, \ldots %exemple.
+
+Or, on dispose d'un théorème, appelé théorème de Banach, qui nous permet d'être
+sûr que la réciproque est continue.
+
+\begin{theorem} [Banach]
+	\label{theorem_banach_isomorphism}
+	Soit $E$ et $F$ deux espaces de \textbf{Banach}, et $f \in$
+	\GScontinueHomo{E}{F} et bijective.
+	Alors l'application réciproque $f^{-1} \in$ \GScontinueHomo{F}{E},
+	c'est-à-dire que $f^{-1}$ est linéaire continue.
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{definition}
+\label{definition_isomorphisme}
+	Soit \GSfunction{$f$}{$E$}{$F$} où $E$ et $F$ sont deux espaces vectoriels
+	normés.
+	On dit que $f$ est un isomorphisme si :
+	
+	-- $f$ est linéaire continue, ie $f \in$ \GScontinueHomo{E}{F}.
+
+	-- il existe $g \in$ \GScontinueHomo{F}{E} tel que $g \circ f = Id_{E}$ et
+	$f \circ g = Id_{F}$.
+\end{definition}
+
+On définit alors $Isom(E, F)$ comme l'ensemble des isomorphismes de $E$ dans
+$F$.
+Remarquons que la propriété d'être continue dépend de la norme, donc les
+isomorphismes ne sont pas nécessairement les mêmes avec des normes qui ne sont
+pas équivalentes. La norme définissant la topologie sur \GScontinueHomo{E}{F}
+est donc liée aux applications d'$Isom(E, F)$.
+
+En effet, on a que $Isom(E, F)$ est liée à la topologie induite de la norme sur
+\GScontinueHomo{E}{F}.
+
+\begin{proposition}
+	$Isom(E, F)$ est un ouvert de \GScontinueHomo{E}{F}.
+\end{proposition}
+
+\begin{proof}
+	Prenons $u_{0} \in Isom(E, F)$. Montrons que $u_{0}$ est le centre d'une
+	boule de rayon $r$ contenue dans $Isom(E, F)$.
+
+	Posons $r = \frac{1}{||u_{0}^{-1}||}$.
+
+	Soit $u \in $ \GScontinueHomo{E}{F} tel que $||u - u_{0}|| < r$. Montrons
+	que $u \in Isom(E, F)$.
+
+	\ldots
+\end{proof}
+
+\begin{proposition}
+	Soit $S \in Isom(E, F)$, $T \in Isom(F, G)$.
+	Alors $T \circ S \in Isom(E, G)$. De plus, $(T \circ S)^{-1} = T^{-1} \circ
+	S^{-1}$.
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{definition}
+\label{definition_isometrie}
+	Soit $f \in$ \GShomomorphisme{$E$}{$F$}.
+	Alors $f$ est une isométrie si elle conserve les normes, c'est-à-dire si
+	$\forall x \in E$, $||x||_{E} =  ||f(x)||_{F}$.
+\end{definition}
+
+On obtient alors une propriété, qu'importe les espaces vectoriels donnés, et
+permet de savoir si $Isom(E, F)$ est vide ou non.
+
+\begin{proposition}
+	Une isométrie est toujours injective et continue. De plus, si $f$ est une
+	isométrie surjective, alors $f$ est un isomorphisme.
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+Donc, si il existe une isométrie surjective continue entre deux espaces
+vectoriels, alors ils sont isomorphes.
+
+Attention que tout isomorphisme n'est pas une isométrie. En effet, si on prend
+une fonction dilatant d'un facteur $\lambda \neq 1$, celle-ci ne conserve pas la
+norme.
+
+Donnons un exemple fondamental d'isométrie: celle entre
+\GScontinueEndo{\mathbb{K}}{F} et $\mathbb{K}$.
+
+\ldots

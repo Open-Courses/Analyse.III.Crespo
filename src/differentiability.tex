@@ -9,20 +9,22 @@
 
 \section{Définition et propriétés}
 
+%Définition et notation de Landau
+
 \begin{definition} [Différentielle en un point a]
+\label{a_differential}
 	Soit $E$ et $F$ deux espaces vectoriels normés.
 	Soit $\mathcal{U}$ un ouvert de $E$, et soit $a \in \mathcal{U}$.
 
 	Soit \GSfunction{$f$}{$\mathcal{U}$}{$F$} une application.
 
 	On dit que $f$ est \textbf{différentiable en $a$} si il existe $\mathcal{L}
-	\in \GShomomorphisme{E}{F}$ tel que
+	\in$ \GScontinueHomo{E}{F} tel que
 	
 	$\forall h \in \mathcal{U}$,
 	$f(a + h) = f(a) + \mathcal{L}(h) + \psi(h)$ où
 	et $\phi(h) = o($\GSnormeDef{h}{E}$)$.
 
-	\label{a_differential}
 \end{definition}
 
 On appelle $\mathcal{L}$ \textbf{la différentielle de $f$ en $a$}, et on la note
@@ -30,16 +32,16 @@ $df(a)$.
 
 Si f est différentiable en tout point $a \in \mathcal{U}$, on définit alors
 \textbf{la fonction différentielle}
-\GSfunction{$df$}{$\mathcal{U}$}{$\GShomomorphisme{E}{F}$}, qui a tout point $a$
+\GSfunction{$df$}{$\mathcal{U}$}{\GScontinueHomo{E}{F}}, qui a tout point $a$
 de $\mathcal{U}$, associe $df(a)$, l'application linéaire qui permet
 d'approximer la fonction dans un voisinage de $a$.
 
 Pour pouvoir utiliser l'article \textbf{la} pour la différentielle, il faut
-montrer que celle-ci est unique :
+montrer que celle-ci est unique:
 
 \begin{proposition}
-	Soit $\mathcal{L}_{1}$, $\mathcal{L}_{2} \in \GShomomorphisme{E}{F}$
-	vérifiant la définition \ref{a_differential} pour une fonction $f$.
+	Soit $\mathcal{L}_{1}$, $\mathcal{L}_{2} \in$ \GScontinueHomo{E}{F}
+	vérifiant la définition~\ref{a_differential} pour une fonction $f$.
 
 	Alors $\mathcal{L}_{1} = \mathcal{L}_{2}$.
 \end{proposition}
@@ -53,7 +55,7 @@ différentiable en $a$.
 
 La définition dépend, à première vue, de la norme choisie sur $E$, et $F$. Est-ce
 qu'une application différentiable pour une norme l'est telle également pour une
-autre ?
+autre?
 
 La proposition suivante nous montre que la notion de différentiabilité reste
 vraie dans une même classe de norme.
@@ -69,26 +71,26 @@ vraie dans une même classe de norme.
 \end{proof}
 
 \begin{question}
-	Pouvons-nous caractériser la différientiabilité entre deux classes de normes
-	? C'est-à-dire, peut-on donner une condition nécéssaire et suffisante pour
-	que la notion de différentiabilité reste vraie dans deux classes (ou
+	Pouvons-nous caractériser la différientiabilité entre deux classes de
+	normes? C'est-à-dire, peut-on donner une condition nécéssaire et suffisante
+	pour que la notion de différentiabilité reste vraie dans deux classes (ou
 	sous-classes) de normes.
 \end{question}
 %Pour l'instant, nous avons étudier la différentiabilité d'une fonction.
 %Supposons qu'on note l'ensemble des fonctions différentiables par $D(E, F)$, qui
-%est un sous ensemble de $\GShomomorphisme{E}{F}$.
+%est un sous ensemble de $\GScontinueHomo{E}{F}$.
 
 %On peut alors construire la fonction $d : D(E, F) \rightarrow
-%\GShomomorphisme{\mathcal{U}}{\GShomomorphisme{E}{F}} : f \rightarrow df$.
+%\GScontinueHomo{\mathcal{U}}{\GScontinueHomo{E}{F}} : f \rightarrow df$.
 
 %Dans la section suivante, nous allons étudier $D(E, F)$ et $d$.
 
-Intéressons nous maintenant à des fonctions particulières : \textbf{les applications
+Intéressons nous maintenant à des fonctions particulières:\textbf{les applications
 linéaires}.
-Celles-ci ont la propriété suivante :
+Celles-ci ont la propriété suivante:
 
 \begin{proposition}
-	Soit $f \in \GShomomorphisme{E}{F}$ où $E$ et $F$ sont normés. Alors $f$ est
+	Soit $f \in$ \GScontinueHomo{E}{F} où $E$ et $F$ sont normés. Alors $f$ est
 	différentiable en tout point $a$ de $E$, et $df(a) = f$, c'est-à-dire que
 	l'application $df$ est constante.
 \end{proposition}
@@ -100,10 +102,10 @@ Celles-ci ont la propriété suivante :
 \section{Règles de calcul}
 
 %Nous allons montrer que $D(E, F)$ est un sous-espace vectoriel de
-%$\GShomomorphisme{E}{F}$ et en même temps que $d$ est une application linéaire.
+%$\GScontinueHomo{E}{F}$ et en même temps que $d$ est une application linéaire.
 
 %\begin{proposition}
-%	$D(E, F)$ est un sous-espace vectoriel de $\GShomomorphisme{E}{F}$ et
+%	$D(E, F)$ est un sous-espace vectoriel de $\GScontinueHomo{E}{F}$ et
 %	$\forall f, g \in D(E, F)$, $d(f + g) = df + dg$
 %\end{proposition}
 %
@@ -128,6 +130,7 @@ Chain Rules nous montre que c'est différentiable, et nous donne en plus une
 formule pour la calculer.
 
 \begin{theorem}
+\label{composition_differential}
 	Soit $E$, $F$, $G$ trois espaces vectoriels normés.
 	Soit $\mathcal{U}$ un ouvert de $E$, et $\mathcal{V}$ un ouvert de $F$.
 	Soit \GSfunction{$f$}{$\mathcal{U}$}{$F$} et
@@ -139,7 +142,6 @@ formule pour la calculer.
 	Alors, si $f$ est différentiable en $a$, et $g$ est différentiable en
 	$f(a)$, alors \textbf{$g \circ f$ est différentiable en $a$} et
 	$d(g \circ f)(a) = dg(f(a)) \circ df(a)$.
-	\label{composition_differential}
 \end{theorem}
 
 \begin{proof}
@@ -149,72 +151,195 @@ formule pour la calculer.
 \section{Différentielle de l'application inverse}
 
 On a parlé dans le premier chapitre de l'application inverse
-\GSfunction{$\phi$}{$Isom(E, F)$}{\GShomomorphisme{$F$, $E$}} : $u \rightarrow
+\GSfunction{$\phi$}{$Isom(E, F)$}{\GScontinueHomo{F}{E}}: $u \rightarrow
 u^{-1}$ qui est continue, et où $Isom(F, E)$ est ouvert dans
-$\GShomomorphisme{F, E}$.
+\GScontinueHomo{F}{E}.
 On peut alors se demander si $\phi$ est différentiable.
 
 Remarquons d'abord que si $\phi$ est différentiable, sa différentielle serait
-une fonction allant de $Isom(E, F)$ dans \GShomomorphisme{$Isom(E,
-F)$}{\GShomomorphisme{$F$}{$E$}}.
+une fonction allant de $Isom(E, F)$ dans $\mathcal{L}(Isom(E, F), \mathcal{L}(F,
+E))$.
 
 On va montrer que $\phi$ est différentiable et donner sa différentielle.
 
 \begin{theorem}
+\label{differential_inverse_application}
 	L'application inverse $\phi$ est différentiable en tout point $u \in Isom(E,
 	F)$, et sa différentielle en $u$, appliqué en un point $h$ vaut $d\phi(u)(h)
-	= -u^{-1} \circ h \circ u^{-1}$.  \label{differential_inverse_application}
+	= -u^{-1} \circ h \circ u^{-1}$.
 \end{theorem}
 
 \begin{proof}
 	
 \end{proof}
 
-
 \section{Différentielle composante par composante}
 \label{section_differential_composante}
 
+%Insérer une figure avec plusieurs espaces de départ, rassemblé dans un grand,
+%et ayant comme valeurs d'arrivée, un seul espace.
+%Ou rappeler tout simplement ce qu'on a vue dans la section composante_function.
+
 On a vu précédemment qu'on pouvait mettre une stuctures d'espace vectoriel
-normé sur un produit fini d'espaces vectoriels normés (voir
-\ref{product_norm_space})
+normé sur un produit fini d'espaces vectoriels normés (voir~\ref{product_norm_space})
 
 Soit $E$ un espace vectoriel normé et $F = $ \GSprodSet{i}{1}{n}{F} où chaque 
 $F_{i}$ est un espace vectoriel normé.
 
 Soit $f : E \rightarrow F : x \rightarrow (f_{1}(x), \ldots, f_{n}(x))$
-(notation \ref{composante_function})
+(notation~\ref{composante_function})
 
-On a alors le théorème suivant :
+On a alors le théorème suivant:
 
 \begin{theorem}
+\label{differential_composante}
 	Soit $\mathcal{U}$ un ouvert de $E$, et $a \in \mathcal{U}$. Alors, 
 	$f = (f_{1}, \ldots, f_{n})$ est différentiable en $a$ ssi pour tout $i$
 	entre $1$ et $n$, $f_{i}$ est différentiable en $a$. On a alors $df_{i}(a) =
 	p_{i} \circ df(a)$.
-	\label{differential_composante}
 \end{theorem}
 
 \begin{proof}
 	Remarquons d'abord que les espaces auxquelles appartiennent les fonctions
-	sont bonnes. On a $df_{i}(a) \in $ \GShomomorphisme{$E$}{$F_{i}$}, $df(a) \in
-	$ \GShomomorphisme{E}{F} et donc $p_{i} \circ df(a) \in $
-	\GShomomorphisme{$E$}{$F_{i}$} car $p_{i} \in $
-	\GShomomorphisme{$F$}{$F_{i}$}.
+	sont bonnes. On a $df_{i}(a) \in$ \GScontinueHomo{E}{F_{i}}, $df(a) \in
+	$ \GScontinueHomo{E}{F} et donc $p_{i} \circ df(a) \in $
+	\GScontinueHomo{E}{F_{i}} car $p_{i} \in $
+	\GScontinueHomo{F}{F_{i}}.
+
+	Dans un sens, si $f$ est différentiable en $a$, et comme $p_{i}$ est
+	linéaire donc différentiable aussi en $a$, par composition, $f_{i}$ est
+	différentiable et $df_{i}(a) = p_{i} \circ df(a)$ (en se rappelant que
+	$dp_{i}(a) = p_{i}$ car $p_{i}$ linéaire).
 \end{proof}
-
-\section{Dérivée directionnelle et dérivée partielle}
-
-\begin{definition}
-	\label{directionnal_application_definition}
-
-\end{definition}
-
-\begin{definition}
-	\label{partial_application_definition}
-
-\end{definition}
 
 \section{Différentielle des applications multilinéaires}
 
+Prenons le cas où nous avons une fonction $f$ qui est bilinéaire continue. Le cas
+multilinéaire pourra être déduit. Les résultats du cas multilinéaire seront
+donnés à la fin de cette section.
+
+\begin{proposition}
+\label{bilinear_differential_application}
+Prenons une fonction $f : E_{1} \times E_{2} \rightarrow F : (x, y) \rightarrow
+f(x, y)$ bilinéaire continue. Soit $a = (a_{1}, a_{2}) \in E_{1} \times E_{2}$.
+
+On a que $f$ est différentiable en $a$, et $df(a)(h) = f(a_{1}, h_{2}) +
+f(h_{1}, a_{2})$.
+\end{proposition}
+
+\begin{proof}
+	Posons $E = E_{1} \times E_{2}$.
+
+	D'abord, si $f$ est différentiable, alors $df \in
+	\mathcal{L}(E, \mathcal{L}(E, F))$ ce qui est bien
+	le cas.
+
+	Soit $h \in E$, on a
+	$f(a + h) = f(a_{1} + h_{1}, a_{2} + h_{2}) = 
+	f(a_{1}, a_{2}) + f(h_{1}, a_{2}) + f(a_{1}, h_{2}) + f(h_{1}, h_{2})$
+
+	On remarque alors que $f(a_{1}, a_{2}) = f(a)$, que $f(h_{1}, a_{2}) +
+	f(a_{1}, h_{2})$ est linéaire en $h$ (1) et que $f(h_{1}, h_{2}) = o(||h||)$
+	(2).
+
+	(1): conséquence que $f$ est bilinéaire, donc linéaire en chaque variable.
+
+	(2): $f$ est continue, donc on a bien $\forall h \in E$, $||f(h)|| \leq
+	||f|| \, ||h||$, donc $f = o(||h||)$.
+\end{proof}
+
+On peut alors généraliser ce résultat aux fonctions multilinéaires continues:
+
+\begin{proposition}
+\label{multilinear_differential_application}
+	Soit $E = $ \GSprodSet{i}{1}{n}{E} et $F$.
+	Soit \GSfunction{$f$}{$E$}{$F$} une fonction multilinéaire continue.
+
+	Alors $f$ est de classe $\mathcal{C}^{1}$, 
+	$df(a) \in \mathcal{L}(E, \mathcal{L}(E, F))$ avec 
+	
+	$
+	\begin{aligned}
+		df(a)(\textcolor{red}{h}) 
+	&=	f(\textcolor{red}{h_{1}}, a_{2}, a_{3}, \ldots, a_{n}) \\
+	&+	f(a_{1}, \textcolor{red}{h_{2}}, a_{3}, \ldots, a_{n}) \\
+	&+	\ldots \\
+	&+	f(a_{1}, \ldots, a_{n-1}, \textcolor{red}{h_{n}})
+	\end{aligned}
+	$
+\end{proposition}
+\section{Dérivée directionnelle et dérivée partielle}
+\label{section_directionnal_partial_derivative}
+
+Prenons maintenant $E = $ \GSprodSet{i}{1}{n}{E}, et $F$ des espaces vectoriels
+normés.
+
+Dans la section précédente~\ref{section_differential_composante}, nous avons
+étudier les fonctions $f$ qui avaient comme espace d'arrivée un produit d'espaces
+vectoriels. Dans celle-ci, nous allons étudier les fonctions $f$ qui ont comme
+espace de départ un produit d'espaces vectoriels.
+
+%Insérer une figure avec plusieurs espaces de départ, rassemblé dans un grand,
+%et ayant comme valeurs d'arrivée, un seul espace.
+
+%Réécrire
+\begin{definition}
+\label{directionnal_application_definition}
+	Soit $\mathcal{U}$ un ouvert de $E$.
+	Soit $a = (a_{1}, \ldots, a_{n}) \in E$ et $e = (e_{1}, \ldots, e_{n}) \in E$,
+	et \GSfunction{$f$}{$\mathcal{U}$}{$F$}.
+
+	Définissons \GSfunction{$f_{e, a}$}{$\mathbb{K}$}{$F$}: $t \rightarrow f(a + te)$.
+
+	On définit la dérivée directionnelle de $f$ en $a$ suivant la direction (le
+	vecteur) $e$, comme la dérivée en $0$ de la fonction $f_{e, a}$, si celle-ci
+	existe et on la note ${\partial_{e} f}(a)$.
+
+\end{definition}
+
+\begin{proposition}
+	Si $f$ est différentiable en un point $a \in mathcal{U}$, alors toutes les
+	dérivées directionnels de $f$ en $a$ existent et on a $\partial_{e}f(a) =
+	df(a)(e)$.
+\end{proposition}
+
+\begin{proof}
+\begin{align}
+	\displaystyle \frac{f(a + te) - f(a)}{t} 
+	&= \frac{df(a)(te) + \phi(te)}{t}\\
+	&= \frac{t df(a)(e)}{t} + \frac{\phi(te)}{t} \\
+	&= df(a)(e) + \frac{\phi(te)}{t}
+\end{align}
+	Montrons que $\displaystyle \frac{\phi(te)}{t} \rightarrow 0$ quand $t
+	\rightarrow 0$.
+
+	On a $\displaystyle \frac{||\phi(te)||}{|t|} = \frac{||te||
+	||\phi(te)||}{|t| ||te||} = \frac{||te||}{|t|}
+	\frac{||\phi(te)||}{||te||} = ||e|| \frac{||\phi(te)||}{||te||} \rightarrow
+	0$ quand $t \rightarrow 0$ car $\phi = o(||te||)$ et $te \rightarrow 0$
+	quand $t \rightarrow 0$.
+\end{proof}
+
+\begin{definition}
+\label{partial_application_definition}
+	
+
+\end{definition}
+
 \section{Formule de Leibniz et produit de fonction différentiable}
+
+\begin{definition}
+	Soit $A$ une algèbre de Banach. Soit \GSsequence{x}{n}{\naturel} et
+	\GSsequence{y}{n}{\naturel} des suites à coefficients dans $A$.
+	On définit \textbf{le produit de Cauchy} comme la suite ${(x \ast y)}_{n} =
+	$\GSsum{k}{0}{n}{$x_{n - k} . y_{k}$}
+\end{definition}
+
+\begin{theorem}
+\label{theorem_cauchy_mertens}
+Si \GSsum{n}{0}{\infty}{$x_{n}$} et \GSsum{n}{0}{\infty}{$y_{n}$} convergent
+normalement, alors \GSsum{n}{0}{\infty}{${(x \ast y)}_{n}$} converge normalement.
+De plus, on a \GSsum{n}{0}{\infty}{${(x \ast y)}_{n}$} $ = $
+$($\GSsum{n}{0}{\infty}{$x_{n}$}$)$ . $($\GSsum{n}{0}{\infty}{$y_{n}$}$)$.
+\end{theorem}
 
