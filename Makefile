@@ -1,5 +1,5 @@
 SRC_DIR	= src
-NAME	= Analyse-Differentiabilite
+NAME	= Analyse.III.Crespo
 SRC		= $(NAME).tex
 
 $(NAME):
