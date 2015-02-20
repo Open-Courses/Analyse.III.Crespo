@@ -15,3 +15,5 @@ clean:
 
 fclean: clean
 	rm -f $(NAME).pdf
+
+re: fclean $(NAME)
