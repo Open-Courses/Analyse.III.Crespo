@@ -53,8 +53,17 @@
 
 \begin{theorem}
 \label{theorem_partial_derivative_existence}
-	Une fonction $f$ est différentiable en $a$ ssi ses dérivées partielles
-	existent en $a$ et sont continues.
+
+	Soit $E = \GSprodSet{i}{1}{n}{E}$, et $\mathcal{U} =
+	\GSprodSet{i}{1}{n}{\mathcal{U}}$ un ouvert de $E$.
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$.
+	Alors les assertions suivantes sont équivalentes:
+	
+	-- $f$ est de classe $\mathcal{C}^{1}$ sur $\mathcal{U}$.
+
+	-- Les dérivées partielles 
+	$\GSfunction{\pdv{f}{x_{i}}}{\mathcal{U}}{\GScontinueHomo{E_{i}}{F}}$
+	existent et sont continues sur $\mathcal{U}$.
 \end{theorem}
 
 \begin{proof}
