@@ -1,7 +1,108 @@
 \chapter{Différentielles d'ordre supérieur}
 
-\section*{Notations et objectifs}
+\section{Différentielle seconde}
 
-Dans le chapitre
-\section{Définition et premières propriétés}
+\subsection*{Notations et objectifs}
+Nous travaillerons pour l'instant avec $E$ et $F$ des espaces de Banach.
+$\mathcal{U}$ sera un ouvert de $E$.
 
+On prendra aussi une fonction $\GSfunction{f}{\mathcal{U}}{F}$ différentiable, et
+sa différentielle sera notée
+$\GSfunction{df}{\mathcal{U}}{\GScontinueHomo{E}{F}} : x \rightarrow df(x)$.
+
+On va s'intéresser à la différentielle de $df$.
+
+\subsection{Définition et propriétés}
+
+\begin{definition}
+	Soit $a \in \mathcal{U}$. On dit que $f$ est \textbf{deux fois
+	différentiable en a} s'il existe un voisinage $\mathcal{V}_{a} \subseteq
+	\mathcal{U}$ de $a$ ouvert tel que:
+
+	-- $f$ est différentiable sur $\mathcal{V}_{a}$.
+
+	-- $\GSfunction{df}{\mathcal{V}_{a}}{\GScontinueHomo{E}{F}}$ est diffentiable
+	en $a$.
+	Dans ce cas, on note $d^{2}f(a)$ la différentielle de $df$ en $a$, et on dit
+	que c'est \textbf{différentielle seconde de $f$ en $a$}.
+\end{definition}
+
+Dans la définition, nous demandons que $f$ soit différentiable sur un
+voisinage ouvert de $a$ car nous voulons définir $df$ sur un ouvert. $f$ doit
+donc être différentiable sur un ouvert pour que $df$ soit définie sur un ouvert.
+
+Remarquons également que $d^{2}f(a) \in
+\GScontinueHomo{E}{\GScontinueHomo{E}{F}}$.
+
+\begin{definition}
+	On dit que \textbf{$f$ est deux fois différentiable} si $f$ est deux fois
+	différentiable en tout point de $\mathcal{U}$.
+
+	On a alors:
+
+	- $\GSfunction{f}{\mathcal{U}}{F}$.
+
+	- $\GSfunction{df}{\mathcal{U}}{\GScontinueHomo{E}{F}}$.
+
+	- $\GSfunction{d^{2}f}{\mathcal{U}}{\GScontinueHomo{E}}{\GScontinueHomo{E}{F}}$.
+\end{definition}
+
+Comme pour les fonctions dérivables, on définit les classes $\mathcal{C}^{n}$.
+
+\begin{definition}
+	On dit que $f \in \mathcal{C}^{2}$ si $f$ est deux fois différentiable et
+	que sa différentielle seconde $d^{2}f$ est continue.
+\end{definition}
+
+La particularité de $d^{2}f(a)$ est d'appartenir à
+$\GScontinueHomo{E}{\GScontinueHomo{E}{F}}$ qui n'a pas l'air d'être un espace
+très facile à manipuler. Cependant, nous pouvons utiliser une isométrie vers un
+espace plus facile à manipuler: celui des fonctions bilinéaire de $E \cartesian
+E$ dans $F$.
+
+\begin{proposition}
+	Soit $E, F, G$ des espaces vectoriels normés.
+
+	Alors $\GScontinueHomo{E}{\GScontinueHomo{F}{G}} \isometric
+	\GScontinueHomo{E \cartesian F}{G}$.
+\end{proposition}
+
+\begin{proof}
+	
+\end{proof}
+
+On se retrouve donc avec une identification de $d^{2}f(a)$ en tant
+qu'application bilinéaire de telle manière que pour tout $h \in E, k \in F$, on
+a $[d^{2}f(a)(h)](k) \isometric d^{2}f(a)(h, k)$.
+
+Dans le premier membre de l'isométrie, on a $d^{2}f(a)(h) \in
+\GScontinueHomo{E}{F}$. Elle doit donc prendre une valeur dans $E$ pour être
+évaluée dans $F$, et donc quand on applique en l'élément $k$, on obtient
+$[d^{2}f(a)(h)](k) \in F$.
+
+L'autre membre prend un élément de $(h, k) \in E \cartesian F$.
+
+Dans la suite, nous considérerons la différentielle seconde grace à son
+isométrie.
+
+En réalité, la différentielle seconde possède une propriété intéressante: elle
+est symétrique.
+
+\begin{theorem}
+	[symétrie de Schwarz \footnote{Karl Hermann Amandus Schwarz (25/01/1843 -
+	30/11/1921) mathématicien allemand. A ne pas confondre avec Laurant
+	Schwarz\textbf{t}, mathématicien français mort en 2004}]
+	\label{theorem_schwarz}
+
+	Si $f$ est deux fois différentiable en $a$, alors $d^{2}f(a)(h, k) =
+	d^{2}f(a)(k, h)$ pour tout $(h, k) \in E \cartesian F$, c'est-à-dire que
+	$d^{2}f(a)$ bilinéaire continue symétrique.
+\end{theorem}
+
+Remarquons d'abord que ce théorème n'est pas si évident à voir si nous ne
+faisons pas l'identification à travers l'isométrie. En effet, la symétrie dirait
+que $[d^{2}f(a)(h)](k) = [d^{2}f(a)(k)](h)$
+
+\begin{proof}
+	
+\end{proof}
