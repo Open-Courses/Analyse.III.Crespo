@@ -3,8 +3,27 @@
 \newcommand{\naturel}{\mathbb{N}}
 \newcommand{\integer}{\mathbb{Z}}
 \newcommand{\rational}{\mathbb{Q}}
-\renewcommand{\real}{\mathbb{R}}
+\renewcommand{\real}{\mathbb{R}} %Already defined in physics package
 \newcommand{\complex}{\mathbb{C}}
+
+%Logical
+\def\implies{\Rightarrow}
+\def\equiv{\Leftrightarrow}
+
+%Set theory
+\def\cartesian{\times} % Cartesian product
+\def\union{\cup} %Union
+\def\inter{\cap} %Intersection
+\newcommand{\comp}[1]{#1^{c}} %Complementary
+
+%Topology
+\def\interior{\mathring}
+\def\adh{\overline}
+\def\Ldeux{\mathcal{L}^{2}}
+\def\Ldeuxstar{(\mathcal{L}^{2})^{*}}
+
+%Normed space
+\def\isometric{\cong}
 
 %GSsequence :
 %		#1 : represention of elements of the sequences
@@ -22,14 +41,14 @@
 %		#2 : begin indice
 %		#3 : end indice
 %		#4 : set
-\newcommand{\GSprodSet}[4]{\prod\limits_{#1 = #2}^{#3} #4_{#1}}
+\newcommand{\GSprodSet}[4]{\displaystyle \prod_{#1 = #2}^{#3} #4_{#1}}
 
 %GSsum :
 %		#1 : indice
 %		#2 : begin indice
 %		#3 : end indice
 %		#4 : element
-\newcommand{\GSsum}[4]{\sum\limits_{#1 = #2}^{#3} #4}
+\newcommand{\GSsum}[4]{\displaystyle \sum_{#1 = #2}^{#3} #4}
 
 \newcommand{\GSintervalCC}[2]{\left[#1, #2\right]}
 
@@ -40,9 +59,10 @@
 %       #2 : begin set
 %       #3 : end set
 \newcommand{\GSfunction}[3]{#1 : #2 \rightarrow #3}
-%GSnorme :
+
+%GSnorme : Deprecated --> \norm
 %		#1 : elements which norme is applied on
-\newcommand{\GSnorme}[1]{\norm{#1}}
+\newcommand{\GSnorme}[1]{\norm{#1}} 
 
 %GSnormeDef :
 %		#1 : elements which norme is applied on
@@ -61,6 +81,11 @@
 %GSbidual
 %		#1 : vectorial space
 \newcommand{\GSbidual}[1]{#1^{**}}
+
+\newcommand{\GSunitBoule}[1]{\mathcal{B}_{#1}}
+
+\newcommand{\GSweakTopo}[1]{\sigma(#1, #1^{*})}
+\newcommand{\GSpreweakTopo}[1]{\sigma(#1^{*}, #1)}
 
 %GSendomorphism
 \newcommand{\GSendomorphism}[1]{End(#1)}
@@ -81,14 +106,14 @@
 %	2 : set which contains indices
 %	3 : ultrafilter
 %	4 : models represention
-\newcommand{\GSultraproduct}[4]{\prod\limits_{#1 \in #2}^{#3}#4_{#1}}
+\newcommand{\GSultraproduct}[4]{\displaystyle {\prod_{#1 \in #2}}^{#3}#4_{#1}}
 
 %Ultrapower
 %	1 : indice elements
 %	2 : set which contains indices
 %	3 : ultrafilter
 %	4 : model
-\newcommand{\GSultrapower}[4]{\prod\limits_{#1 \in #2}^{#3}#4}
+\newcommand{\GSultrapower}[4]{\displaystyle {\prod_{#1 \in #2}}^{#3} #4}
 
 %Substructures
 \newcommand{\GSsubstructure}[2]{#1 \subseteq #2}
