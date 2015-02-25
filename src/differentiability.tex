@@ -16,14 +16,14 @@
 	Soit $E$ et $F$ deux espaces vectoriels normés.
 	Soit $\mathcal{U}$ un ouvert de $E$, et soit $a \in \mathcal{U}$.
 
-	Soit \GSfunction{$f$}{$\mathcal{U}$}{$F$} une application.
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application.
 
 	On dit que $f$ est \textbf{différentiable en $a$} si il existe $\mathcal{L}
-	\in$ \GScontinueHomo{E}{F} tel que
+	\in \GScontinueHomo{E}{F}$ tel que
 	
 	$\forall h \in \mathcal{U}$,
 	$f(a + h) = f(a) + \mathcal{L}(h) + \psi(h)$ où
-	et $\phi(h) = o($\GSnormeDef{h}{E}$)$.
+	et $\phi(h) = o(\GSnormeDef{h}{E})$.
 
 \end{definition}
 
@@ -32,7 +32,7 @@ $df(a)$.
 
 Si f est différentiable en tout point $a \in \mathcal{U}$, on définit alors
 \textbf{la fonction différentielle}
-\GSfunction{$df$}{$\mathcal{U}$}{\GScontinueHomo{E}{F}}, qui a tout point $a$
+$\GSfunction{df}{\mathcal{U}}{\GScontinueHomo{E}{F}}$, qui a tout point $a$
 de $\mathcal{U}$, associe $df(a)$, l'application linéaire qui permet
 d'approximer la fonction dans un voisinage de $a$.
 
@@ -40,7 +40,7 @@ Pour pouvoir utiliser l'article \textbf{la} pour la différentielle, il faut
 montrer que celle-ci est unique:
 
 \begin{proposition}
-	Soit $\mathcal{L}_{1}$, $\mathcal{L}_{2} \in$ \GScontinueHomo{E}{F}
+	Soit $\mathcal{L}_{1}$, $\mathcal{L}_{2} \in \GScontinueHomo{E}{F}$
 	vérifiant la définition~\ref{a_differential} pour une fonction $f$.
 
 	Alors $\mathcal{L}_{1} = \mathcal{L}_{2}$.
@@ -90,7 +90,7 @@ linéaires}.
 Celles-ci ont la propriété suivante:
 
 \begin{proposition}
-	Soit $f \in$ \GScontinueHomo{E}{F} où $E$ et $F$ sont normés. Alors $f$ est
+	Soit $f \in \GScontinueHomo{E}{F}$ où $E$ et $F$ sont normés. Alors $f$ est
 	différentiable en tout point $a$ de $E$, et $df(a) = f$, c'est-à-dire que
 	l'application $df$ est constante.
 \end{proposition}
@@ -133,8 +133,8 @@ formule pour la calculer.
 \label{composition_differential}
 	Soit $E$, $F$, $G$ trois espaces vectoriels normés.
 	Soit $\mathcal{U}$ un ouvert de $E$, et $\mathcal{V}$ un ouvert de $F$.
-	Soit \GSfunction{$f$}{$\mathcal{U}$}{$F$} et
-	\GSfunction{$g$}{$\mathcal{V}$}{$G$}.
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ et
+	$\GSfunction{g}{\mathcal{V}}{G}$.
 	Soit $a \in \mathcal{U}$.
 	Supposons que $f(\mathcal{U}) \subseteq \mathcal{V}$ pour pouvoir définir $g
 	\circ f$.
@@ -151,9 +151,9 @@ formule pour la calculer.
 \section{Différentielle de l'application inverse}
 
 On a parlé dans le premier chapitre de l'application inverse
-\GSfunction{$\phi$}{$Isom(E, F)$}{\GScontinueHomo{F}{E}}: $u \rightarrow
+$\GSfunction{\phi}{Isom(E, F)}{\GScontinueHomo{F}{E}} : u \rightarrow
 u^{-1}$ qui est continue, et où $Isom(F, E)$ est ouvert dans
-\GScontinueHomo{F}{E}.
+$\GScontinueHomo{F}{E}$.
 On peut alors se demander si $\phi$ est différentiable.
 
 Remarquons d'abord que si $\phi$ est différentiable, sa différentielle serait
@@ -183,7 +183,7 @@ On va montrer que $\phi$ est différentiable et donner sa différentielle.
 On a vu précédemment qu'on pouvait mettre une stuctures d'espace vectoriel
 normé sur un produit fini d'espaces vectoriels normés (voir~\ref{product_norm_space})
 
-Soit $E$ un espace vectoriel normé et $F = $ \GSprodSet{i}{1}{n}{F} où chaque 
+Soit $E$ un espace vectoriel normé et $F = \GSprodSet{i}{1}{n}{F}$ où chaque 
 $F_{i}$ est un espace vectoriel normé.
 
 Soit $f : E \rightarrow F : x \rightarrow (f_{1}(x), \ldots, f_{n}(x))$
@@ -201,10 +201,10 @@ On a alors le théorème suivant:
 
 \begin{proof}
 	Remarquons d'abord que les espaces auxquelles appartiennent les fonctions
-	sont bonnes. On a $df_{i}(a) \in$ \GScontinueHomo{E}{F_{i}}, $df(a) \in
-	$ \GScontinueHomo{E}{F} et donc $p_{i} \circ df(a) \in $
-	\GScontinueHomo{E}{F_{i}} car $p_{i} \in $
-	\GScontinueHomo{F}{F_{i}}.
+	sont bonnes. On a $df_{i}(a) \in \GScontinueHomo{E}{F_{i}}$, $df(a) \in
+	\GScontinueHomo{E}{F}$ et donc $p_{i} \circ df(a) \in
+	\GScontinueHomo{E}{F_{i}}$ car $p_{i} \in
+	\GScontinueHomo{F}{F_{i}}$.
 
 	Dans un sens, si $f$ est différentiable en $a$, et comme $p_{i}$ est
 	linéaire donc différentiable aussi en $a$, par composition, $f_{i}$ est
@@ -252,8 +252,8 @@ On peut alors généraliser ce résultat aux fonctions multilinéaires continues
 
 \begin{proposition}
 \label{multilinear_differential_application}
-	Soit $E = $ \GSprodSet{i}{1}{n}{E} et $F$.
-	Soit \GSfunction{$f$}{$E$}{$F$} une fonction multilinéaire continue.
+	Soit $E = \GSprodSet{i}{1}{n}{E}$ et $F$.
+	Soit $\GSfunction{f}{E}{F}$ une fonction multilinéaire continue.
 
 	Alors $f$ est de classe $\mathcal{C}^{1}$, 
 	$df(a) \in \mathcal{L}(E, \mathcal{L}(E, F))$ avec 
@@ -271,7 +271,7 @@ On peut alors généraliser ce résultat aux fonctions multilinéaires continues
 \section{Dérivée directionnelle et dérivée partielle}
 \label{section_directionnal_partial_derivative}
 
-Prenons maintenant $E = $ \GSprodSet{i}{1}{n}{E}, et $F$ des espaces vectoriels
+Prenons maintenant $E = \GSprodSet{i}{1}{n}{E}$, et $F$ des espaces vectoriels
 normés.
 
 Dans la section précédente~\ref{section_differential_composante}, nous avons
@@ -287,9 +287,9 @@ espace de départ un produit d'espaces vectoriels.
 \label{directionnal_application_definition}
 	Soit $\mathcal{U}$ un ouvert de $E$.
 	Soit $a = (a_{1}, \ldots, a_{n}) \in E$ et $e = (e_{1}, \ldots, e_{n}) \in E$,
-	et \GSfunction{$f$}{$\mathcal{U}$}{$F$}.
+	et $\GSfunction{f}{\mathcal{U}}{F}$.
 
-	Définissons \GSfunction{$f_{e, a}$}{$\mathbb{K}$}{$F$}: $t \rightarrow f(a + te)$.
+	Définissons $\GSfunction{f_{e, a}}{\mathbb{K}}{F}: t \rightarrow f(a + te)$.
 
 	On définit la dérivée directionnelle de $f$ en $a$ suivant la direction (le
 	vecteur) $e$, comme la dérivée en $0$ de la fonction $f_{e, a}$, si celle-ci
@@ -329,17 +329,17 @@ espace de départ un produit d'espaces vectoriels.
 \section{Formule de Leibniz et produit de fonction différentiable}
 
 \begin{definition}
-	Soit $A$ une algèbre de Banach. Soit \GSsequence{x}{n}{\naturel} et
-	\GSsequence{y}{n}{\naturel} des suites à coefficients dans $A$.
+	Soit $A$ une algèbre de Banach. Soit $\GSsequence{x}{n}{\naturel}$ et
+	$\GSsequence{y}{n}{\naturel}$ des suites à coefficients dans $A$.
 	On définit \textbf{le produit de Cauchy} comme la suite ${(x \ast y)}_{n} =
-	$\GSsum{k}{0}{n}{$x_{n - k} . y_{k}$}
+	\GSsum{k}{0}{n}{x_{n - k} . y_{k}}$
 \end{definition}
 
 \begin{theorem}
 \label{theorem_cauchy_mertens}
-Si \GSsum{n}{0}{\infty}{$x_{n}$} et \GSsum{n}{0}{\infty}{$y_{n}$} convergent
-normalement, alors \GSsum{n}{0}{\infty}{${(x \ast y)}_{n}$} converge normalement.
-De plus, on a \GSsum{n}{0}{\infty}{${(x \ast y)}_{n}$} $ = $
-$($\GSsum{n}{0}{\infty}{$x_{n}$}$)$ . $($\GSsum{n}{0}{\infty}{$y_{n}$}$)$.
+Si $\GSsum{n}{0}{\infty}{x_{n}}$ et $\GSsum{n}{0}{\infty}{y_{n}}$ convergent
+normalement, alors $\GSsum{n}{0}{\infty}{{(x \ast y)}_{n}}$ converge normalement.
+De plus, on a $\GSsum{n}{0}{\infty}{{(x \ast y)}_{n}} = 
+(\GSsum{n}{0}{\infty}{x_{n}}) . (\GSsum{n}{0}{\infty}{y_{n}})$.
 \end{theorem}
 
