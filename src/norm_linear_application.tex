@@ -219,6 +219,7 @@ dimension finie.
 	dimension finie.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
 	Soit E de dimension n.
 	On a que E est isomorphe à $\mathbb{K}^{n}$. Prenons $(e_{1}, e_{2}, \ldots,
@@ -226,6 +227,7 @@ dimension finie.
 	Soit $f \in \GShomomorphisme{E}{F}$. Montrons que $\forall x \in E$,
 	$\GSnormeDef{f(x)}{F} \leq k\GSnormeDef{x}{E}$.
 \end{proof}
+\fi
 
 \section{Projection et injection canonique}
 
@@ -353,9 +355,11 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 	$\norm{\GSsum{n}{0}{\infty}{u_{n}}} \leq \GSsum{u}{0}{\infty}{\norm{u_{n}}}$.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
 	
 \end{proof}
+\fi
 
 \begin{definition}
 \label{definition_neumann_serie}
@@ -369,6 +373,7 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 	$\GSsum{n}{0}{\infty}{u^{n}}$ converge.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
 	Comme $E$ est de Banach, alors $\GScontinueEndo{E}$ l'est aussi. Comme $\norm{u}
 	< 1$, on a que la série $\GSsum{n}{0}{\infty}{\norm{u^{n}}} \leq
@@ -376,6 +381,7 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 	$\GSsum{n}{0}{\infty}{u^{n}}$ converge
 	par~\ref{proposition_normal_imply_convergence}.
 \end{proof}
+\fi
 
 \newcommand{\inverseU}[1]{$\GSsum{n}{0}{\infty}{(Id_{E} - #1)^{n}}$}
 
@@ -387,6 +393,7 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 \end{proposition}
 
 
+\ifdefined\outputproof
 \begin{proof}
 	Par~\ref{proposition_normal_imply_convergence}, on a
 	$\GSsum{n}{0}{\infty}{u^{n}}$ qui converge, et par conséquence, $u^{n}$ tend
@@ -397,6 +404,7 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 	+ 1}$. Donc, quand $N$ tend vers $\infty$, on a la dernière égalité qui tend
 	vers $u^{0} - 0_{E} = Id_{E}$.
 \end{proof}
+\fi
 
 \begin{corollary}
 	Soit $u \in \GScontinueEndo{E}$ tel que $\GSnormeDef{u}{\mathcal{L}_{E}} < 1$.
@@ -404,11 +412,13 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 	Alors $u^{-1} = \GSsum{n}{0}{\infty}{(Id_{E} - u)^{n}}$.
 \end{corollary}
 
+\ifdefined\outputproof
 \begin{proof}
 	Soit $v = Id_{E} - u$, alors $u = Id_{E} - v$. Il reste à montrer que
 	$||v||_{\mathcal{L}_{E}} < 1$ pour rentrer dans les conditions de la
 	proposition~\ref{proposition_inverse_identity_u}.
 \end{proof}
+\fi
 
 
 \section{Isomorphisme et isométrie}
@@ -418,9 +428,11 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 	linéaire.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
 	
 \end{proof}
+\fi
 
 
 Si on prend une application linéaire continue bijective entre deux espaces
@@ -438,9 +450,11 @@ sûr que la réciproque est continue.
 	c'est-à-dire que $f^{-1}$ est linéaire continue.
 \end{theorem}
 
+\ifdefined\outputproof
 \begin{proof}
 	
 \end{proof}
+\fi
 
 \begin{definition}
 \label{definition_isomorphisme}
@@ -468,6 +482,7 @@ $\GScontinueHomo{E}{F}$.
 	$Isom(E, F)$ est un ouvert de $\GScontinueHomo{E}{F}$.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
 	Prenons $u_{0} \in Isom(E, F)$. Montrons que $u_{0}$ est le centre d'une
 	boule de rayon $r$ contenue dans $Isom(E, F)$.
@@ -479,6 +494,7 @@ $\GScontinueHomo{E}{F}$.
 
 	\ldots
 \end{proof}
+\fi
 
 \begin{proposition}
 	Soit $S \in Isom(E, F)$, $T \in Isom(F, G)$.
@@ -486,9 +502,11 @@ $\GScontinueHomo{E}{F}$.
 	S^{-1}$.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
 	
 \end{proof}
+\fi
 
 \begin{definition}
 \label{definition_isometrie}
@@ -505,9 +523,11 @@ permet de savoir si $Isom(E, F)$ est vide ou non.
 	isométrie surjective, alors $f$ est un isomorphisme.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
 	
 \end{proof}
+\fi
 
 Donc, si il existe une isométrie surjective continue entre deux espaces
 vectoriels, alors ils sont isomorphes.

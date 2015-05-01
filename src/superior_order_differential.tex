@@ -24,7 +24,7 @@ On va s'intéresser à la différentielle de $df$.
 	-- $\GSfunction{df}{\mathcal{V}_{a}}{\GScontinueHomo{E}{F}}$ est diffentiable
 	en $a$.
 	Dans ce cas, on note $d^{2}f(a)$ la différentielle de $df$ en $a$, et on dit
-	que c'est \textbf{différentielle seconde de $f$ en $a$}.
+	que c'est \textbf{la différentielle seconde de $f$ en $a$}.
 \end{definition}
 
 Dans la définition, nous demandons que $f$ soit différentiable sur un
@@ -63,17 +63,19 @@ E$ dans $F$.
 \begin{proposition}
 	Soit $E, F, G$ des espaces vectoriels normés.
 
-	Alors $\GScontinueHomo{E}{\GScontinueHomo{F}{G}} \isometric
-	\GScontinueHomo{E \cartesian F}{G}$.
+	Alors $\GScontinueHomo{E}{\GScontinueHomo{F}{G}} \identification
+	\GScontinueHomo{E,F}{G}$.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
+\fi
 
 On se retrouve donc avec une identification de $d^{2}f(a)$ en tant
 qu'application bilinéaire de telle manière que pour tout $h \in E, k \in F$, on
-a $[d^{2}f(a)(h)](k) \isometric d^{2}f(a)(h, k)$.
+a $[d^{2}f(a)(h)](k) \identification d^{2}f(a)(h, k)$.
 
 Dans le premier membre de l'isométrie, on a $d^{2}f(a)(h) \in
 \GScontinueHomo{E}{F}$. Elle doit donc prendre une valeur dans $E$ pour être
@@ -103,6 +105,173 @@ Remarquons d'abord que ce théorème n'est pas si évident à voir si nous ne
 faisons pas l'identification à travers l'isométrie. En effet, la symétrie dirait
 que $[d^{2}f(a)(h)](k) = [d^{2}f(a)(k)](h)$
 
+\ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
+\fi
+
+\subsection{Dérivées partielles secondes}
+
+Soient $(E_{i})_{1 \leq i \leq n}$ des espaces vectoriels normées, $E =
+\GSprodSet{i}{1}{n}{E}$, et $F$ un espace vectoriel normé.
+
+Soient, pour chaque $i$, $\mathcal{U}_{i}$ un ouvert de $E_{i}$, et posons
+$\mathcal{U} = \GSprodSet{i}{1}{n}{\mathcal{U}}$.
+
+Soit $\GSfunction{\mathcal{U}}{F}$ une application.
+
+\begin{proposition}
+	Supposons que $f$ soit deux fois différentiable en un point $a \in
+	\mathcal{U}$. Par définition, il existe un voisinage ouvert
+	$\mathcal{V}_{a}$, compris dans $\mathcal{U}$ tel que $f$ est
+	différentiable sur $\mathcal{V}_{a}$.
+	Nous savons que $f$ admet des dérivées partielles en tout point de $\mathcal{V}_{a}$.
+
+	Alors, pour tout $1 \leq j \leq n$, les applications:
+
+	\begin{equation}
+		\pdv{f}{x_{j}} : \mathcal{V}_{a} \rightarrow \GScontinueHomo{E_{j}}{F}
+	\end{equation}
+
+	admettent des dérivées partielles selon $E_{i}$ pour tout $1 \leq i \leq n$,
+	en tout point $x \in \mathcal{V}_{a}$, et on note:
+
+	\begin{equation}
+		\pdv{f}{x_{i}}{x_{j}} (x) := \pdv{x_{i}}(\pdv{f}{x_{j}}) (x)
+	\end{equation}
+
+	$\pdv{f}{x_{i}}{x_{j}} \in
+	\GScontinueHomo{E_{i}}{\GScontinueHomo{E_{j}}{F}} \identification
+	\GScontinueHomo{E_{i}, E_{j}}{F}$.
+
+	De plus, $d^{2}f(a)$ peut être calculée grace à ces dernières avec la
+	formule:
+
+	\begin{equation}
+		d^{2}f(a)(h, k) = \displaystyle \sum_{1 \leq i, j \leq n}
+		\pdv{f}{x_{i}}{x_{j}} (a) (h_{i}, k_{j})
+	\end{equation}
+
+	avec $h = (h_{1}, \cdots, h_{n})$, et $k = (k_{1}, \cdots, k_{n})$ dans $E$.
+
+\end{proposition}
+
+On appelle $\pdv{f}{x_{i}}{x_{j}} (a)$, pour $1 \leq i, j \leq n$, \textbf{les
+dérivées partielles secondes de $f$ en $a$}.
+
+De plus, on note $\pdv[2]{f}{x_{i}} (a) := \pdv{f}{x_{i}}{x_{i}} (a)$ pour tout $1 \leq i
+\leq n$.
+
+\ifdefined\outputproof
+\begin{proof}
+   % Remarquons que si $f$ est deux fois différentiable en $a$, on a que $f$ est différentiable sur un
+	%$\mathcal{V} \subseteq \mathcal{U}$, et même que $f$ est de classe
+	%$\mathcal{C}^{1}$.
+	%Donc, $\GSfunction{df}{\mathcal{V}}{\GScontinueHomo{E}{F}}$ admet des
+	%dérivées partielles selon $E_{i}$ pour chaque $1 \leq i \leq n$ au point $a$.
+
+	%On a donc que les applications:
+
+	%\begin{equation}
+		%\pdv{x_{i}} (df) (a) \in \GScontinueHomo{E_{i}}{\GScontinueHomo{E}{F}}
+	%\end{equation}
+
+	%existent. N'oublions pas que $\GScontinueHomo{E_{i}}{\GScontinueHomo{E}{F}}
+	%\identification \GScontinueHomo{E_{i}, E}{F}$.
+\end{proof}
+\fi
+
+Nous obtenons alors, pour le théorème de symétrie de Schwarz:
+
+\begin{theorem}
+	Si $f$ est deux fois différentiable au point $a$, alors on a, pour tout $h,
+	k \in E$, et pour tout $1 \leq i, j \leq n$:
+
+	\begin{equation}
+		\overbrace{\pdv{f}{x_{i}}{x_{j}} (a)}^{\in \GScontinueHomo{E_{i},
+		E_{j}}{F}} (h_{i}, k_{j}) = \underbrace{\pdv{f}{x_{j}}{x_{i}} (a)}_{\in
+			\GScontinueHomo{E_{j}, E_{i}}{F}}
+		(k_{j}, h_{i})
+	\end{equation}
+\end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+% Voir les remarques page 6 Aline.
+
+\begin{proposition}
+	Pour que $f$ soit de classe $\mathcal{C}^{2}$ sur $\mathcal{U}$, il est nécessaire et
+	suffisant que $f$ admettent des dérivées partielles secondes en tout point
+	de $\mathcal{U}$ et que les applications:
+
+	\begin{equation}
+		\pdv{f}{x_{i}}{x_{j}} (a) : \mathcal{U} \rightarrow
+		\GScontinueHomo{E_{i}, E_{j}}{F}
+	\end{equation}
+	soient continues.
+\end{proposition}
+
+\subsection{Dérivées directionnelles du second ordre}
+
+Soient $E, F$ des espaces vectoriels normés, et $\mathcal{U}$ un ouvert de $E$.
+
+Supposons que $\GSfunction{f}{\mathcal{U}}{F}$ soit deux fois différentiable au
+point $a \in \mathcal{U}$.
+On sait donc qu'en particulier, il existe un voisinage ouvert $\mathcal{V}_{a}$ de $a$ tel
+que $f$ est différentiable sur $\mathcal{V}_{a}$
+
+On a alors vu au chapitre \ref{chap:differential} que $f$ admet des
+dérivées directionnelles dans toutes les directions non nulles $k \in E$, et
+$\partial_{k}{f} (x) \in F$ pour tout $x \in \mathcal{V}_{a}$.
+
+On a donc:
+
+\begin{equation}
+	\partial_{k}f : \mathcal{V}_{a} \rightarrow F
+\end{equation}
+
+\begin{proposition}
+	Soit $k \in E$ non nul.
+
+	La fonction $\partial_{k}f : \mathcal{V}_{a} \rightarrow F$ admet des
+	dérivées directionnels dans toutes les directions non nulles $h \in E$, et
+	on note:
+
+	\begin{equation}
+		\partial_{h, k}^{2} f (a) := \partial_{h} (\partial_{k}(f)) (a)
+	\end{equation}
+
+	De plus, $\partial_{h, k}^{2} f (a) = d^{2}f(a) (h, k)$, et nous avons:
+
+	\begin{enumerate}
+		\item $\partial_{k_{1} + \lambda k_{2}, h}^{2} f(a) =
+			\partial_{k_{1}, h}^{2}f(a) + \lambda \partial_{k_{2}, h}^{2} f(a)$
+		\item $\partial_{k, h_{1} + \lambda h_{2}}^{2} f(a) = \partial_{k,
+				h_{1}}^{2} f(a) + \lambda \partial_{k, h_{2}}^{2} f(a)$
+		\item $\partial_{k, h}^{2} f(a) = \partial_{h, k}^{2} f(a)$
+	\end{enumerate}
+\end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\section{Différentielles d'ordre supérieur}
+
+\subsection{Définitions et quelques propriétés}
+
+\subsection{Règles de calcul}
+
+\subsection{Dérivées partielles d'ordre supérieur}
+
+\subsection{Exemple fondamental $E = \real^{d}$}
+
+\subsection{Notations multi-indicielles}
+

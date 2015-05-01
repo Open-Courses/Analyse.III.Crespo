@@ -1,5 +1,5 @@
 \chapter{Applications différentiables}
-\label{chapter_differential}
+\label{chap:differential}
 \section{Motivation}
 	Étant donné une application entre deux espaces vectoriels, on veut pouvoir
 	approcher l'image de la fonction sur un interval grace à une fonction
@@ -20,7 +20,7 @@
 
 	On dit que $f$ est \textbf{différentiable en $a$} si il existe $\mathcal{L}
 	\in \GScontinueHomo{E}{F}$ tel que
-	
+
 	$\forall h \in \mathcal{U}$,
 	$f(a + h) = f(a) + \mathcal{L}(h) + \psi(h)$ où
 	et $\phi(h) = o(\GSnormeDef{h}{E})$.
@@ -46,9 +46,11 @@ montrer que celle-ci est unique:
 	Alors $\mathcal{L}_{1} = \mathcal{L}_{2}$.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
+\fi
 
 De manière évidente, on a que si $f$ est différentiable en $a$, alors $-f$ est
 différentiable en $a$.
@@ -66,9 +68,11 @@ vraie dans une même classe de norme.
 	pour l'autre.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
+\fi
 
 \begin{question}
 	Pouvons-nous caractériser la différientiabilité entre deux classes de
@@ -95,9 +99,11 @@ Celles-ci ont la propriété suivante:
 	l'application $df$ est constante.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
+\fi
 
 \section{Règles de calcul}
 
@@ -118,9 +124,11 @@ fonctions $f$ et $g$ définie sur l'ouvert $\mathcal{U}$ à valeurs dans $F$.
 	en $a$, et $d(f + g)(a) = df(a) + dg(a)$.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
+\fi
 
 Le théorème suivant, appelé parfois Chain Rules, donne un résultat intéressant
 lorsqu'on regarde la composition de deux fonctions différentiables. En effet, on
@@ -144,9 +152,11 @@ formule pour la calculer.
 	$d(g \circ f)(a) = dg(f(a)) \circ df(a)$.
 \end{theorem}
 
+\ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
+\fi
 
 \section{Différentielle de l'application inverse}
 
@@ -169,9 +179,11 @@ On va montrer que $\phi$ est différentiable et donner sa différentielle.
 	= -u^{-1} \circ h \circ u^{-1}$.
 \end{theorem}
 
+\ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
+\fi
 
 \section{Différentielle composante par composante}
 \label{section_differential_composante}
@@ -183,7 +195,7 @@ On va montrer que $\phi$ est différentiable et donner sa différentielle.
 On a vu précédemment qu'on pouvait mettre une stuctures d'espace vectoriel
 normé sur un produit fini d'espaces vectoriels normés (voir~\ref{product_norm_space})
 
-Soit $E$ un espace vectoriel normé et $F = \GSprodSet{i}{1}{n}{F}$ où chaque 
+Soit $E$ un espace vectoriel normé et $F = \GSprodSet{i}{1}{n}{F}$ où chaque
 $F_{i}$ est un espace vectoriel normé.
 
 Soit $f : E \rightarrow F : x \rightarrow (f_{1}(x), \ldots, f_{n}(x))$
@@ -193,12 +205,13 @@ On a alors le théorème suivant:
 
 \begin{theorem}
 \label{differential_composante}
-	Soit $\mathcal{U}$ un ouvert de $E$, et $a \in \mathcal{U}$. Alors, 
+	Soit $\mathcal{U}$ un ouvert de $E$, et $a \in \mathcal{U}$. Alors,
 	$f = (f_{1}, \ldots, f_{n})$ est différentiable en $a$ ssi pour tout $i$
 	entre $1$ et $n$, $f_{i}$ est différentiable en $a$. On a alors $df_{i}(a) =
 	p_{i} \circ df(a)$.
 \end{theorem}
 
+\ifdefined\outputproof
 \begin{proof}
 	Remarquons d'abord que les espaces auxquelles appartiennent les fonctions
 	sont bonnes. On a $df_{i}(a) \in \GScontinueHomo{E}{F_{i}}$, $df(a) \in
@@ -211,6 +224,7 @@ On a alors le théorème suivant:
 	différentiable et $df_{i}(a) = p_{i} \circ df(a)$ (en se rappelant que
 	$dp_{i}(a) = p_{i}$ car $p_{i}$ linéaire).
 \end{proof}
+\fi
 
 \section{Différentielle des applications multilinéaires}
 
@@ -227,6 +241,7 @@ On a que $f$ est différentiable en $a$, et $df(a)(h) = f(a_{1}, h_{2}) +
 f(h_{1}, a_{2})$.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
 	Posons $E = E_{1} \times E_{2}$.
 
@@ -235,7 +250,7 @@ f(h_{1}, a_{2})$.
 	le cas.
 
 	Soit $h \in E$, on a
-	$f(a + h) = f(a_{1} + h_{1}, a_{2} + h_{2}) = 
+	$f(a + h) = f(a_{1} + h_{1}, a_{2} + h_{2}) =
 	f(a_{1}, a_{2}) + f(h_{1}, a_{2}) + f(a_{1}, h_{2}) + f(h_{1}, h_{2})$
 
 	On remarque alors que $f(a_{1}, a_{2}) = f(a)$, que $f(h_{1}, a_{2}) +
@@ -247,6 +262,7 @@ f(h_{1}, a_{2})$.
 	(2): $f$ est continue, donc on a bien $\forall h \in E$, $||f(h)|| \leq
 	||f|| \, ||h||$, donc $f = o(||h||)$.
 \end{proof}
+\fi
 
 On peut alors généraliser ce résultat aux fonctions multilinéaires continues:
 
@@ -255,12 +271,12 @@ On peut alors généraliser ce résultat aux fonctions multilinéaires continues
 	Soit $E = \GSprodSet{i}{1}{n}{E}$ et $F$.
 	Soit $\GSfunction{f}{E}{F}$ une fonction multilinéaire continue.
 
-	Alors $f$ est de classe $\mathcal{C}^{1}$, 
-	$df(a) \in \mathcal{L}(E, \mathcal{L}(E, F))$ avec 
-	
+	Alors $f$ est de classe $\mathcal{C}^{1}$,
+	$df(a) \in \mathcal{L}(E, \mathcal{L}(E, F))$ avec
+
 	$
 	\begin{aligned}
-		df(a)(\textcolor{red}{h}) 
+		df(a)(\textcolor{red}{h})
 	&=	f(\textcolor{red}{h_{1}}, a_{2}, a_{3}, \ldots, a_{n}) \\
 	&+	f(a_{1}, \textcolor{red}{h_{2}}, a_{3}, \ldots, a_{n}) \\
 	&+	\ldots \\
@@ -303,9 +319,10 @@ espace de départ un produit d'espaces vectoriels.
 	df(a)(e)$.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
 \begin{align}
-	\displaystyle \frac{f(a + te) - f(a)}{t} 
+	\displaystyle \frac{f(a + te) - f(a)}{t}
 	&= \frac{df(a)(te) + \phi(te)}{t}\\
 	&= \frac{t df(a)(e)}{t} + \frac{\phi(te)}{t} \\
 	&= df(a)(e) + \frac{\phi(te)}{t}
@@ -319,10 +336,11 @@ espace de départ un produit d'espaces vectoriels.
 	0$ quand $t \rightarrow 0$ car $\phi = o(||te||)$ et $te \rightarrow 0$
 	quand $t \rightarrow 0$.
 \end{proof}
+\fi
 
 \begin{definition}
 \label{partial_application_definition}
-	
+
 
 \end{definition}
 
@@ -339,7 +357,7 @@ espace de départ un produit d'espaces vectoriels.
 \label{theorem_cauchy_mertens}
 Si $\GSsum{n}{0}{\infty}{x_{n}}$ et $\GSsum{n}{0}{\infty}{y_{n}}$ convergent
 normalement, alors $\GSsum{n}{0}{\infty}{{(x \ast y)}_{n}}$ converge normalement.
-De plus, on a $\GSsum{n}{0}{\infty}{{(x \ast y)}_{n}} = 
+De plus, on a $\GSsum{n}{0}{\infty}{{(x \ast y)}_{n}} =
 (\GSsum{n}{0}{\infty}{x_{n}}) . (\GSsum{n}{0}{\infty}{y_{n}})$.
 \end{theorem}
 
