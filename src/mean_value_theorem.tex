@@ -11,12 +11,13 @@
 \subsection{Différentiabilité d'une limite d'applications différentiables}
 
 \begin{corollary}
-	Soit une suite $f_{n}$ d'applications différentiables d'un ouvert convexe
+	Soit une suite $\GSsequence{f}{n}{\naturel}$ d'applications différentiables d'un ouvert convexe
 	$\mathcal{U} \subseteq E$ dans un espace de Banach $F$.
-	
+
 	Supposons:
 	\begin{enumerate}
-		\item qu'il existe $a \in \mathcal{U}$ tel que $f_{n}(a)$ converge.
+		\item qu'il existe $a \in \mathcal{U}$ tel que $(f_{n}(a))_{n \in
+			\naturel}$ converge.
 		\item la suite ${(df_{n})}_{n \in \naturel}$ converge uniformément sur
 			$\mathcal{U}$ vers
 			$\GSfunction{g}{\mathcal{U}}{\GScontinueHomo{E}{F}}$.
@@ -37,19 +38,19 @@
 
 \ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
 \fi
 
 \begin{corollary}
 	Sous les mêmes hypothèses, avec $f_{n} = \GSsum{n}{0}{\infty}{u_{n}}$ où
-	$u_{n}$ est une suite de fonctions différentiables de $\mathcal{U}$ ouvert
+	$\GSsequence{u}{n}{\naturel}$ est une suite de fonctions différentiables de $\mathcal{U}$ ouvert
 	convexe de $E$ dans $F$ de Banach, on a les mêmes résultats.
 \end{corollary}
 
 \ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
 \fi
 
@@ -62,16 +63,16 @@
 	\GSprodSet{i}{1}{n}{\mathcal{U}}$ un ouvert de $E$.
 	Soit $\GSfunction{f}{\mathcal{U}}{F}$.
 	Alors les assertions suivantes sont équivalentes:
-	
+
 	-- $f$ est de classe $\mathcal{C}^{1}$ sur $\mathcal{U}$.
 
-	-- Les dérivées partielles 
+	-- Les dérivées partielles
 	$\GSfunction{\pdv{f}{x_{i}}}{\mathcal{U}}{\GScontinueHomo{E_{i}}{F}}$
 	existent et sont continues sur $\mathcal{U}$.
 \end{theorem}
 
 \ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
 \fi
