@@ -117,7 +117,7 @@ Celles-ci ont la propriété suivante:
 %
 
 Prenons un ouvert $\mathcal{U}$ de $E$, un point $a \in \mathcal{U}$ et deux
-fonctions $f$ et $g$ définie sur l'ouvert $\mathcal{U}$ à valeurs dans $F$.
+fonctions $f$ et $g$ définies sur l'ouvert $\mathcal{U}$ à valeurs dans $F$.
 
 \begin{proposition}
 	Si $f$ et $g$ sont différentiables en $a$, alors $f + g$ est différentiable
@@ -132,17 +132,20 @@ fonctions $f$ et $g$ définie sur l'ouvert $\mathcal{U}$ à valeurs dans $F$.
 
 Le théorème suivant, appelé parfois Chain Rules, donne un résultat intéressant
 lorsqu'on regarde la composition de deux fonctions différentiables. En effet, on
-peut se demander si, quand on deux une composée de deux fontions différentiable
+peut se demander si, quand on a une composée de deux fontions différentiables
 si elle est elle-même différentiable, et comment calculer sa différentielle. La
 Chain Rules nous montre que c'est différentiable, et nous donne en plus une
 formule pour la calculer.
 
 \begin{theorem}
 \label{theorem:chain_rule}
-	Soit $E$, $F$, $G$ trois espaces vectoriels normés.
-	Soit $\mathcal{U}$ un ouvert de $E$, et $\mathcal{V}$ un ouvert de $F$.
-	Soit $\GSfunction{f}{\mathcal{U}}{F}$ et
+	Soient $E$, $F$, $G$ trois espaces vectoriels normés.
+
+	Soient $\mathcal{U}$ un ouvert de $E$, et $\mathcal{V}$ un ouvert de $F$.
+
+	Soient $\GSfunction{f}{\mathcal{U}}{F}$ et
 	$\GSfunction{g}{\mathcal{V}}{G}$.
+
 	Soit $a \in \mathcal{U}$.
 	Supposons que $f(\mathcal{U}) \subseteq \mathcal{V}$ pour pouvoir définir $g
 	\circ f$.
@@ -175,7 +178,7 @@ On va montrer que $\phi$ est différentiable et donner sa différentielle.
 \begin{theorem}
 \label{differential_inverse_application}
 	L'application inverse $\phi$ est différentiable en tout point $u \in Isom(E,
-	F)$, et sa différentielle en $u$, appliqué en un point $h$ vaut $d\phi(u)(h)
+	F)$, et sa différentielle en $u$, appliquée en un point $h$ vaut $d\phi(u)(h)
 	= -u^{-1} \circ h \circ u^{-1}$.
 \end{theorem}
 
@@ -192,20 +195,20 @@ On va montrer que $\phi$ est différentiable et donner sa différentielle.
 %et ayant comme valeurs d'arrivée, un seul espace.
 %Ou rappeler tout simplement ce qu'on a vue dans la section composante_function.
 
-On a vu précédemment qu'on pouvait mettre une stuctures d'espace vectoriel
+On a vu précédemment qu'on pouvait mettre une stucture d'espace vectoriel
 normé sur un produit fini d'espaces vectoriels normés (voir~\ref{product_norm_space})
 
-Soit $E$ un espace vectoriel normé et $F = \GSprodSet{i}{1}{n}{F}$ où chaque
+Soient $E$ un espace vectoriel normé et $F = \GSprodSet{i}{1}{n}{F}$ où chaque
 $F_{i}$ est un espace vectoriel normé.
 
 Soit $f : E \rightarrow F : x \rightarrow (f_{1}(x), \ldots, f_{n}(x))$
-(notation~\ref{composante_function})
+(notation \ref{composante_function})
 
 On a alors le théorème suivant:
 
 \begin{theorem}
-\label{differential_composante}
-	Soit $\mathcal{U}$ un ouvert de $E$, et $a \in \mathcal{U}$. Alors,
+	\label{differential_composante}
+	Soient $\mathcal{U}$ un ouvert de $E$, et $a \in \mathcal{U}$. Alors,
 	$f = (f_{1}, \ldots, f_{n})$ est différentiable en $a$ ssi pour tout $i$
 	entre $1$ et $n$, $f_{i}$ est différentiable en $a$. On a alors $df_{i}(a) =
 	p_{i} \circ df(a)$.
@@ -311,6 +314,7 @@ espace de départ un produit d'espaces vectoriels.
 	vecteur) $e$, comme la dérivée en $0$ de la fonction $f_{e, a}$, si celle-ci
 	existe et on la note ${\partial_{e} f}(a)$.
 
+	Remarquons que $\partial_{e} f (a) \in F$.
 \end{definition}
 
 \begin{proposition}
@@ -330,19 +334,47 @@ espace de départ un produit d'espaces vectoriels.
 	Montrons que $\displaystyle \frac{\phi(te)}{t} \rightarrow 0$ quand $t
 	\rightarrow 0$.
 
-	On a $\displaystyle \frac{||\phi(te)||}{|t|} = \frac{||te||
-	||\phi(te)||}{|t| ||te||} = \frac{||te||}{|t|}
-	\frac{||\phi(te)||}{||te||} = ||e|| \frac{||\phi(te)||}{||te||} \rightarrow
-	0$ quand $t \rightarrow 0$ car $\phi = o(||te||)$ et $te \rightarrow 0$
+	On a:
+	\begin{align*}
+		\frac{\norm{\phi(te)}}{|t|}
+		& = \frac{\norm{te} \norm{\phi(te)}}{\abs{t} \norm{te}} \\
+		& = \frac{\norm{te}}{\abs{t}} \frac{\norm{\phi(te)}}{\norm{te}} \\
+		& = \norm{e} \frac{\norm{\phi(te)}}{\norm{te}} \rightarrow 0
+	\end{align*}
+	quand $t \rightarrow 0$ car $\phi = o(\norm{te})$ et $te \rightarrow 0$
 	quand $t \rightarrow 0$.
 \end{proof}
 \fi
 
+
 \begin{definition}
-\label{partial_application_definition}
+	\label{partial_application_definition}
+	On dit que \textbf{$f$ admet une dérivée partielle au point $a$ selon
+		$E_{i}$} si
+	l'application:
 
-
+	\begin{equation*}
+		\mathcal{U}_{i} \rightarrow F : x \rightarrow f(a_{1}, \cdots, a_{i -
+		1}, x, a_{i + 1}, \cdots, a_{n})
+	\end{equation*}
+	est différentiable au point $a_{i}$. Dans ce cas, on note sa différentielle
+	$\underbrace{\partial_{i} f(a)}_{\in \GScontinueHomo{E_{i}}{F}}$ (ou
+	$\pdv{f}{x_{i}} (a)$)
 \end{definition}
+
+\begin{proposition}
+	Supposons que $f$ soit différentiable en $a$. Alors $f$ admet des dérivées
+	partielles par rapport à $E_{i}$ pour tout $1 \leq i \leq n$.
+
+	De plus:
+
+	\begin{equation*}
+		df(a)(h) = \displaystyle \sum_{i = 1}^{n} \pdv{f}{x_{i}} (a) (h_{i})
+	\end{equation*}
+\end{proposition}
+
+\subsubsection{Exemple fondamental avec $E = \real^{n}$}
+
 
 \section{Formule de Leibniz et produit de fonction différentiable}
 
