@@ -1,5 +1,5 @@
 \chapter{Normes, applications linéaires et multilinéaires}
-\label{chapter_linear_application}
+\label{chapter:linear_application}
 %Nous commencerons par rappeler la définition d'une norme, de la topologie
 %associée à une norme et d'équivalence de norme. Nous rappelerons aussi le
 %théorème de Riesz et de l'équivalence des normes en dimension finie.
@@ -56,10 +56,10 @@ distinguer les liens entre les normes.
 \end{definition}
 
 \begin{exercice}
-	Soit E un $\mathbb{K}$ espace vectoriel, N une norme quelconque sur E, et
-	$\mathbb{K}$ complet. 
+	Soit E un $\mathbb{K}$-espace vectoriel de dimension finie, N une norme
+	quelconque sur E, et $\mathbb{K}$ complet.
 	Montrez que E est un espace de Banach pour N.
-	
+
 	Pour cela, vous pouvez d'abord montrer que la convergence sur E se fait
 	composante par composante. Il restera à déduire sa complétude suivant
 	l'hypothèse sur $\mathbb{K}$.
@@ -81,7 +81,7 @@ distinguer les liens entre les normes.
 	est un espace de Banach pour $1 \leq i \leq n$.
 	On note pour $x \in E$, $x = (x_{1}, \ldots, x_{n})$ où $x_{i} \in
 	E_{i}$ pour $1 \leq i \leq n$.
-	
+
 	Alors, on peut définir les normes suivantes sur E :
 	\begin{enumerate}
 		\item $\GSnormeDef{x}{1} = \GSsum{i}{1}{n}{\GSnormeDef{x_{i}}{i}}$.
@@ -213,7 +213,7 @@ dimension finie.
 
 \begin{proposition}
 	Soit E de dimension finie, et F de dimension quelconque.
-	
+
 	Alors $\GShomomorphisme{E}{F} = \GScontinueHomo{E}{F}$, c'est-à-dire toute
 	application linéaire est continue lorsque l'espace de départ est de
 	dimension finie.
@@ -312,7 +312,7 @@ obtient des assertions proches du cas linéaire.
 \end{proposition}
 
 On note $\GScontinueHomo{E_{1}, \ldots, E_{n}}{F}$ l'ensemble des applications
-multilinéaires continues, et $\GScontinueEndo{E_{1}, \ldots, E_{n}}$ si $F = 
+multilinéaires continues, et $\GScontinueEndo{E_{1}, \ldots, E_{n}}$ si $F =
 \GSprodSet{i}{1}{n}{E}$.
 
 \begin{remarque}
@@ -357,7 +357,7 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 
 \ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
 \fi
 
@@ -408,7 +408,7 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 
 \begin{corollary}
 	Soit $u \in \GScontinueEndo{E}$ tel que $\GSnormeDef{u}{\mathcal{L}_{E}} < 1$.
-	
+
 	Alors $u^{-1} = \GSsum{n}{0}{\infty}{(Id_{E} - u)^{n}}$.
 \end{corollary}
 
@@ -430,7 +430,7 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 
 \ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
 \fi
 
@@ -452,7 +452,7 @@ sûr que la réciproque est continue.
 
 \ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
 \fi
 
@@ -461,7 +461,7 @@ sûr que la réciproque est continue.
 	Soit $\GSfunction{f}{E}{F}$ où $E$ et $F$ sont deux espaces vectoriels
 	normés.
 	On dit que $f$ est un isomorphisme si :
-	
+
 	-- $f$ est linéaire continue, ie $f \in \GScontinueHomo{E}{F}$.
 
 	-- il existe $g \in \GScontinueHomo{F}{E}$ tel que $g \circ f = Id_{E}$ et
@@ -504,7 +504,7 @@ $\GScontinueHomo{E}{F}$.
 
 \ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
 \fi
 
@@ -525,7 +525,7 @@ permet de savoir si $Isom(E, F)$ est vide ou non.
 
 \ifdefined\outputproof
 \begin{proof}
-	
+
 \end{proof}
 \fi
 
