@@ -92,6 +92,12 @@ distinguer les liens entre les normes.
 	De plus, E est un espace de Banach pour ces deux normes.
 \end{proposition}
 
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
 \begin{exemple}
 	On peut faire le lien avec la norme 1 et la norme infinie sur
 	$\mathbb{R}^{n}$. On en déduit alors que $\mathbb{R}^{n}$ est un espace de
@@ -123,6 +129,12 @@ topologie. Cela permettra de définir la continuité.
 	Deux normes sont équivalentes si et seulement si elles définissent la même topologie.
 \end{proposition}
 
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
 Regardons maintenant deux théorèmes très importants. Nous supposons E un espace
 vectoriel normé.
 
@@ -130,10 +142,22 @@ vectoriel normé.
 	E est de dimension finie si et seulement si toutes les normes sont équivalentes.
 \end{theorem}
 
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
 \begin{theorem}
 	\label{Riesz}
 	E est de dimension finie si et seulement si sa boule unité fermée est compacte.
 \end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
 
 On en déduit alors une propriété assez intéressante :
 
@@ -142,21 +166,27 @@ On en déduit alors une propriété assez intéressante :
 	même topologie. Nous parlerons alors de \textbf{la} topologie de \textbf{la} norme de E.
 \end{proposition}
 
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
 \section{Application linéaire}
+
 Nous allons maintenant étudier les applications linéaires. Nous savons déjà que
 celles-ci représentent les morphismes entre espaces vectoriels, c'est-à-dire
 qu'elles permettent de relier les structures entre deux espaces vectoriels.
 
-Nous avons vu précédemment que lorsqu'on est sur un espace vectoriel normé, on
-peut définir une norme, et que celle-ci définissait une topologie. Nous pouvons
-alors parlé de continuité.
+Nous avons vu précédemment que lorsqu'on est sur un espace vectoriel normé, la
+norme définit une topologie. Nous pouvons alors parler de continuité.
 
 \begin{definition}
-	L'ensemble des applications linéaire forme un espace vectoriel pour la
-	multiplication scalaire habituelle et l'addition de fonction habituelle.
+	L'ensemble des applications linéaires forme un espace vectoriel pour la
+	multiplication scalaire habituelle et l'addition de fonctions usuelle.
 	Nous notons $\GShomomorphisme{E}{F}$ l'espace vectoriel des applications
-	linéaire de E dans F. (Si E = F, $\GShomomorphisme{E}{F}$ =
-	$\GSendomorphism{E}$)
+	linéaires de $E$ dans $F$. Si $E = F$, $\GShomomorphisme{E}{F} =
+	\GSendomorphism{E}$.
 \end{definition}
 
 Prenons une fonction $f \in \GShomomorphisme{E}{F}$ et $a \in E$.
@@ -177,17 +207,23 @@ Prenons une fonction $f \in \GShomomorphisme{E}{F}$ et $a \in E$.
 	\end{enumerate}
 \end{proposition}
 
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
 On sait que la somme, le produit, la différence, ainsi que la multiplication par
 un scalaire d'une fonction continue reste continue. On a alors que l'ensemble
 des applications linéaire continues forment un espace vectoriel, dénoté
-$\GScontinueHomo{E}{F}$. (Si $E = F$, $\GScontinueHomo{E}{F} =
-\GScontinueEndo{E}$)
+$\GScontinueHomo{E}{F}$. Si $E = F$, $\GScontinueHomo{E}{F} =
+\GScontinueEndo{E}$.
 
 En particulier, $\GScontinueHomo{E}{F}$ (resp $\GScontinueEndo{E}$) est un sous
-espaces vectoriel de $\GShomomorphisme{E}{F}$ (resp $\GSendomorphism{E}$).
+espace vectoriel de $\GShomomorphisme{E}{F}$ (resp $\GSendomorphism{E}$).
 
 \begin{remarque}
-	Pour une fonction quelconque entre deux espace métriques, nous avons
+	Pour une fonction quelconque entre deux espaces métriques, nous avons
 	toujours que la continuité uniforme implique la continuité, mais pas
 	nécéssairement l'inverse (voir $\GSfunction{f}{\mathbb{R}}{\mathbb{R}} : x \rightarrow x^2$ qui est continue mais pas uniformément).
 \end{remarque}
@@ -201,6 +237,12 @@ continue soit uniformément continue.
 	continue.
 	\label{Heine}
 \end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
 
 \begin{exemple}
 	Tout fonction f d'un intervalle $\GSintervalCC{a}{b}$ dans $\mathbb{R}$, continue, est
@@ -237,9 +279,9 @@ contruire une structure d'espace vectoriel normé dessus (voir~\ref{product_norm
 %Insérer une figure avec plusieurs espaces de départ, rassemblé dans un grand,
 %et ayant comme valeurs d'arrivée, un seul espace.
 
-Soit $E =  \GSprodSet{i}{1}{n}{E}$.
 \begin{definition} [Injection et projection canonique]
-\label{injection_projection_definition}
+	\label{injection_projection_definition}
+	Soit $E =  \GSprodSet{i}{1}{n}{E}$.
 	Pour tout $k$ allant de $1$ à $n$, on définit \textbf{la projection
 		canonique sur $E_{k}$} comme la fonction
 		$\GSfunction{p_{k}}{E}{E_{k}} : (x_{1}, \ldots, x_{n}) \rightarrow
@@ -248,56 +290,68 @@ Soit $E =  \GSprodSet{i}{1}{n}{E}$.
 		\rightarrow (0, \ldots, x_{k}, \ldots, 0)$.
 \end{definition}
 
-On remarque que $\GSsum{k}{0}{n}{i_{k} \circ p_{k}} = Id_{F}$ et $p_{k} \circ
-i_{k} = Id_{F_{k}}$.
+On remarque que $\GSsum{k}{0}{n}{i_{k} \circ p_{k}} = Id_{E}$ et $p_{k} \circ
+i_{k} = Id_{E_{k}}$.
 
 Il est facile de montrer que ces applications sont linéaires, et continues.
 De plus, pour la définition de l'injection canonique, nous pouvons remplacer les
 $0$ par n'importe quelle autre valeur, tant que celle-ci reste constante.
 
-Prenons maintenant une fonction $\GSfunction{f}{F}{E}$ où $E$ est toujours
-le produit construit plus haut.
-On définit alors les fonctions composantes.
-
 \begin{definition} [Fonction composante]
-\label{composante_function}
-	Soit $f$ à valeur dans un produit d'espace vectoriel normé. On définit
-	\textbf{les applications composantes} $f_{k}$ pour $k$ de $1$ à $n$ comme
-	$p_{k} \circ f$.
+	\label{composante_function}
+	Soient $F_{1}, \cdots, F_{n}$ et $E$ des espaces vectoriels normés.
+	Soit $F = \displaystyle \prod_{i = 1}^{n} F_{i}$.
 
-	On a $\GSfunction{f_{k}}{F}{E_{k}}$.
+	Soit $\GSfunction{f}{E}{F}$. On définit, pour tout $k$ entre $1$ et $n$,
+	\textbf{les applications composantes}:
+
+	\begin{equation*}
+		\GSfunction{f_{k}}{E}{F_{k}} : x \rightarrow (p_{k} \circ f) (x)
+	\end{equation*}
 \end{definition}
 
 Cette définition permet alors la notation $f(x) = (f_{1}(x), \ldots, f_{n}(x))$,
 ou tout simplement $f = (f_{1}, \ldots, f_{n})$.
 
 \begin{definition} [Application partielle]
-\label{partial_application}
-	Soit $f$ avec comme domaine un produit d'espaces vectoriels
-	$\GSprodSet{i}{1}{n}{E}$ normés, et à valeur dans $F$. On définit
-	\textbf{les applications partielles} $f_{k}$ pour $k$ de $1$ à $n$ comme $f
-	\circ i_{k}$.
+	\label{partial_application}
+	Soient $E_{1}, \cdots, E_{n}$ et $F$ des espaces vectoriels normés.
+	Posons $E = \displaystyle \prod_{i = 1}^{n} E_{i}$, et définissons
+	$\GSfunction{f}{E}{F}$.
+
+	On définit \textbf{les applications partielles}, pour $k$ de $1$ à
+	$n$, comme la fonction $f_{k} = f \circ i_{k}$.
 
 	On a $\GSfunction{f_{k}}{E_{k}}{F}$.
 \end{definition}
 
-On utilisera cette notation dans le chapitre~\ref{chapter_differential} lorsque nous
+On utilisera cette notation dans le chapitre ~\ref{chap:differential} lorsque nous
 étudierons la différentiabilité des applications à valeurs dans un produit
-d'espace vectoriel dans la section~\ref{section_differential_composante}.
+d'espaces vectoriels dans la section~\ref{section_differential_composante}.
 
-\section{Application multilinéaires}
+\section{Application $n$-linéaire}
 
 \begin{definition}
-	Soit $\GSfunction{f}{E}{F}$. Alors $f$ est multilinéaire si chaque
-	application projection est linéaire. En d'autres termes, $f$ est
+	Soient $E_{1}, \cdots, E_{n}$ et $F$ des espaces vectoriels normés. Posons
+	$E = \displaystyle \prod_{i = 1}^{n} E_{i}$.
+
+	Soit $\GSfunction{f}{E}{F}$. Alors $f$ est \textbf{$n$-linéaire} si chaque
+	application partielle $f_{k}$ est linéaire. En d'autres termes, $f$ est
 	multilinéaire si elle est linéaire en chaque variable.
+
+	Quand $n = 2$ (resp. $n = 3$), on dit que $f$ est \textbf{bilinéaire} (resp.
+	\textbf{trilinéaire}).
 \end{definition}
 
 On peut alors généraliser la continuité à cette classe d'applications, et on
 obtient des assertions proches du cas linéaire.
 
 \begin{proposition}
-	Les assertions suivantes sont équivalentes :
+	Soient $E_{1}, \cdots, E_{n}$ et $F$ des espaces vectoriels normés. Posons
+	$E = \displaystyle \prod_{i = 1}^{n} E_{i}$.
+
+	Soit $\GSfunction{f}{E}{F}$ une application $n$-linéaire.
+	Alors, les assertions suivantes sont équivalentes :
 
 	\begin{enumerate}
 		\item f est continue.
@@ -311,17 +365,23 @@ obtient des assertions proches du cas linéaire.
 	\end{enumerate}
 \end{proposition}
 
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
 On note $\GScontinueHomo{E_{1}, \ldots, E_{n}}{F}$ l'ensemble des applications
-multilinéaires continues, et $\GScontinueEndo{E_{1}, \ldots, E_{n}}$ si $F =
+$n$-linéaires continues, et $\GScontinueEndo{E_{1}, \ldots, E_{n}}$ si $F =
 \GSprodSet{i}{1}{n}{E}$.
 
 \begin{remarque}
-	Tout applications bilinéaire non nulle n'est pas uniformément continue. En
+	Toute application bilinéaire non nulle n'est pas uniformément continue. En
 	particulier, elle n'est pas lipschitzienne.
 \end{remarque}
 
 Dans le cas particulier où chaque $E_{i}$ est de dimension finie, on a que
-chaque applications linéaires continues, comme dans le cas linéaire.
+chaque application linéaire continue, comme dans le cas linéaire.
 
 \begin{proposition}
 	Si chaque $E_{i}$ est de dimension finie, alors $\GScontinueHomo{E_{1},
@@ -336,7 +396,10 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 \begin{definition}
 \label{definition_serie_convergence}
 	$\GSsequence{u}{n}{\naturel}$ converge dans $E$ si
-	la série des sommes partielles converge.
+	la suite des sommes partielles converge dans $E$.
+
+	Si la suite converge, on note la limite $\displaystyle \sum_{n = 0}^{\infty}
+	u_{n}$.
 \end{definition}
 
 \begin{definition}
@@ -345,14 +408,17 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 	vectoriel normé.
 
 	On dit que $\GSsequence{u}{n}{\naturel}$ \textbf{converge normalement} si
-	$\GSsum{n}{0}{\infty}{\GSnormeDef{u_{n}}{E}} < \infty$.
+	$\GSsum{n}{0}{\infty}{\overbrace{\GSnormeDef{u_{n}}{E}}}^{\in \real^{+}} < \infty$.
 \end{definition}
+
+La définition de convergence normale se résume à l'étude d'une série réelle.
 
 \begin{proposition}
 \label{proposition_normal_imply_convergence}
 	Si $E$ est un espace de Banach, alors $\GSsequence{u}{n}{\naturel}$ elle
 	converge si elle converge normalement. De plus,
-	$\norm{\GSsum{n}{0}{\infty}{u_{n}}} \leq \GSsum{u}{0}{\infty}{\norm{u_{n}}}$.
+	$\GSnormeDef{\GSsum{n}{0}{\infty}{u_{n}}}{E} \leq
+	\GSsum{u}{0}{\infty}{\GSnormeDef{u_{n}}{E}}$.
 \end{proposition}
 
 \ifdefined\outputproof
@@ -386,9 +452,9 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 \newcommand{\inverseU}[1]{$\GSsum{n}{0}{\infty}{(Id_{E} - #1)^{n}}$}
 
 \begin{proposition}
-\label{proposition_inverse_identity_u}
+	\label{proposition_inverse_identity_u}
 	Soit $u \in \GScontinueEndo{E}$ tel que $\GSnormeDef{u}{\mathcal{L}_{E}} < 1$. Alors
-	$(Id_{E} - u) \in \GScontinueEndo{E}$. De plus $(Id_{E} - u)^{-1} =
+	$(Id_{E} - u)^{-1} \in \GScontinueEndo{E}$. De plus $(Id_{E} - u)^{-1} =
 	\GSsum{n}{0}{\infty}{u^{n}}$.
 \end{proposition}
 
@@ -437,14 +503,15 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 
 Si on prend une application linéaire continue bijective entre deux espaces
 vectoriels normés quelconques, alors la réciproque n'est pas nécessairement
-continue. En effet, \ldots %exemple.
+continue.
+% Donner un exemple.
 
 Or, on dispose d'un théorème, appelé théorème de Banach, qui nous permet d'être
 sûr que la réciproque est continue.
 
 \begin{theorem} [Banach]
 	\label{theorem_banach_isomorphism}
-	Soit $E$ et $F$ deux espaces de \textbf{Banach}, et $f \in$
+	Soient $E$ et $F$ deux espaces de \textbf{Banach}, et $f \in$
 	$\GScontinueHomo{E}{F}$ et bijective.
 	Alors l'application réciproque $f^{-1} \in \GScontinueHomo{F}{E}$,
 	c'est-à-dire que $f^{-1}$ est linéaire continue.
@@ -460,7 +527,7 @@ sûr que la réciproque est continue.
 \label{definition_isomorphisme}
 	Soit $\GSfunction{f}{E}{F}$ où $E$ et $F$ sont deux espaces vectoriels
 	normés.
-	On dit que $f$ est un isomorphisme si :
+	On dit que $f$ est \textbf{un isomorphisme} si :
 
 	-- $f$ est linéaire continue, ie $f \in \GScontinueHomo{E}{F}$.
 
@@ -511,7 +578,7 @@ $\GScontinueHomo{E}{F}$.
 \begin{definition}
 \label{definition_isometrie}
 	Soit $f \in \GShomomorphisme{E}{F}$.
-	Alors $f$ est une isométrie si elle conserve les normes, c'est-à-dire si
+	Alors $f$ est \textbf{une isométrie} si elle conserve les normes, c'est-à-dire si
 	$\forall x \in E$, $||x||_{E} =  ||f(x)||_{F}$.
 \end{definition}
 
