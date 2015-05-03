@@ -267,7 +267,7 @@ On a donc:
 
 \subsection{Définitions et quelques propriétés}
 
-\subsection{Règles de calcul}
+\subsection{Règles de calcul et résultats généralisés}
 
 Dans cette partie, nous allons étudier les propriétés de différentiabilité de
 certains opérateurs, comme les opérateurs linéaires.
@@ -282,6 +282,227 @@ différentielle de $T$ en $x$, est constante.
 
 On a alors que la différentielle seconde de $T$ est constante. En particulier,
 $T \in \mathcal{C}^{\infty}(E, F)$, et $d^{n}T = 0$ pour $n \geq 2$.
+
+\subsubsection{Applications bilinéaires}
+
+Soient $E, F, G$ des espaces vectoriels normés.
+Soit $T \in \GScontinueHomo{E, F}{G}$.
+
+On sait que $T$ est de classe $\mathcal{C}^{1}$, de plus:
+\begin{align*}
+	dT : & E \cartesian F \rightarrow \GScontinueHomo{E, F}{G} \\
+	& (x, y) \rightarrow dT(x, y)
+\end{align*}
+
+où on a:
+\begin{align*}
+	dT(x, y) : & E \cartesian F \rightarrow G \\
+	& (a, b) \rightarrow T(a, y) + T(x, b)
+\end{align*}
+
+et $dT$ est linéaire et continue.
+
+On a donc $dT$ qui est différentiable, et sa différentielle est constante.
+Donc $d^{2}T$ est aussi différentiable, et $d^{3}T$ est nulle.
+
+Nous avons donc $d^{n}T = 0$ pour $n \geq 3$. D'où $T \in
+\mathcal{C}^{\infty}(E \cartesian F, G)$.
+
+\subsubsection{Applications k-linéaires}
+
+Nous pouvons alors généraliser aux applications $k$-linéaires.
+
+\begin{proposition}
+	Soient $E_{1}, \cdots, E_{k}, F$ des espaces vectoriels normés.
+
+	Soit $T \in \GScontinueHomo{E_{1}, \cdots, E_{k}}{F}$ une application
+	$k$-linéaire.
+
+	Alors $T$ est de classe $\mathcal{C}^{\infty}$, et $d^{n}T = 0$ pour tout $n
+	\geq k + 1$.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\subsubsection{Règle de Leibniz}
+
+\begin{proposition}
+	Soient $E, F_{1}, F_{2}, G$ des espaces vectoriels normés.
+
+	Soit $\mathcal{U} \subseteq E$ un ouvert de $E$.
+	Soient $\GSfunction{f}{\mathcal{U}}{F_{1}}$, et
+	$\GSfunction{g}{\mathcal{U}}{F_{2}}$ des applications $n$-fois différentiables
+	(resp. de classe $\mathcal{C}^{n}$)
+
+	Soit $b \in \GScontinueHomo{F_{1}, F_{2}}{G}$.
+	Alors l'application:
+
+	\begin{align*}
+		W : & \mathcal{U} \rightarrow G \\
+			& x \rightarrow b(f(x), g(x))
+	\end{align*}
+
+	est $n$-fois différentiables (resp. de classe $\mathcal{C}^{n}$).
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\subsubsection{Règle de différentiabilité en chaîne}
+
+Nous avons vu la chain-rule (\ref{theorem:chain_rule}) qui nous dit que la
+composition de deux fonctions différentiables est encore différentiable.
+
+Nous allons généraliser ce théorème à des applications $n$-fois différentiables
+(resp. de classe $\mathcal{C}^{n}$).
+
+\begin{proposition}
+	Soient $E, F, G$ des espaces vectoriels normés.
+
+	Soient $\mathcal{U}$ un ouvert de $E$ et $\mathcal{V}$ un ouvert de $F$.
+
+	Soient $\GSfunction{f}{\mathcal{U}}{F}$, et $\GSfunction{g}{\mathcal{V}}{G}$
+	tel que $f(\mathcal{U}) \subseteq \mathcal{V}$ et tel que $f$ et $g$ soient
+	$n$-fois différentiables (resp. de classe $\mathcal{C}^{n}$).
+
+	Alors $\GSfunction{g \circ f}{\mathcal{U}}{G}$ est $n$-fois différentiable
+	(resp. de classe $\mathcal{C}^{n}$).
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\subsubsection{Différentielle composante par composante}
+
+Soient $E, F_{1}, \cdots, F_{k}$ des espaces vectoriels normés.
+
+\begin{proposition}
+	Soit $\mathcal{U}$ un ouvert de $E$.
+	Soit $\GSfunction{f}{\mathcal{U}}{\displaystyle \prod_{l = 1}^{k} F_{l}}$ une
+	application.
+	Alors, les assertions suivantes sont équivalentes:
+
+	\begin{itemize}
+		\item Les applications composantes sont $n$-fois différentiables (resp.
+			de classe $\mathcal{C}^{n}$).
+		\item $f$ est $n$-fois différentiable (resp. de classe
+			$\mathcal{C}^{n}$).
+	\end{itemize}
+
+	De plus, $d^{n}f_{l}(x) = p_{F_{l}} \circ d^{n} f(x)$ pour tout $x \in
+	\mathcal{U}$.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\subsubsection{Applications inverses}
+
+Soient $E$ et $F$ des espaces de Banach.
+
+Nous avons construit l'application:
+
+\begin{align*}
+	\phi : & Isom(E, F) \rightarrow Ison(F, E)
+	& u \rightarrow u^{-1}
+\end{align*}
+
+et avons montré qu'elle est de classe $\mathcal{C}^{1}$. Nous allons généraliser
+ce résultat.
+
+\begin{proposition}
+	L'application inverse $\phi$ est de classe $\mathcal{C}^{\infty}$.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{proposition}
+	Soient $E$, $F$ des espaces de Banach.
+	Soient $\mathcal{U}$ un ouvert de $E$, et $\mathcal{V}$ un ouvert de $F$.
+
+	Soit $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$ un $\mathcal{C}^{-1}$
+	difféomorphisme.
+
+	Si $f$ est de classe $\mathcal{C}^{n}$, $f^{-1}$ est de classe
+	$\mathcal{C}^{n}$.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\subsubsection{Théorème d'inversion local généralisé}
+
+Il en résulte comme corollaire un théorème qui généralise le théorème
+d'inversion local (\ref{theorem:local_inversion}).
+
+\begin{theorem}
+	Soient $E$, $F$ des espaces de Banach. Soit $\mathcal{U}$ un ouvert de $E$.
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ une fonction de classe
+	$\mathcal{C}^{n}$.
+
+	Si $df(a) \in Isom(E, F)$ pour un $a \in \mathcal{U}$, alors il existe un
+	voisinage ouvert $\mathcal{V}$ de $f(a)$ dans $F$, et $\mathcal{W} \subseteq
+	\mathcal{U}$ tel que:
+
+	\begin{itemize}
+		\item $f_{\mathcal{V}}(\mathcal{W}) = \mathcal{V}$
+		\item $f_{\mathcal{V}}^{\mathcal{W}} : \mathcal{W} \rightarrow
+			\mathcal{V}$ est un $\mathcal{C}^{n}$ difféomorphisme.
+	\end{itemize}
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
+
+\subsubsection{Théorème des fonctions implicites généralisé}
+
+\begin{theorem}
+	Soient $E$, $F$, $G$ des espaces de Banach.
+	Soit $\mathcal{U}$ un ouvert de $E \cartesian F$.
+	Soit $(a, b) \in \mathcal{U}$.
+
+	Soit $\GSfunction{f}{\mathcal{U}}{G}$ une application de classe
+	$\mathcal{C}^{n}$ tel que:
+
+	\begin{itemize}
+		\item $f(a, b) = 0$
+		\item $\partial_{2}f (a, b) \in Isom(F, G)$
+	\end{itemize}
+
+	Alors il existe un voisinage ouvert $\mathcal{V}$ de $a$ dans $E$ et
+	$\mathcal{W}$ voisinage ouvert de $b$ dans $F$ tel que $\mathcal{V}
+	\cartesian \mathcal{W} \subseteq \mathcal{U}$ et il existe une fonction
+	$\GSfunction{\phi}{\mathcal{V}}{\mathcal{W}}$ tel que
+
+	\begin{align*}
+	\left\{
+		\begin{array}{r c l}
+			(x, y) \in \mathcal{V} \cartesian \mathcal{W} \\
+			f(x, y) = 0
+		\end{array}
+	\right.
+	\Leftrightarrow
+	\left\{
+		\begin{array}{r c l}
+			\phi(x) &=& y \\
+			x \in \mathcal{V}
+		\end{array}
+	\right.
+	\end{align*}
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
 
 \subsection{Dérivées partielles d'ordre supérieur}
 
