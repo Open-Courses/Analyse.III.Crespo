@@ -347,9 +347,11 @@ Nous pouvons alors généraliser aux applications $k$-linéaires.
 	est $n$-fois différentiables (resp. de classe $\mathcal{C}^{n}$).
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
 
 \end{proof}
+\fi
 
 \subsubsection{Règle de différentiabilité en chaîne}
 
@@ -372,9 +374,11 @@ Nous allons généraliser ce théorème à des applications $n$-fois différenti
 	(resp. de classe $\mathcal{C}^{n}$).
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
 
 \end{proof}
+\fi
 
 \subsubsection{Différentielle composante par composante}
 
@@ -397,9 +401,11 @@ Soient $E, F_{1}, \cdots, F_{k}$ des espaces vectoriels normés.
 	\mathcal{U}$.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
 
 \end{proof}
+\fi
 
 \subsubsection{Applications inverses}
 
@@ -419,9 +425,11 @@ ce résultat.
 	L'application inverse $\phi$ est de classe $\mathcal{C}^{\infty}$.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
 
 \end{proof}
+\fi
 
 \begin{proposition}
 	Soient $E$, $F$ des espaces de Banach.
@@ -434,11 +442,13 @@ ce résultat.
 	$\mathcal{C}^{n}$.
 \end{proposition}
 
+\ifdefined\outputproof
 \begin{proof}
 
 \end{proof}
+\fi
 
-\subsubsection{Théorème d'inversion local généralisé}
+\subsubsection{Théorème d'inversion locale généralisé}
 
 Il en résulte comme corollaire un théorème qui généralise le théorème
 d'inversion local (\ref{theorem:local_inversion}).
@@ -459,9 +469,11 @@ d'inversion local (\ref{theorem:local_inversion}).
 	\end{itemize}
 \end{theorem}
 
+\ifdefined\outputproof
 \begin{proof}
 
 \end{proof}
+\fi
 
 \subsubsection{Théorème des fonctions implicites généralisé}
 
@@ -481,7 +493,8 @@ d'inversion local (\ref{theorem:local_inversion}).
 	Alors il existe un voisinage ouvert $\mathcal{V}$ de $a$ dans $E$ et
 	$\mathcal{W}$ voisinage ouvert de $b$ dans $F$ tel que $\mathcal{V}
 	\cartesian \mathcal{W} \subseteq \mathcal{U}$ et il existe une fonction
-	$\GSfunction{\phi}{\mathcal{V}}{\mathcal{W}}$ tel que
+	$\GSfunction{\phi}{\mathcal{V}}{\mathcal{W}}$ de classe $\mathcal{C}^{n}$
+	tel que
 
 	\begin{align*}
 	\left\{
@@ -500,13 +513,132 @@ d'inversion local (\ref{theorem:local_inversion}).
 	\end{align*}
 \end{theorem}
 
+\ifdefined\outputproof
 \begin{proof}
 
 \end{proof}
+\fi
 
 \subsection{Dérivées partielles d'ordre supérieur}
 
+% TODO. Notation lourde.
+
 \subsection{Exemple fondamental $E = \real^{d}$}
 
+% TODO. Assez court.
+
 \subsection{Notations multi-indicielles}
+
+Nous allons donner des notations qui facilite les notations pour les dérivées
+partielles d'ordre supérieur. On utilisera des objets appelés
+\textit{multi-indices}.
+
+\subsubsection{Définitions}
+
+\begin{definition} [Multi-indice]
+	Soit $\alpha \in \naturel^{d}$ tel que $\alpha = (\alpha_{1}, \cdots,
+	\alpha_{d})$.
+	-- On dit que $\alpha$ est \textbf{un multi-indice d'ordre $d$}.
+
+	-- \textbf{La longueur de $\alpha$}, notée $\miLength{\alpha}$, est définie
+	comme la somme des $\alpha_{i}$, ie $\miLength{\alpha} = \displaystyle
+	\sum_{i = 1}^{d} \alpha_{i}$.
+\end{definition}
+
+Nous allons définir quelques opérations sur ces objets.
+
+\begin{definition} [Somme de multi-indice]
+	Soient $\alpha$ et $\beta$ deux multi-indices d'ordre $d$.
+	On définit \textbf{la somme de $\alpha$ et $\beta$}, noté $\alpha + \beta$
+	par $\alpha + \beta = \displaystyle \sum_{i = 1}^{d} \alpha_{i} +
+	\beta_{i}$.
+\end{definition}
+
+Nous allons également définir un ordre partiel sur les multi-indices.
+
+\begin{definition} [Ordre partiel sur les multi-indices]
+	Soient $\alpha$ et $\beta$ deux multi-indices d'ordre $d$.
+	On dit que \textbf{$\alpha$ est plus petit que $\beta$}, noté $\alpha \leq \beta$ si
+	pour tout $i$ entre $1$ et $d$, $\alpha_{i} \leq \beta_{i}$.
+
+	Cela implique que $\miLength{\alpha} = \miLength{\beta}$.
+\end{definition}
+
+\begin{definition}
+	Soit $\alpha$ un multi-indice d'ordre $d$.
+	On définit \textbf{le factoriel de $\alpha$}, noté $\alpha!$, par $\alpha! =
+	\displaystyle \prod_{i = 1}^{d} \alpha_{i} !$.
+\end{definition}
+
+\begin{definition}
+	Soient $\alpha$ et $\beta$ deux multi-indices d'ordre $d$ tel que $\alpha
+	\leq \beta$.
+	On définit \textbf{le coefficient binomial} $\displaystyle \binom{\beta}{\alpha}$ par
+
+	\begin{equation*}
+		\displaystyle \binom{\beta}{\alpha} = \frac{\beta!}{\alpha! (\beta -
+		\alpha)!}
+	\end{equation*}
+\end{definition}
+
+\subsubsection{Applications et propriétés}
+
+\begin{definition}
+	Soit $h \in \real^{d}$, et $\alpha$ un multi-indice d'ordre $d$.
+	On définit \textbf{la puissance $\alpha$ du vecteur $h$}, noté $h^{\alpha}$,
+	par
+
+	\begin{equation*}
+		h^{\alpha} = \displaystyle \prod_{i = 1}^{d} h_{i}^{\alpha_{i}}
+	\end{equation*}
+\end{definition}
+
+La principale motivation d'utiliser les multi-indices est de s'en servir pour
+écrire les dérivées partielles.
+
+% TODO
+
+\begin{proposition} [Formule du binôme]
+	Soient $\alpha$ un multi-indice d'ordre $d$, et $x, y \in \real^{d}$.
+
+	Alors $(x + y)^{\alpha} = \displaystyle \sum_{\substack{\beta \leq \alpha \\ \beta \in
+		\naturel^{d}}} \binom{\alpha}{\beta} x^{\alpha} y^{\beta - \alpha}$.
+\end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\begin{proposition}
+	Soit $x = (x_{1}, \cdots, x_{d}) \in \real^{d}$, et soit $k \in \naturel$.
+
+	On a:
+
+	\begin{equation*}
+		\displaystyle (\sum_{i = 1}^{d} x^{i}) = \sum_{\substack{\alpha \in
+			\naturel^{d} \\ \miLength{\alpha} = k}} \frac{k!}{\alpha!}
+			x^{\alpha}
+	\end{equation*}
+\end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\subsubsection{Formule de Leibniz}
+Nous pouvons alors donner une notation plus compacte pour la règle de Leibniz.
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\subsubsection{Intégrations par parties}
+
+\subsubsection{Dérivées partielles d'un monôme}
 
