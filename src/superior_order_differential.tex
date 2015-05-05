@@ -114,34 +114,34 @@ que $[d^{2}f(a)(h)](k) = [d^{2}f(a)(k)](h)$
 \subsection{Dérivées partielles secondes}
 
 Soient $(E_{i})_{1 \leq i \leq n}$ des espaces vectoriels normées, $E =
-\GSprodSet{i}{1}{n}{E}$, et $F$ un espace vectoriel normé.
+\GSprodSet{i}{1}{d}{E}$, et $F$ un espace vectoriel normé.
 
 Soient, pour chaque $i$, $\mathcal{U}_{i}$ un ouvert de $E_{i}$, et posons
-$\mathcal{U} = \GSprodSet{i}{1}{n}{\mathcal{U}}$.
+$\mathcal{U} = \GSprodSet{i}{1}{d}{\mathcal{U}}$.
 
-Soit $\GSfunction{\mathcal{U}}{F}$ une application.
+Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application.
 
 \begin{proposition}
 	Supposons que $f$ soit deux fois différentiable en un point $a \in
 	\mathcal{U}$. Par définition, il existe un voisinage ouvert
-	$\mathcal{V}_{a}$, compris dans $\mathcal{U}$ tel que $f$ est
+	$\mathcal{V}_{a}$ de $a$, compris dans $\mathcal{U}$ tel que $f$ est
 	différentiable sur $\mathcal{V}_{a}$.
 	Nous savons que $f$ admet des dérivées partielles en tout point de $\mathcal{V}_{a}$.
 
-	Alors, pour tout $1 \leq j \leq n$, les applications:
+	Alors, pour tout $1 \leq j \leq d$, les applications:
 
 	\begin{equation}
 		\pdv{f}{x_{j}} : \mathcal{V}_{a} \rightarrow \GScontinueHomo{E_{j}}{F}
 	\end{equation}
 
-	admettent des dérivées partielles selon $E_{i}$ pour tout $1 \leq i \leq n$,
+	admettent des dérivées partielles selon $E_{i}$ pour tout $1 \leq i \leq d$,
 	en tout point $x \in \mathcal{V}_{a}$, et on note:
 
 	\begin{equation}
 		\pdv{f}{x_{i}}{x_{j}} (x) := \pdv{x_{i}}(\pdv{f}{x_{j}}) (x)
 	\end{equation}
 
-	$\pdv{f}{x_{i}}{x_{j}} \in
+	où $\displaystyle \pdv{f}{x_{i}}{x_{j}} \in
 	\GScontinueHomo{E_{i}}{\GScontinueHomo{E_{j}}{F}} \identification
 	\GScontinueHomo{E_{i}, E_{j}}{F}$.
 
@@ -153,15 +153,15 @@ Soit $\GSfunction{\mathcal{U}}{F}$ une application.
 		\pdv{f}{x_{i}}{x_{j}} (a) (h_{i}, k_{j})
 	\end{equation}
 
-	avec $h = (h_{1}, \cdots, h_{n})$, et $k = (k_{1}, \cdots, k_{n})$ dans $E$.
+	avec $h = (h_{1}, \cdots, h_{d})$, et $k = (k_{1}, \cdots, k_{d})$ dans $E$.
 
 \end{proposition}
 
-On appelle $\pdv{f}{x_{i}}{x_{j}} (a)$, pour $1 \leq i, j \leq n$, \textbf{les
+On appelle $\pdv{f}{x_{i}}{x_{j}} (a)$, pour $1 \leq i, j \leq d$, \textbf{les
 dérivées partielles secondes de $f$ en $a$}.
 
 De plus, on note $\pdv[2]{f}{x_{i}} (a) := \pdv{f}{x_{i}}{x_{i}} (a)$ pour tout $1 \leq i
-\leq n$.
+\leq d$.
 
 \ifdefined\outputproof
 \begin{proof}
@@ -182,6 +182,38 @@ De plus, on note $\pdv[2]{f}{x_{i}} (a) := \pdv{f}{x_{i}}{x_{i}} (a)$ pour tout 
 \end{proof}
 \fi
 
+\begin{remarque}
+	Si $f$ est deux fois différentiable au point $a$, on a $f$ différentiable
+	sur un voisinage ouvert $\mathcal{V}_{a}$ de $a$ contenu dans $\mathcal{U}$.
+	Nous avons même que $f$ est de classe $\mathcal{C}^{1}$ sur
+	$\mathcal{V}_{a}$ car différentiable sur $\mathcal{V}_{a}$.
+	On a aussi que $df : \mathcal{V}_{a} \rightarrow \GScontinueHomo{E}{F}$ est
+	différentiable en $a$.
+
+	Donc, en particulier, $df$ admet des dérivées partielles selon $E_{i}$ pour
+	chaque $1 \leq i \leq d$.
+	On a donc:
+	\begin{equation*}
+		\pdv{x_{i}} (df)(a) \in \GScontinueHomo{E_{i}}{\GScontinueHomo{E}{F}}
+		\identification \GScontinueHomo{E_{i}, E}{F}
+	\end{equation*}
+
+	On a en plus, pour $h = (h_{1}, \cdots, h_{d}) \in E$ :
+	\begin{equation*}
+		[d^{2}f(a)](h) = \overbrace{[d(df)(a)]}^{\in \GScontinueHomo{E}{\GScontinueHomo{E}{F}}} (h) = \displaystyle \sum_{i = 1}^{d} \underbrace{\overbrace{[\pdv{x_{i}}
+		(df)(a)]}^{\in \GScontinueHomo{E_{i}}{\GScontinueHomo{E}{F}}}
+		(h_{i})}_{\in \GScontinueHomo{E}{F}}
+	\end{equation*}
+
+	ou encore, formulé autrement:
+
+	\begin{equation*}
+		d^{2}f(a)(h, k) = \displaystyle \sum_{i = 1}^{d} \pdv{x_{i}}
+		(df)(a)(h_{i}, k)
+	\end{equation*}
+	pour $h = (h_{1}, \cdots, h_{d}) \in E$ et $k \in E$.
+
+\end{remarque}
 Nous obtenons alors, pour le théorème de symétrie de Schwarz:
 
 \begin{theorem}
@@ -272,7 +304,7 @@ On a donc:
 Dans cette partie, nous allons étudier les propriétés de différentiabilité de
 certains opérateurs, comme les opérateurs linéaires.
 
-\subsubsection{Applications linéaires}
+\subsubsection{Applications linéaires continues}
 
 Prenons $T \in \GScontinueHomo{E}{F}$ où $E$ et $F$ sont des espaces vectoriels
 normés.
@@ -398,7 +430,7 @@ Soient $E, F_{1}, \cdots, F_{k}$ des espaces vectoriels normés.
 	\end{itemize}
 
 	De plus, $d^{n}f_{l}(x) = p_{F_{l}} \circ d^{n} f(x)$ pour tout $x \in
-	\mathcal{U}$.
+	\mathcal{U}$ et pour tout $1 \leq l \leq k$.
 \end{proposition}
 
 \ifdefined\outputproof
@@ -413,11 +445,14 @@ Soient $E$ et $F$ des espaces de Banach.
 
 Nous avons construit l'application:
 
-\begin{align*}
-	\phi : & Isom(E, F) \rightarrow Ison(F, E)
-	& u \rightarrow u^{-1}
-\end{align*}
-
+\begin{center}
+$
+\begin{aligned}
+	\phi : 	Isom(E, F) &\rightarrow& Isom(F, E) \\
+			u &\rightarrow& u^{-1}
+\end{aligned}
+$
+\end{center}
 et avons montré qu'elle est de classe $\mathcal{C}^{1}$. Nous allons généraliser
 ce résultat.
 
@@ -435,12 +470,16 @@ ce résultat.
 	Soient $E$, $F$ des espaces de Banach.
 	Soient $\mathcal{U}$ un ouvert de $E$, et $\mathcal{V}$ un ouvert de $F$.
 
-	Soit $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$ un $\mathcal{C}^{-1}$
+	Soit $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$ un $\mathcal{C}^{1}$
 	difféomorphisme.
 
 	Si $f$ est de classe $\mathcal{C}^{n}$, $f^{-1}$ est de classe
 	$\mathcal{C}^{n}$.
 \end{proposition}
+
+Remarquons que pour $n = 1$, on n'a pas toujours que $f^{-1} \in
+\mathcal{C}^{1}$. On a $f^{-1} \in \mathcal{C}^{1}$ ssi $df(x) \in Isom(E, F)$
+pour tout $x \in \mathcal{U}$.
 
 \ifdefined\outputproof
 \begin{proof}
@@ -529,7 +568,7 @@ d'inversion local (\ref{theorem:local_inversion}).
 
 \subsection{Notations multi-indicielles}
 
-Nous allons donner des notations qui facilite les notations pour les dérivées
+Nous allons donner des notations qui facilitent les notations pour les dérivées
 partielles d'ordre supérieur. On utilisera des objets appelés
 \textit{multi-indices}.
 
@@ -632,6 +671,35 @@ La principale motivation d'utiliser les multi-indices est de s'en servir pour
 \subsubsection{Formule de Leibniz}
 Nous pouvons alors donner une notation plus compacte pour la règle de Leibniz.
 
+Soit $\mathcal{U}$ un ouvert de $\real^{d}$.
+Soient $F_{1}$, $F_{2}$ et $G$ des espaces vectoriels normés.
+Soient $\GSfunction{f}{\mathcal{U}}{F_{1}}$ et
+$\GSfunction{g}{\mathcal{U}}{F_{2}}$ deux applications $n$-fois différentiables.
+
+Soit $b \in \GScontinueHomo{F_{1}, F_{2}}{G}$.
+On a vu que:
+
+\begin{center}
+$
+	\begin{aligned}
+		b(f, g) : 	& &\mathcal{U} &\rightarrow& 	&G \\
+					& &x			&\rightarrow& 	&b(f(x), g(x))
+	\end{aligned}
+$
+\end{center}
+est $n$-fois différentiable.
+
+\begin{proposition}
+	Soit $\alpha$ un multi-indice d'ordre $d$. tel que $\alpha \leq n$
+	On a:
+
+	\begin{equation*}
+		\partial^{\alpha} b(f, g) = \displaystyle \sum_{\beta \leq \alpha}
+		\binom{\alpha}{\beta} b(\partial^{\beta}f, \partial^{\alpha - \beta}
+		g)
+	\end{equation*}
+\end{proposition}
+
 \ifdefined\outputproof
 \begin{proof}
 
@@ -640,5 +708,44 @@ Nous pouvons alors donner une notation plus compacte pour la règle de Leibniz.
 
 \subsubsection{Intégrations par parties}
 
+\begin{proposition}
+	Soit $\Omega$ un ouvert de $\real^{d}$
+	Soient $u$ et $v$ deux fonctions lisses à support compact (ie $u, v \in
+	\mathcal{C}_{C}^{\infty}$).
+
+	Alors:
+	\begin{equation*}
+		\int_{\real^{d}} \partial^{\alpha} u(x) v(x) dx = \int_{\real^{d}}
+		(-1)^{\miLength{\alpha}} u(x) \partial^{\alpha}v(x) dx
+	\end{equation*}
+\end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
 \subsubsection{Dérivées partielles d'un monôme}
 
+\begin{proposition}
+	Prenons un monome $\GSfunction{f}{\real^{d}}{\real^{d}} : x \rightarrow
+	x^{\beta}$ où $\beta$ est un multi-indice d'ordre $d$.
+
+	Alors
+	\begin{equation*}
+		\partial^{\alpha} x^{\beta} =
+		\begin{cases}
+			\displaystyle \frac{\beta!}{(\beta - \alpha)!} x^{\beta - \alpha}, &
+			\mbox{si } \alpha
+			\leq \beta \\
+			0, & \mbox{sinon}
+		\end{cases}
+	\end{equation*}
+\end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi

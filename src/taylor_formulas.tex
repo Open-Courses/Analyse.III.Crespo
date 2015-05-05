@@ -4,6 +4,178 @@
 
 \subsection{Formules de Taylor avec reste intégral}
 
+Commençons d'abord par un lemme:
+
+\begin{lemma}
+	\label{lemma:taylor_formula_reste_derivative}
+	Soient $I$ un intervalle de $\real$, $F$ un espace de Banach et
+	$\GSfunction{g}{I}{F}$ une fonction $n+1$ fois dérivable.
+
+	Alors:
+
+	\begin{equation*}
+		\displaystyle \dv{t} [g(t) + \sum_{p = 1}^{n} \frac{(1 - t)^{p}}{p!}
+		g^{(p)}(t)] = \frac{(1 - t)^{n}}{t!} g^{(n+1)}(t)
+	\end{equation*}
+\end{lemma}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+Rappelons que l'intégrale de Riemann telle que construite pour une fonction d'un
+intervalle $I$ réel à valeurs dans $\real$  peut-être construite de la même
+manière pour une fonction d'un intervalle $I$ réel à valeur dans \textit{un
+espace de Banach}. La construction est la même, et les résultats obtenus dans le
+cas réel, peuvent aussi être démontrés dans le cas d'un espace de Banach
+quelconque.
+
+Nous obtenons alors une version intégrale du lemme
+\ref{lemma:taylor_formula_reste_derivative}:
+
+\begin{corollary}
+	\label{corollary:taylor_formula_reste_integral}
+	Supposons que $[0, 1] \subseteq I$, et $g$ de classe $\mathcal{C}^{n + 1}$.
+	Alors on obtient:
+
+	\begin{equation*}
+		g(1) - g(0) - \displaystyle \sum_{p = 1}^{n} \frac{1}{p!} g^{(p)}(0) =
+		\int_{0}^{1} \frac{(1 - t)^{n}}{n!} g^{(n + 1)}(t) dt
+	\end{equation*}
+\end{corollary}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+Posons une notation qui simplifiera l'écriture pour les prochains théorèmes.
+
+\begin{notation}
+	Soit $E$ un espace vectoriel normé. Soient $h \in E$ et $n \in \naturel$.
+
+	On note $h^{n} = \underbrace{(h, \cdots, h)}_{\text{$n$-fois}} \in E^{n}$.
+	On note aussi parfois $h^{[n]}$ ou $(h)^{n}$.
+\end{notation}
+
+Nous en venons alors au théorème de formule de Taylor avec reste intégral.
+
+\begin{theorem}
+	\label{theorem:taylor_formula_reste_integral}
+	Soient $E$ et $F$ deux espaces de Banach. Soit $\mathcal{U}$ un ouvert de
+	$E$.
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ tel que $f \in \mathcal{C}^{n + 1}$.
+
+	Soit $(x, h) \in (\mathcal{U} \cartesian E)$ tel que $\segment{x}{x + h}
+	\subseteq \mathcal{U}$.
+
+	Alors:
+	\begin{align*}
+		f(x + h) = f(x) & + \displaystyle \sum_{p = 1}^{n} \frac{1}{p!}
+		\overbrace{d^{p}f(x)}^{\in \GScontinueHomo{E^{p}}{F}}
+		\overbrace{(h^{p})}^{\in E^{p}} \\
+		& + \int_{0}^{1} \frac{(1 - t)^{n}}{n!} \underbrace{[d^{n + 1}f(x +
+		th)]}_{\in \GScontinueHomo{E^{n+1}}{F}} \underbrace{(h^{n+1})}_{\in E^{n +
+		1}}
+	\end{align*}
+
+	Remarquons que $x + th \in \mathcal{U}$ par hypothèse sur $\mathcal{U}$,
+	donc c'est bien défini.
+\end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
 \subsection{Formules de Taylor-Lagrange}
 
+Donnons un autre corollaire du lemme
+\ref{lemma:taylor_formula_reste_derivative}.
+
+\begin{corollary}
+	Supposons que $g$ soit $n + 1$ fois dérivable.
+	On suppose également qu'il existe $M \geq 0$ tel que $\forall t \in [0, 1]$,
+	$\GSnormeDef{g^{(n + 1)}(t)}{F} \leq M$
+
+	Alors:
+
+	\begin{equation*}
+		\GSnormeDef{g(1) - g(0) - \displaystyle \sum_{p = 1}^{n} \frac{1}{p!}
+		g^{(p)}(0)}{F} \leq \frac{M}{(n + 1)!}
+	\end{equation*}
+\end{corollary}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+On en vient alors à la formule de Taylor-Lagrange:
+
+\begin{theorem} [Formule de Taylor-Lagrange]
+	\label{theorem:taylor_lagrange_formula}
+	Soient $E$ et $F$ deux espaces de Banach. Soit $\mathcal{U}$ un ouvert de
+	$E$.
+
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ $n + 1$-fois différentiable.
+	Soit $(x, h) \in (\mathcal{U} \cartesian E)$ tel que $\segment{x}{x + h}
+	\subseteq \mathcal{U}$.
+
+	On suppose que:
+	\begin{equation*}
+		\forall y \in \segment{x}{x + h}, \GSnormeDef{d^{n +
+		1}f(y)}{\GScontinueHomo{E^{n + 1}}{F}} \leq M
+	\end{equation*}
+	avec $M \geq 0$.
+
+	Alors:
+
+	\begin{equation*}
+		\GSnormeDef{f(x + h) - f(x) - \displaystyle \sum_{p = 1}^{n}
+		\frac{1}{p!} [d^{p}f(x)](h^{p})}{F} \leq \frac{M}{(n + 1)!}
+		\GSnormeDef{h}{E}^{n + 1}
+	\end{equation*}
+\end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\begin{exercice}
+	-- Retrouver l'inégalité des accroissements finis en utilisant les formules
+	de Taylor avec reste intégrale à l'ordre $1$ pour $f \in \mathcal{C}^{1}$.
+
+	-- Montrer la formule de Taylor-Lagrange pour $f$ de classe $\mathcal{C}^{n
+	+ 1}$ en utilisant la formule de Taylor avec reste intégrale.
+\end{exercice}
+
 \section{Formules de Taylor-Young}
+
+\begin{theorem}
+	\label{theorem:taylor_young_formula}
+	Soient $E$ et $F$ des espaces vectoriels normés. Soit $\mathcal{U}$ un
+	ouvert de $E$. Soit $a \in E$.
+
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ $n$-fois différentiable.
+
+	Alors:
+	\begin{align*}
+		f(a + h) = f(a) & + \displaystyle \sum_{p = 1}^{n} \frac{1}{p!}
+		[d^{p}f(a)] (h^{p}) \\
+						& + o(\GSnormeDef{h}{E}^{n})
+	\end{align*}
+\end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
