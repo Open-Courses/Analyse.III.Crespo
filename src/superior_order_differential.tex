@@ -57,7 +57,7 @@ Comme pour les fonctions dérivables, on définit les classes $\mathcal{C}^{n}$.
 La particularité de $d^{2}f(a)$ est d'appartenir à
 $\GScontinueHomo{E}{\GScontinueHomo{E}{F}}$ qui n'a pas l'air d'être un espace
 très facile à manipuler. Cependant, nous pouvons utiliser une isométrie vers un
-espace plus facile à manipuler: celui des fonctions bilinéaire de $E \cartesian
+espace plus facile à manipuler: celui des fonctions bilinéaire de $E \cartprod
 E$ dans $F$.
 
 \begin{proposition}
@@ -82,7 +82,7 @@ Dans le premier membre de l'isométrie, on a $d^{2}f(a)(h) \in
 évaluée dans $F$, et donc quand on applique en l'élément $k$, on obtient
 $[d^{2}f(a)(h)](k) \in F$.
 
-L'autre membre prend un élément de $(h, k) \in E \cartesian F$.
+L'autre membre prend un élément de $(h, k) \in E \cartprod F$.
 
 Dans la suite, nous considérerons la différentielle seconde grace à son
 isométrie.
@@ -97,7 +97,7 @@ est symétrique.
 	\label{theorem_schwarz}
 
 	Si $f$ est deux fois différentiable en $a$, alors $d^{2}f(a)(h, k) =
-	d^{2}f(a)(k, h)$ pour tout $(h, k) \in E \cartesian F$, c'est-à-dire que
+	d^{2}f(a)(k, h)$ pour tout $(h, k) \in E \cartprod F$, c'est-à-dire que
 	$d^{2}f(a)$ bilinéaire continue symétrique.
 \end{theorem}
 
@@ -322,13 +322,13 @@ Soit $T \in \GScontinueHomo{E, F}{G}$.
 
 On sait que $T$ est de classe $\mathcal{C}^{1}$, de plus:
 \begin{align*}
-	dT : & E \cartesian F \rightarrow \GScontinueHomo{E, F}{G} \\
+	dT : & E \cartprod F \rightarrow \GScontinueHomo{E, F}{G} \\
 	& (x, y) \rightarrow dT(x, y)
 \end{align*}
 
 où on a:
 \begin{align*}
-	dT(x, y) : & E \cartesian F \rightarrow G \\
+	dT(x, y) : & E \cartprod F \rightarrow G \\
 	& (a, b) \rightarrow T(a, y) + T(x, b)
 \end{align*}
 
@@ -338,7 +338,7 @@ On a donc $dT$ qui est différentiable, et sa différentielle est constante.
 Donc $d^{2}T$ est aussi différentiable, et $d^{3}T$ est nulle.
 
 Nous avons donc $d^{n}T = 0$ pour $n \geq 3$. D'où $T \in
-\mathcal{C}^{\infty}(E \cartesian F, G)$.
+\mathcal{C}^{\infty}(E \cartprod F, G)$.
 
 \subsubsection{Applications k-linéaires}
 
@@ -518,7 +518,7 @@ d'inversion local (\ref{theorem:local_inversion}).
 
 \begin{theorem}
 	Soient $E$, $F$, $G$ des espaces de Banach.
-	Soit $\mathcal{U}$ un ouvert de $E \cartesian F$.
+	Soit $\mathcal{U}$ un ouvert de $E \cartprod F$.
 	Soit $(a, b) \in \mathcal{U}$.
 
 	Soit $\GSfunction{f}{\mathcal{U}}{G}$ une application de classe
@@ -531,14 +531,14 @@ d'inversion local (\ref{theorem:local_inversion}).
 
 	Alors il existe un voisinage ouvert $\mathcal{V}$ de $a$ dans $E$ et
 	$\mathcal{W}$ voisinage ouvert de $b$ dans $F$ tel que $\mathcal{V}
-	\cartesian \mathcal{W} \subseteq \mathcal{U}$ et il existe une fonction
+	\cartprod \mathcal{W} \subseteq \mathcal{U}$ et il existe une fonction
 	$\GSfunction{\phi}{\mathcal{V}}{\mathcal{W}}$ de classe $\mathcal{C}^{n}$
 	tel que
 
 	\begin{align*}
 	\left\{
 		\begin{array}{r c l}
-			(x, y) \in \mathcal{V} \cartesian \mathcal{W} \\
+			(x, y) \in \mathcal{V} \cartprod \mathcal{W} \\
 			f(x, y) = 0
 		\end{array}
 	\right.

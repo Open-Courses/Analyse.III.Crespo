@@ -1,29 +1,55 @@
 \usepackage{amsmath}
 
+%-------------------------------------------------------------------------------
 \newcommand{\naturel}{\mathbb{N}}
 \newcommand{\integer}{\mathbb{Z}}
 \newcommand{\rational}{\mathbb{Q}}
 \renewcommand{\real}{\mathbb{R}} %Already defined in physics package
 \newcommand{\complex}{\mathbb{C}}
+%-------------------------------------------------------------------------------
 
 %Logical
 \def\implies{\Rightarrow}
 \def\equiv{\Leftrightarrow}
+%-------------------------------------------------------------------------------
 
 %Set theory
-\def\cartesian{\times} % Cartesian product
 \def\union{\cup} %Union
 \def\inter{\cap} %Intersection
 \newcommand{\comp}[1]{#1^{c}} %Complementary
+\def\cartprod{\cross}
+\newcommand{\cardinal}[1]{\#(#1)}
+%-------------------------------------------------------------------------------
 
 %Topology
 \def\interior{\mathring}
 \def\adh{\overline}
+%-------------------------------------------------------------------------------
+
+%Algebra
+
+% Group theory
+
+\def\isomorph{\simeq}
+\newcommand{\ordergroup}[1]{|#1|}
+\newcommand{\GSautomorphismDef}[2]{Aut_{\text{#1}}(#2)}
+
+% Field theory
+
+%extensionDegree
+\newcommand{\extensionDegree}[2]{[#1, #2]}
+
+%plongement
+\newcommand{\plongement}[3]{Hom_{#1}(#2, #3)}
+
+%Galois group
+\newcommand{\galoisGroup}[2]{GL(#1, #2)}
+% Spectrum Theory
+\newcommand{\spectrum}[1]{\sigma(#1)}
+\newcommand{\resolvant}[1]{\rho(#1)}
+
 \def\Ldeux{\mathcal{L}^{2}}
 \def\Ldeuxstar{(\mathcal{L}^{2})^{*}}
-
-%Normed space
-\def\identification{\cong}
 
 %GSsequence :
 %		#1 : represention of elements of the sequences
@@ -31,10 +57,14 @@
 %		#3 : set definition
 \newcommand{\GSsequence}[3]{(#1_{#2})_{#2 \in #3}}
 
-%GSset :
+%GSsetDef :
+%		#1 : set elements
+\newcommand{\GSset}[1]{\left\{ #1 \right\}}
+
+%GSsetDef :
 %		#1 : global set
 %		#2 : condition
-\newcommand{\GSset}[2]{\left\{#1 \, | \, #2 \right\}}
+\newcommand{\GSsetDef}[2]{\left\{#1 \, | \, #2 \right\}}
 
 %GSprodSet :
 %		#1 : indice
@@ -51,12 +81,21 @@
 \newcommand{\GSsum}[4]{\displaystyle \sum_{#1 = #2}^{#3} #4}
 
 \newcommand{\GSintervalCC}[2]{\left[#1, #2\right]}
+%-------------------------------------------------------------------------------
 
-\newcommand{\segment}[2]{S(#1, #2)}
 %Analysis :
 
-%GSApplication :
-%       #1 : name funtion
+% conjuguate
+\def\conjuguate{\overline}
+
+% miLength: multi-indice length
+\newcommand{\miLength}[1]{|#1|}
+
+% segment: all points between two points given
+\newcommand{\segment}[2]{S(#1, #2)}
+
+%GSfunction :
+%       #1 : name function
 %       #2 : begin set
 %       #3 : end set
 \newcommand{\GSfunction}[3]{#1 : #2 \rightarrow #3}
@@ -75,9 +114,8 @@
 %		#2 : \GSnorme[Def] with dot as element.
 \newcommand{\GSnormedSpace}[2]{(#1, #2)}
 
-%miLength :
-%		#1 : the multi indice name
-\newcommand{\miLength}[1]{\abs{#1}}
+%Identification
+\def\identification{\simeq}
 
 %GSdual
 %		#1 : vectorial space
@@ -88,6 +126,7 @@
 \newcommand{\GSbidual}[1]{#1^{**}}
 
 \newcommand{\GSunitBoule}[1]{\mathcal{B}_{#1}}
+\newcommand{\GSclosedUnitBoule}[1]{\adh{\GSunitBoule{#1}}}
 
 \newcommand{\GSweakTopo}[1]{\sigma(#1, #1^{*})}
 \newcommand{\GSpreweakTopo}[1]{\sigma(#1^{*}, #1)}
@@ -97,14 +136,34 @@
 
 %GShomomorphisme
 \newcommand{\GShomomorphisme}[2]{Hom(#1, #2)}
+\newcommand{\GShomomorphismeDef}[3]{Hom_{#1}(#2, #3)}
 
 %GScontinueEndo
 \newcommand{\GScontinueEndo}[1]{\mathcal{L}(#1)}
 
 %\GScontinueHomo
-\newcommand{\GScontinueHomo}[2]{\mathcal{L}(#1; #2)}
+\newcommand{\GScontinueHomo}[2]{\mathcal{L}(#1, #2)}
+
+%\GScompactEndo
+\newcommand{\GScompactEndo}[1]{\mathcal{K}(#1)}
+
+%\GScompactHomo
+\newcommand{\GScompactHomo}[2]{\mathcal{K}(#1, #2)}
+
+\newcommand{\GSfiniteRankHomo}[2]{\mathcal{R}_{f}(#1, #2)}
+\newcommand{\GSfiniteRankEndo}[1]{\mathcal{R}_{f}(#1)}
+
+\newcommand{\GSisomorphism}[1]{Isom(#1)}
+\newcommand{\GSisomorphismHomo}[2]{Isom(#1, #2)}
+\newcommand{\GSisometryEndo}[1]{Isom(#1)}
+%-------------------------------------------------------------------------------
 
 %Model theory
+
+\def\La{\mathcal{L}}
+\def\Th{\mathcal{T}}
+\def\SA{\mathcal{A}}
+\def\SB{\mathcal{B}}
 
 %Ultraproduct
 %	1 : indice elements
@@ -128,3 +187,18 @@
 
 %Elementary equivalent structures
 \newcommand{\GSelemEquivStructure}[3]{#2 \equiv_{#1} #3}
+%-------------------------------------------------------------------------------
+
+%Hilbert space
+\def\Hilbert{\mathcal{H}}
+\newcommand{\GSortho}[1]{#1^{\perp}}
+\def\GSid{\cong}
+\newcommand{\dotprod}[2]{\bra{#1}\ket{#2}}
+\newcommand{\adjointe}[1]{#1^{*}}
+%-------------------------------------------------------------------------------
+
+%Group representions
+\newcommand{\GSrepr}[2]{Repr(#1, #2)}
+\newcommand{\GSreprf}[2]{Repr_{f}(#1, #2)}
+\newcommand{\GSrepri}[2]{Repr_{i}(#1, #2)}
+%-------------------------------------------------------------------------------
