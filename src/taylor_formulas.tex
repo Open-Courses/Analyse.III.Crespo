@@ -174,8 +174,120 @@ On en vient alors à la formule de Taylor-Lagrange:
 	\end{align*}
 \end{theorem}
 
+Nous aurons d'abord besoin d'un lemme.
+
+\begin{lemma}
+	Soit $p \geq 2$. Soit $L \in \GScontinueHomo{E^{p}}{F}$ tel que $L$ est
+	symétrique.
+	Soit $\GSfunction{g}{E}{F} : h \rightarrow L(h^{p})$.
+
+	Alors $g$ est différentiable et $dg(h)(k) = p.L(\overbrace{h,
+	\cdots, h}^{n - 1}, k)$.
+\end{lemma}
+
+\ifdefined\outputproof
+\begin{proof} [du lemme]
+
+\end{proof}
+\fi
+
+\ifdefined\outputproof
+\begin{proof} [de la formule de Taylor-Young]
+
+\end{proof}
+\fi
+
+\section{Formules de Taylor dans le cas fondamental $E = \real^{d}$ où $d \geq
+2$}
+
+Nous allons tenter de donner une formule plus facile à utiliser dans le cas
+réel.
+
+
+\begin{theorem} [Taylor-Lagrange]
+	\label{theorem:taylor_formula_real_case}
+	Soit $F$ un espace de Banach.
+
+	Soit $\mathcal{U}$ un ouvert de $\real^{d}$.
+
+	Soient $a \in \mathcal{U}$ et $\GSfunction{f}{\mathcal{U}}{F}$ $n$-fois
+	différentiable en $a$.
+
+	Alors on a:
+
+	\begin{equation*}
+		f(a) + \displaystyle \sum_{p = 1}^{n} \frac{1}{p!} d^{p}f(a)(h^{p}) =
+		\sum_{\substack{\alpha \in \naturel^{d} \\ \miLength{\alpha} \leq n}}
+		\frac{h^{\alpha}}{\alpha !} \partial^{\alpha}f(a)
+	\end{equation*}
+\end{theorem}
+
 \ifdefined\outputproof
 \begin{proof}
 
 \end{proof}
 \fi
+
+Dans le cas de la formule de Taylor-Young, on obtient une formule semblable.
+
+\begin{theorem} [Formule de Taylor-Young réelle]
+	\label{theorem:taylor_young_formula_real_case}
+	Sous les mêmes hypothèses que \ref{theorem:taylor_formula_real_case}, on
+	obtient
+
+	\begin{equation*}
+		f(a + h) = f(a) + \sum_{\substack{\alpha \in \naturel^{d} \\
+		\miLength{\alpha} \leq n}} \frac{h^{\alpha}}{\alpha!}
+		\partial^{\alpha}f(a) + o(\GSnormeDef{h}{\real^{d}})
+	\end{equation*}
+	quand $h \rightarrow 0_{\real^{d}}$.
+\end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+Donnons quelques exemples très utilisés.
+
+\begin{exemple}
+	Soit $\mathcal{U}$ un ouvert de $\real^{3}$.
+	Soit $\GSfunction{f}{\mathcal{U}}{\real} : (x, y, z) \rightarrow f(x, y,
+	z)$.
+	Nous allons calculer la formule de Taylor-Young à l'ordre $2$ de $f$ en un
+	point $(a, b, c) \in \real^{3}$.
+
+	\begin{align*}
+		f(a + h, b + k, c + l) = f(a, b, c)
+		& + h \pdv{f}{x} (a, b, c) + k \pdv{f}{y} (a, b, c) + l \pdv{f}{z} (a, b,
+		c) \\
+		& + \frac{h^{2}}{2} \pdv[2]{f}{x} (a, b, c) + \frac{k^{2}}{2}
+		\pdv[2]{f}{y} (a, b, c) + \frac{l^{2}}{2} \pdv[2]{f}{z} (a, b, c) \\
+		& + hk \pdv{f}{x}{y} (a, b, c)
+		+ kl \pdv{f}{y}{z} (a, b, c) \\
+		& + hl \pdv{f}{x}{z} (a, b, c) \\
+		& + o(h^{2} + k^{2} + l^{2})
+	\end{align*}
+	quand $(h, k, l) \rightarrow 0_{\real^{3}}$.
+\end{exemple}
+
+\begin{exemple}
+	Soit $\mathcal{U}$ un ouvert de $\real^{2}$
+	Soit $\GSfunction{f}{\mathcal{U}}{\real} : (x, y) \rightarrow f(x, y)$.
+	Nous allons calculer la formule de Taylor-Young à l'ordre $3$ en un point
+	$(a, b) \in \real^{2}$.
+
+	La somme se base sur l'ensemble des multi-indice d'ordre $2$ (car nous
+	sommes dans $\real^{2}$ de longueur inférieure à $3$. On se retrouve donc
+	avec $\alpha = (3, 0)$ ou $\alpha = (0, 3)$ ou $\alpha = (2, 1)$ ou $\alpha
+	= (1, 2)$. Donc, on a
+
+	\begin{align*}
+		f(a + h, b + k) = f(a, b) & + h^{3} \pdv[3]{f}{x} (a, b) + k^{3} \pdv[3]{f}{y} (a,
+		b) \\
+		& + h^{2} k \frac{\partial^{3} f}{\partial x^{2} \partial y} (a, b) +
+		h k^{2} \frac{\partial^{3}{f}}{\partial x \partial y^{2}} (a, b) \\
+		& + o(h^{2} + k^{2})
+	\end{align*}
+\end{exemple}
