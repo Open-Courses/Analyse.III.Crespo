@@ -2,11 +2,125 @@
 
 \section*{Motivation et rappel d'analyse réel}
 
+\begin{theorem} [des accroissements finis]
+	\label{theorem:mean_value_theorem_real_rappel}
+	Soient $a, b \in \real$ tel que $a < b$.
+	Soit $\GSfunction{f}{[a, b]}{\real}$ tel que:
+
+	\begin{itemize}
+		\item $f$ est continue sur $[a, b]$
+		\item $f$ est dérivable sur $]a, b[$.
+	\end{itemize}
+
+	Alors il existe $c \in ]a, b[$ tel que $f(b) - f(a) = f'(c) (b - a)$.
+\end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\begin{proposition}
+	Supposons en plus que $\abs{f'(x)} \leq k$ pour tout $x \in ]a, b[$.
+	Alors $\abs{f(b) - f(a)} \leq k \abs{b - a}$.
+\end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+Remarquons que le théorème des accroissements finis n'est pas vrai dans le cas
+vectoriel. En effet, $\GSfunction{f}{[0, 2\pi]}{\real^{2}} : t \rightarrow
+(cos(t), sin(t))$ est un contre exemple.
+
 \section{Cas où $E = \real$}
+
+\begin{theorem}
+	Soient $a, b \in \real$ tel que $a < b$, et $F$ un espace vectoriel normé.
+	Soient $\GSfunction{f}{[a, b]}{F}$ et $\GSfunction{g}{[a, b]}{\real}$ tel
+	que:
+
+	\begin{itemize}
+		\item $f$ et $g$ sont continues sur $[a, b]$.
+		\item $f$ et $g$ sont dérivables sur $]a, b[$
+		\item $\forall x \in \, ]a, b[$, $\GSnormeDef{f'(x)}{F} \leq g'(x)$.
+	\end{itemize}
+
+	Alors on a $\GSnormeDef{f(b) - f(a)}{F} \leq \abs{g(b) - g(a)}$.
+\end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\begin{corollary}
+	Soient $a, b \in \real$ tel que $a < b$ et $F$ un espace vectoriel normé.
+	Soit $\GSfunction{f}{[a, b]}{F}$ continues sur $[a, b]$ et dérivable sur
+	$]a, b[$.
+
+	Supposons en plus qu'il existe $k > 0$ tel que pour tout $x \in ]a, b[$,
+	$\GSnormeDef{f'(x)}{F} \leq k$. Alors:
+
+	\begin{equation*}
+		\GSnormeDef{f(b) - f(a)}{F} \leq k (b - a).
+	\end{equation*}
+\end{corollary}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
 
 \section{Cas où $E$ est un espace vectoriel normé}
 
-\section{Applications}
+Soient $E$ et $F$ des espaces vectoriels normés.
+Soit $\mathcal{U}$ un ouvert de $E$.
+
+\begin{definition}
+	Soient $a, b \in E$. On définit \textbf{le segment d'extrémités $a$ et $b$}
+	l'ensemble $\segment{a}{b} := \GSsetDef{(1 - t) a + t b}{t \in [0, 1]}$.
+\end{definition}
+
+\begin{theorem}
+	Soit $\GSfunction{\mathcal{U}}{F}$ une application différentiable en tout
+	point de $\mathcal{U}$.
+	Soient $a, b$ tel que $\segment{a}{b} \subseteq \mathcal{U}$.
+	Alors:
+
+	\begin{equation*}
+		\GSnormeDef{f(b) - f(a)}{F} \leq \displaystyle \sup_{x \in \segment{a}{b}}
+		\GSnorme{df(x)} \GSnormeDef{b - a}{E}.
+	\end{equation*}
+
+	\label{theorem:mean_value_theorem}
+\end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\begin{remarque}
+	\begin{itemize}
+		\item Si $\mathcal{U}$ est convexe, c'est-à-dire que pour tout $a, b \in
+			E$, $\segment{a}{b} \subseteq \mathcal{U}$, alors on a:
+			\begin{equation*}
+				\GSnormeDef{f(b) - f(a)}{F} \leq \displaystyle \sup_{x \in \mathcal{U}}
+				\GSnorme{df(x)} \GSnormeDef{b - a}{E}.
+			\end{equation*}
+		\item Si la différentielle est nulle en tout point de $\mathcal{U}$,
+			alors $f$ est constante.
+	\end{itemize}
+\end{remarque}
+
+\section{Applications du théorème des accroissements finis}
 
 \subsection{Différentiabilité d'une limite d'applications différentiables}
 
