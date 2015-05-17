@@ -157,11 +157,17 @@ Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application.
 
 \end{proposition}
 
-On appelle $\pdv{f}{x_{i}}{x_{j}} (a)$, pour $1 \leq i, j \leq d$, \textbf{les
-dérivées partielles secondes de $f$ en $a$}.
+On appelle 
+\begin{equation*}
+	\pdv{f}{x_{i}}{x_{j}} (a)
+\end{equation*}
+pour $1 \leq i, j \leq d$, \textbf{les dérivées partielles secondes de $f$ en $a$}.
 
-De plus, on note $\pdv[2]{f}{x_{i}} (a) := \pdv{f}{x_{i}}{x_{i}} (a)$ pour tout $1 \leq i
-\leq d$.
+De plus, on note
+\begin{equation*}
+	\pdv[2]{f}{x_{i}} (a) := \pdv{f}{x_{i}}{x_{i}} (a)
+\end{equation*}
+pour $1 \leq i \leq d$.
 
 \ifdefined\outputproof
 \begin{proof}
@@ -287,6 +293,80 @@ On a donc:
 				h_{1}}^{2} f(a) + \lambda \partial_{k, h_{2}}^{2} f(a)$
 		\item $\partial_{k, h}^{2} f(a) = \partial_{h, k}^{2} f(a)$
 	\end{enumerate}
+\end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\subsection{Exemple fondamental où $E = \real^{n}$}
+
+Posons $\mathcal{B} = (e_{i})_{1 \leq i \leq n}$ la base canonique de $R^{n}$,
+et $E_{i} = \spanspace{e_{i}} \isomorph \real$.
+
+Prenons $\mathcal{U}$ un ouvert de $\real^{n}$.
+Soit $\GSfunction{f}{\mathcal{U}}{F}$ une fonction de classe $\mathcal{C}^{2}$ où
+$F$ un $\real$-espace vectoriel normé.
+
+On a alors l'indentification
+
+\begin{align*}
+	\GScontinueHomo{E_{i}, E_{j}}{F} \identification F
+\end{align*}
+
+et donc $ \displaystyle \pdv{f}{x_{i}}{x_{j}} (a) \in F$.
+
+On obtient
+\begin{equation*}
+	d^{2}f(a) (h, k) = \displaystyle \sum_{1 \leq i, j \leq n} \overbrace{h_{i} k_{j}}^{\in
+	\real} \underbrace{\pdv{f}{x_{i}}{x_{j}} (a)}_{\in F}
+\end{equation*}
+pour tout $h = (h_{1}, \cdots, h_{n}) \in \real^{n}$ et $k = (k_{1}, \cdots,
+k_{n}) \in \real^{n}$.
+
+On a donc $\displaystyle d^{2}f(a)(h, k) \in F$.
+
+Par bilinéarité, on a $\displaystyle \pdv{f}{x_{i}}{x_{j}} (a) (\lambda e_{i}, \mu
+e_{j}) = \lambda \mu \pdv{f}{x_{i}}{x_{j}} (a) (e_{i}, e_{j})$.
+
+On remarque alors qu'il nous suffit de connaitre comment agit
+$\pdv{f}{x_{i}}{x_{j}} (a)$ sur les éléments de la base.
+
+\subsubsection{$F = \real$}
+
+Soit $\GSfunction{f}{\mathcal{U}}{\real}$ une fonction $2$ fois différentiable
+en un point $a \in \mathcal{U}$.
+
+\begin{definition}
+	On appelle \textbf{matrice hessienne ou hessienne} de $f$ au point $a$,
+	notée $\hessienneMatrix{f}{a}$ la matrice \textit{symétrique} de
+	$M_{n}(\real)$ suivante:
+
+	\begin{equation*}
+		\hessienneMatrix{f}{a} := \displaystyle
+		\left(\pdv{f}{x_{i}}{x_{j}} (a) \right)_{1
+		\leq i, j \leq n}
+	\end{equation*}
+
+	En particulier, $\hessienneMatrix{f}{a} \in S_{n}(\real)$.
+\end{definition}
+
+La matrice hessienne $\hessienneMatrix{f}{a}$ est la matrice représentative de
+la forme bilinéaire $d^{2}f (a) \in \GScontinueHomo{\real^{n},
+\real^{n}}{\real}$.
+En effet, on a
+
+\begin{align*}
+	\left(\hessienneMatrix{f}{a}\right)_{ij} & := \pdv{f}{x_{i}}{x_{j}} (a) \\
+								& = d^{2}f (a) (e_{i}, e_{j})
+\end{align*}
+
+On obtient alors la formule, pour tout $h, k \real^{n}$:
+
+\begin{proposition}
+	$d^{2}f(a)(h, k) = H^{t} \, \hessienneMatrix{f}{a} \, K$
 \end{proposition}
 
 \ifdefined\outputproof
