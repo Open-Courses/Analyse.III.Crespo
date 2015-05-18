@@ -1,10 +1,26 @@
 \chapter{Formules de Taylor}
 
+\section*{Motivation}
+
+Dans ce chapitre, nous allons donner des méthodes permettant d'approximer des
+fonctions différentiables sur leur domaine de définition. Ces méthodes, ou
+formules sont appelées \textit{formules de Taylor}.
+
+Il y aura principalement deux types de formules de Taylor: globales et locales.
+Ces formules permettent de donner une approximation de la fonction, et permet
+également de calculer l'erreur que nous faisons sur cette approximation. Les
+deux types se distinguent sur la précision de l'erreur qu'elles donnent.
+
+Les formules de Taylor globales permettent de donner explicitement l'erreur
+engendrée, tandis que les formules de Taylor locales nous donnent l'erreur en
+$o(.)$, c'est-à-dire par majoration de l'erreur.
+
 \section{Formules de Taylor de type global}
 
 \subsection{Formules de Taylor avec reste intégral}
 
-Commençons d'abord par un lemme:
+Commençons d'abord par un lemme sur les fonctions réelles dérivables à valeur
+dans un espace de Banach:
 
 \begin{lemma}
 	\label{lemma:taylor_formula_reste_derivative}
@@ -25,12 +41,21 @@ Commençons d'abord par un lemme:
 \end{proof}
 \fi
 
+\begin{remarque}
+	L'hypothèse ne demande pas que la dérivée $n + 1$ ème soit continue !
+\end{remarque}
+
 Rappelons que l'intégrale de Riemann telle que construite pour une fonction d'un
 intervalle $I$ réel à valeurs dans $\real$  peut-être construite de la même
 manière pour une fonction d'un intervalle $I$ réel à valeur dans \textit{un
 espace de Banach}. La construction est la même, et les résultats obtenus dans le
 cas réel, peuvent aussi être démontrés dans le cas d'un espace de Banach
 quelconque.
+
+Maintenant nous allons être un peu plus exigeant sur les hypothèses de
+\ref{lemma:taylor_formula_reste_derivative}, et en donne une version intégrale.
+Nous allons supposer en plus que l'intervalle comprend $[0, 1]$, et que la $n +
+1$ dérivée de $f$ est \textit{continue}.
 
 Nous obtenons alors une version intégrale du lemme
 \ref{lemma:taylor_formula_reste_derivative}:
@@ -61,6 +86,8 @@ Posons une notation qui simplifiera l'écriture pour les prochains théorèmes.
 	On note aussi parfois $h^{[n]}$ ou $(h)^{n}$.
 \end{notation}
 
+Revenons maintenant au cas où l'espace de départ est un espace de Banach.
+
 Nous en venons alors au théorème de formule de Taylor avec reste intégral.
 
 \begin{theorem}
@@ -74,12 +101,18 @@ Nous en venons alors au théorème de formule de Taylor avec reste intégral.
 
 	Alors:
 	\begin{align*}
-		f(x + h) = f(x) & + \displaystyle \sum_{p = 1}^{n} \frac{1}{p!}
-		\overbrace{d^{p}f(x)}^{\in \GScontinueHomo{E^{p}}{F}}
-		\overbrace{(h^{p})}^{\in E^{p}} \\
-		& + \int_{0}^{1} \frac{(1 - t)^{n}}{n!} \underbrace{[d^{n + 1}f(x +
-		th)]}_{\in \GScontinueHomo{E^{n+1}}{F}} \underbrace{(h^{n+1})}_{\in E^{n +
-		1}}
+		f(x + h) = & \overbrace
+		{
+			f(x) + \displaystyle \sum_{p = 1}^{n} \frac{1}{p!}
+			\overbrace{d^{p}f(x)}^{\in \GScontinueHomo{E^{p}}{F}}
+			\overbrace{(h^{p})}^{\in E^{p}}
+		}^{\text{Approximation}} \\
+		& + \underbrace
+		{
+			\int_{0}^{1} \frac{(1 - t)^{n}}{n!} \underbrace{[d^{n + 1}f(x +
+			th)]}_{\in \GScontinueHomo{E^{n+1}}{F}} \underbrace{(h^{n+1})}_{\in E^{n +
+			1}}
+		}_{\text{Erreur}}
 	\end{align*}
 
 	Remarquons que $x + th \in \mathcal{U}$ par hypothèse sur $\mathcal{U}$,
@@ -91,6 +124,11 @@ Nous en venons alors au théorème de formule de Taylor avec reste intégral.
 
 \end{proof}
 \fi
+
+Le théorème \ref{theorem:taylor_formula_reste_integral} nous donne une valeur
+précise de l'erreur que nous faisons sur l'approximation (bien qu'elle soit
+donnée à travers une intégrale, qui n'est pas toujours explicitement
+calculable).
 
 \subsection{Formules de Taylor-Lagrange}
 
@@ -159,6 +197,24 @@ On en vient alors à la formule de Taylor-Lagrange:
 
 \section{Formules de Taylor-Young}
 
+Nous aurons d'abord besoin d'un lemme.
+
+\begin{lemma}
+	Soit $p \geq 2$. Soit $L \in \GScontinueHomo{E^{p}}{F}$ tel que $L$ est
+	symétrique.
+	Soit $\GSfunction{g}{E}{F} : h \rightarrow L(h^{p})$.
+
+	Alors $g$ est différentiable et $dg(h)(k) = p.L(\overbrace{h,
+	\cdots, h}^{p - 1}, k)$.
+\end{lemma}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+
 \begin{theorem}
 	\label{theorem:taylor_young_formula}
 	Soient $E$ et $F$ des espaces vectoriels normés. Soit $\mathcal{U}$ un
@@ -168,32 +224,14 @@ On en vient alors à la formule de Taylor-Lagrange:
 
 	Alors:
 	\begin{align*}
-		f(a + h) = f(a) & + \displaystyle \sum_{p = 1}^{n} \frac{1}{p!}
-		[d^{p}f(a)] (h^{p}) \\
-						& + o(\GSnormeDef{h}{E}^{n})
+		f(a + h) = & \overbrace{f(a) + \displaystyle \sum_{p = 1}^{n} \frac{1}{p!}
+		[d^{p}f(a)] (h^{p})}^{\text{Approximation}} \\
+		& + \underbrace{o(\GSnormeDef{h}{E}^{n})}_{\text{Erreur}}
 	\end{align*}
 \end{theorem}
 
-Nous aurons d'abord besoin d'un lemme.
-
-\begin{lemma}
-	Soit $p \geq 2$. Soit $L \in \GScontinueHomo{E^{p}}{F}$ tel que $L$ est
-	symétrique.
-	Soit $\GSfunction{g}{E}{F} : h \rightarrow L(h^{p})$.
-
-	Alors $g$ est différentiable et $dg(h)(k) = p.L(\overbrace{h,
-	\cdots, h}^{n - 1}, k)$.
-\end{lemma}
-
 \ifdefined\outputproof
-\begin{proof} [du lemme]
-
-\end{proof}
-\fi
-
-\ifdefined\outputproof
-\begin{proof} [de la formule de Taylor-Young]
-
+\begin{proof}
 \end{proof}
 \fi
 
@@ -258,6 +296,25 @@ Donnons quelques exemples très utilisés.
 	Nous allons calculer la formule de Taylor-Young à l'ordre $2$ de $f$ en un
 	point $(a, b, c) \in \real^{3}$.
 
+	Pour les multi-indices de longueur $2$ on a:
+	\begin{itemize}
+		\item $\alpha = (2, 0, 0)$
+		\item $\alpha = (0, 2, 0)$
+		\item $\alpha = (0, 0, 2)$
+		\item $\alpha = (1, 1, 0)$
+		\item $\alpha = (1, 0, 1)$
+		\item $\alpha = (0, 1, 1)$
+	\end{itemize}
+
+	Pour les multi-indices de longueur $1$ on a:
+	\begin{itemize}
+		\item $\alpha = (1, 0, 0)$
+		\item $\alpha = (0, 1, 0)$
+		\item $\alpha = (0, 0, 1)$
+	\end{itemize}
+
+	Nous obtenons alors:
+
 	\begin{align*}
 		f(a + h, b + k, c + l) = f(a, b, c)
 		& + h \pdv{f}{x} (a, b, c) + k \pdv{f}{y} (a, b, c) + l \pdv{f}{z} (a, b,
@@ -279,15 +336,43 @@ Donnons quelques exemples très utilisés.
 	$(a, b) \in \real^{2}$.
 
 	La somme se base sur l'ensemble des multi-indice d'ordre $2$ (car nous
-	sommes dans $\real^{2}$ de longueur inférieure à $3$. On se retrouve donc
-	avec $\alpha = (3, 0)$ ou $\alpha = (0, 3)$ ou $\alpha = (2, 1)$ ou $\alpha
-	= (1, 2)$. Donc, on a
+	sommes dans $\real^{2}$) de longueur inférieure à $3$.
 
+	Pour les multi-indices de longueur $3$ on a:
+	\begin{itemize}
+		\item $\alpha = (3, 0)$
+		\item $\alpha = (2, 1)$
+		\item $\alpha = (1, 2)$
+		\item $\alpha = (0, 3)$
+	\end{itemize}
+
+	Pour les multi-indices de longueur $2$ on a:
+	\begin{itemize}
+		\item $\alpha = (2, 0)$
+		\item $\alpha = (1, 1)$
+		\item $\alpha = (0, 2)$
+	\end{itemize}
+
+	Pour les multi-indices de longueur $1$ on a:
+	\begin{itemize}
+		\item $\alpha = (1, 0)$
+		\item $\alpha = (0, 1)$
+	\end{itemize}
+
+	On a donc
 	\begin{align*}
-		f(a + h, b + k) = f(a, b) & + h^{3} \pdv[3]{f}{x} (a, b) + k^{3} \pdv[3]{f}{y} (a,
-		b) \\
-		& + h^{2} k \frac{\partial^{3} f}{\partial x^{2} \partial y} (a, b) +
-		h k^{2} \frac{\partial^{3}{f}}{\partial x \partial y^{2}} (a, b) \\
+		f(a + h, b + k) = f(a, b)
+		% Longueur 1
+		& + \pdv{f}{x} (a, b) + \pdv{f}{y} (a, b) \\
+		% Longueur 2
+		& + \frac{h^{2}}{2} \frac{\partial^{2}{f}}{\partial x^{2}} (a, b) + hk
+		\frac{\partial^{2}{f}}{\partial xy} (a, b) + \frac{k^{2}}{2}
+		\frac{\partial^{2}{f}}{\partial y^{2}} (a, b) \\
+		% Longueur 3
+		& + \frac{h^{3}}{3!} \pdv[3]{f}{x} (a, b) + \frac{k^{3}}{3!} \pdv[3]{f}{y} (a, b) \\
+		& + \frac{h^{2} k}{2} \frac{\partial^{3} f}{\partial x^{2} \partial y} (a, b) +
+		\frac{h k^{2}}{2} \frac{\partial^{3}{f}}{\partial x \partial y^{2}} (a, b) \\
+		% Reste
 		& + o(h^{2} + k^{2})
 	\end{align*}
 \end{exemple}
