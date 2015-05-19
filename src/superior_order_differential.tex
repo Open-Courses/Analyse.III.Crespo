@@ -12,7 +12,7 @@ $\GSfunction{df}{\mathcal{U}}{\GScontinueHomo{E}{F}} : x \rightarrow df(x)$.
 
 On va s'intéresser à la différentielle de $df$.
 
-\subsection{Définition et propriétés}
+\subsection{Définitions et propriétés}
 
 \begin{definition}
 	Soit $a \in \mathcal{U}$. On dit que $f$ est \textbf{deux fois
@@ -28,8 +28,8 @@ On va s'intéresser à la différentielle de $df$.
 \end{definition}
 
 Dans la définition, nous demandons que $f$ soit différentiable sur un
-voisinage ouvert de $a$ car nous voulons définir $df$ sur un ouvert. $f$ doit
-donc être différentiable sur un ouvert pour que $df$ soit définie sur un ouvert.
+voisinage ouvert de $a$. Cela est motivé par le fait que nous souhaitons définir
+la différentielle de $df$, qui nécessite que $df$ soit définie sur un ouvert.
 
 Remarquons également que $d^{2}f(a) \in
 \GScontinueHomo{E}{\GScontinueHomo{E}{F}}$.
@@ -61,6 +61,7 @@ espace plus facile à manipuler: celui des fonctions bilinéaire de $E \cartprod
 E$ dans $F$.
 
 \begin{proposition}
+	\label{prop:identification_bilineaire}
 	Soit $E, F, G$ des espaces vectoriels normés.
 
 	Alors $\GScontinueHomo{E}{\GScontinueHomo{F}{G}} \identification
@@ -82,13 +83,13 @@ Dans le premier membre de l'isométrie, on a $d^{2}f(a)(h) \in
 évaluée dans $F$, et donc quand on applique en l'élément $k$, on obtient
 $[d^{2}f(a)(h)](k) \in F$.
 
-L'autre membre prend un élément de $(h, k) \in E \cartprod F$.
+L'autre membre prend un élément $(h, k)$ de $E \cartprod E$, attribue un
+élément de $F$.
 
-Dans la suite, nous considérerons la différentielle seconde grace à son
-isométrie.
+Dans la suite, nous considérerons la différentielle seconde en $a$ en tant
+qu'application bilinéaire continue, donnée à travers l'isométrie.
 
-En réalité, la différentielle seconde possède une propriété intéressante: elle
-est symétrique.
+Donnons une propriété intéressante de la différentielle seconde.
 
 \begin{theorem}
 	[symétrie de Schwarz \footnote{Karl Hermann Amandus Schwarz (25/01/1843 -
@@ -113,7 +114,7 @@ que $[d^{2}f(a)(h)](k) = [d^{2}f(a)(k)](h)$
 
 \subsection{Dérivées partielles secondes}
 
-Soient $(E_{i})_{1 \leq i \leq n}$ des espaces vectoriels normées, $E =
+Soient $E_{1}, \cdots, E_{d}$ des espaces vectoriels normés, $E =
 \GSprodSet{i}{1}{d}{E}$, et $F$ un espace vectoriel normé.
 
 Soient, pour chaque $i$, $\mathcal{U}_{i}$ un ouvert de $E_{i}$, et posons
@@ -192,7 +193,8 @@ pour $1 \leq i \leq d$.
 	Si $f$ est deux fois différentiable au point $a$, on a $f$ différentiable
 	sur un voisinage ouvert $\mathcal{V}_{a}$ de $a$ contenu dans $\mathcal{U}$.
 	Nous avons même que $f$ est de classe $\mathcal{C}^{1}$ sur
-	$\mathcal{V}_{a}$ car différentiable sur $\mathcal{V}_{a}$.
+	$\mathcal{V}_{a}$ car $df$ est différentiable sur $\mathcal{V}_{a}$ (et donc
+	.continue en particulier).
 	On a aussi que $df : \mathcal{V}_{a} \rightarrow \GScontinueHomo{E}{F}$ est
 	différentiable en $a$.
 
@@ -310,7 +312,7 @@ Prenons $\mathcal{U}$ un ouvert de $\real^{n}$.
 Soit $\GSfunction{f}{\mathcal{U}}{F}$ une fonction de classe $\mathcal{C}^{2}$ où
 $F$ un $\real$-espace vectoriel normé.
 
-On a alors l'indentification
+On a alors l'identification
 
 \begin{align*}
 	\GScontinueHomo{E_{i}, E_{j}}{F} \identification F
@@ -334,10 +336,20 @@ e_{j}) = \lambda \mu \pdv{f}{x_{i}}{x_{j}} (a) (e_{i}, e_{j})$.
 On remarque alors qu'il nous suffit de connaitre comment agit
 $\pdv{f}{x_{i}}{x_{j}} (a)$ sur les éléments de la base.
 
-\subsubsection{$F = \real$}
+\subsection{Exemple fondamental où $E = \real^{n}$ et $F = \real$}
 
 Soit $\GSfunction{f}{\mathcal{U}}{\real}$ une fonction $2$ fois différentiable
 en un point $a \in \mathcal{U}$.
+
+Par les remarques précedentes, on a:
+\begin{equation*}
+	d^{2}f(a) (h, k) = \displaystyle \sum_{1 \leq i, j \leq n} \overbrace{h_{i} k_{j}}^{\in
+	\real} \underbrace{\pdv{f}{x_{i}}{x_{j}} (a)}_{\in \real}
+\end{equation*}
+pour tout $h = (h_{1}, \cdots, h_{n}) \in \real^{n}$ et $k = (k_{1}, \cdots,
+k_{n}) \in \real^{n}$.
+
+On a donc $\displaystyle d^{2}f(a)(h, k) \in \real$.
 
 \begin{definition}
 	On appelle \textbf{matrice hessienne ou hessienne} de $f$ au point $a$,
@@ -363,10 +375,12 @@ En effet, on a
 								& = d^{2}f (a) (e_{i}, e_{j})
 \end{align*}
 
-On obtient alors la formule, pour tout $h, k \real^{n}$:
+On obtient alors la formule, pour tout $h, k \in \real^{n}$:
 
 \begin{proposition}
 	$d^{2}f(a)(h, k) = H^{t} \, \hessienneMatrix{f}{a} \, K$
+	où $H = (h_{1}, \cdots, h_{n})$, et $K = (k_{1}, \cdots, k_{n})$ (vus comme
+	matrices).
 \end{proposition}
 
 \ifdefined\outputproof
@@ -378,6 +392,241 @@ On obtient alors la formule, pour tout $h, k \real^{n}$:
 \section{Différentielles d'ordre supérieur}
 
 \subsection{Définitions et quelques propriétés}
+
+Nous allons généraliser la notion de différentielle, et particulièrement
+l'identification \ref{prop:identification_bilineaire}.
+
+\begin{proposition}
+	Soient $E_{1}, \cdots, E_{n}$ et $F$ des espaces vectoriels normés.
+	Alors, pour tout $1 \leq p \leq n$, il existe une isométrie linéaire
+	bijective
+
+	\begin{equation*}
+		\phi : \GScontinueHomo[n]{E_{1}, \cdots, E_{n}}{F} \rightarrow
+		\GScontinueHomo[p]{E_{1}, \cdots, E_{p}}{\GScontinueHomo[n - (p + 1)]{E_{p + 1}, \cdots,
+		E_{n}}{F}}
+	\end{equation*}
+\end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+Maintenant, passons à la notion de différentiabilité.
+
+On va définir par récurrence la propriété pour une application
+$\GSfunction{f}{\mathcal{U}}{F}$ d'être $n$-fois différentiable, et définir
+sa différentielle d'ordre $n$.
+
+\begin{definition}
+	Soit $E$ un espace vectoriel normé. Soient $\mathcal{U}$ un ouvert de $E$,
+	et $a \in \mathcal{U}$.
+
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application différentiable.
+	Soit $n \geq 2$.
+
+	On dit que $f$ est \textbf{$n$-fois différentiable en $a$} si $f$ est $n - 1$ fois
+	différentiable sur un ouvert $\mathcal{V}_{a}$ compris dans $\mathcal{U}$,
+	et si l'application
+
+	\begin{equation*}
+		d^{n - 1} f : \mathcal{V}_{a} \rightarrow \GScontinueHomo[n -1]{E}{F}
+	\end{equation*}
+
+	est différentiable en $a$.
+	On note alors $d^{n} f (a) := d (d^{n - 1}f) (a) \in
+	\GScontinueHomo[n]{E}{F}$ \textbf{la
+	différentielle d'ordre $n$ de $f$ en $a$}, qui est la différentielle de
+	$d^{n - 1} f$ au point $a$.
+\end{definition}
+
+Nous pouvons alors généraliser la notion \textit{d'être de classe
+	$\mathcal{C}^{n}$}.
+
+\begin{definition}
+	\begin{itemize}
+		\item Si $f$ est $n$-fois différentiable en tout point de $a$ de
+			$\mathcal{U}$, on dit que $f$ est \textbf{$n$-fois différentiable}.
+		\item On dit que \textbf{$f$ est de classe $\mathcal{C}^{n}$} si $f$ est
+			$n$-fois différentiable et que l'application
+			\begin{equation*}
+				d^{n} f : \mathcal{U} \rightarrow \GScontinueHomo[n]{E}{F}
+			\end{equation*}
+			est continue.
+	\end{itemize}
+\end{definition}
+
+\begin{remarque}
+	Si $f$ est de classe $\mathcal{C}^{n}$, alors $f$ est de classe
+	$\mathcal{C}^{n - 1}$.
+\end{remarque}
+
+On définit alors une dernière classe d'applications, très utilisée (par exemple
+en géométrie différentielle, et en physique).
+
+\begin{definition}
+	On dit que \textbf{$f$ est de classe $\mathcal{C}^{\infty}$} ou \textbf{$f$
+	est indéfiniment différentiable} si pour tout $n \in
+	\naturel$, $f$ est de classe $\mathcal{C}^{n}$.
+
+	On parle aussi \textbf{d'application lisse (smooth map en anglais)}.
+\end{definition}
+
+Nous obtenons alors les mêmes résultats que lorsque nous avons défini la notion
+de différentielle et de classe $\mathcal{C}^{1}$.
+
+\begin{proposition} [Linéarité]
+	Soient $E$ et $F$ deux espaces vectoriels normés. Soient $\mathcal{U}$ un ouvert de $E$,
+	et $a \in \mathcal{U}$.
+
+	Soient $\GSfunction{f}{\mathcal{U}}{F}$ et $\GSfunction{\mathcal{U}}{F}$
+	deux applications $n$-fois différentiables en $a$ (resp. de classe $\mathcal{C}^{n}$).
+	Soit $\lambda \in \mathbb{K}$.
+
+	Alors
+
+	\begin{itemize}
+		\item $f + g$ est $n$-fois différentiable en $a$ (resp. de classe
+			$\mathcal{C}^{n}$) et $d^{n}(f + g) (a) = d^{n}f(a) + d^{n}g(a)$
+			(resp. $d^{n} (f + g) = d^{n} f + d^{n} g$).
+		\item $\lambda f$ est $n$-fois différentiable en $a$ (resp. de classe
+			$\mathcal{C}^{n}$ et $d^{n} (\lambda f) (a) = \lambda d^{n} f (a)$
+			(resp $d^{n} (\lambda f) = \lambda d^{n} f$).
+	\end{itemize}
+\end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\begin{remarque}
+	En particulier, les applications $n$-fois différentiables en $a$ (resp de
+	classe $\mathcal{C}^{n}$) forment un sous espace vectoriel des fonctions de
+	$\mathcal{U}$ dans $F$.
+
+	$\mathcal{C}^{n}$ est donc un espace vectoriel (normé).
+\end{remarque}
+
+Continuons à généraliser les concepts de la section précédente. Passons au
+théorème de symétrie de Schwarz. Nous l'avions montré pour $n = 2$.
+
+\begin{definition}
+	Soit $n \in \naturel^{> 0}$, on note $S_{n}$ l'ensemble des applications
+	bijectives de l'ensemble à $n$ éléments sur lui-même, c'est-à-dire le groupe
+	de permutations de l'ensemble $\GSset{1, \cdots, n}$.
+\end{definition}
+
+Nous pouvons alors généraliser la notion de symétrie.
+
+\begin{definition} [Application symétrique]
+	Soient $n \geq 1$ et $T : \overbrace{X \cartprod \cdots \cartprod X}^{n
+		\text{ fois}} \rightarrow Y$ une application où $X$ et $Y$ sont des
+		ensembles quelconques.
+
+	On dit que $T$ est \textbf{symétrique} si
+	$\forall \sigma \in S_{n}$, $\forall x_{1}, \cdots, x_{n} \in X$
+
+	\begin{equation*}
+		T(x_{\sigma(1)}, \cdots, x_{\sigma(n)}) = T(x_{1}, \cdots, x_{n})
+	\end{equation*}
+
+\end{definition}
+
+\begin{remarque}
+	On note parfois $T_{\sigma} (x_{1}, \cdots, x_{n}) = T(x_{\sigma(1)},
+	\cdots, x_{\sigma(n)})$. On construit alors l'application
+	\begin{equation*}
+		T_{\sigma} : X \cartprod \cdots \cartprod X \rightarrow Y : (x_{1},
+		\cdots, x_{n}) \rightarrow T(x_{\sigma(1)}, \cdots, x_{\sigma(n)})
+	\end{equation*}
+\end{remarque}
+
+Dans notre cas, nous allons nous consacrer aux cas où $X = E$ et $Y = F$ où $E$
+et $F$ sont des espaces vectoriels normés, et où $T$ est une application $n$-linéaire continue.
+
+Donnons d'abord un moyen de construire des fonctions symétriques.
+
+\begin{proposition}
+	Soit $T$ une application $n$-linéaire de $E \cartprod \cdots \cartprod E$
+	dans $F$ où $E$ et $F$ sont des espaces vectoriels normés.
+
+	Alors l'application
+	\begin{equation*}
+		\tilde{T} : E \cartprod \cdots \cartprod E \rightarrow F : (x_{1},
+		\cdots, x_{n}) \rightarrow \frac{1}{n !} \sum_{\sigma \in S_{n}}
+		T_{\sigma} (x_{1}, \cdots, x_{n})
+	\end{equation*}
+
+	est symétrique.
+\end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+% Notation des applications linéaires continues symétriques. Créer une nouvelle
+% commande
+
+\begin{lemma}
+	Soient $E$ et $F$ des espaces vectoriels normés.
+	Soient $\mathcal{U}$ un ouvert de $E$, et $a \in \mathcal{U}$.
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application différentiable en $a$.
+
+	Soit $G$ un sous-espace vectoriel \textbf{fermé} de $F$ tel que
+	$f(\mathcal{U}) \subseteq G$.
+
+	Alors $\Im(df(a)) \subseteq G$, c'est-à-dire que nous avons $df(a) \in
+	\GScontinueHomo{E}{G}$.
+\end{lemma}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\begin{lemma}
+	Soient $n \in \naturel^{\geq 2}$, $1 \leq p \leq n - 1$.
+
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ est $n$-fois différentiable en $a$.
+
+	Alors il existe un voisinage ouvert $\mathcal{V}_{a}$ de $a$ dans $E$ avec
+	$\mathcal{V}_{a} \subseteq \mathcal{U}$ tel que $f$ soit ($n - p$)-fois
+	différentiable sur $\mathcal{V}_{a}$ et tel que $d^{n - p}f :
+	\mathcal{V}_{a} \rightarrow \GScontinueHomo[n - p]{E}{F}$ soit $p$-fois
+	différentiable en $a$. On a alors $d^{p} (d^{n - p} f) (a) = d^{n} f(a)$
+\end{lemma}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\begin{theorem}
+	\label{theorem:symetry_schwarz_generalized}
+	Soient $E$ et $F$ des espaces vectoriels normés.
+	Soient $\mathcal{U}$ un ouvert de $E$, $a \in \mathcal{U}$ et $n \geq 2$.
+
+	Alors $d^{n}f(a) \in \GScontinueHomo[n]{E}{F}$ est symétrique, c'est-à-dire
+	pour tout $\sigma \in S_{n}$, pour tout $h = (h_{1}, \cdots, h_{n}) \in E^{n}$
+	\begin{equation*}
+		d^{n}f (a) (h_{\sigma(1)}, \cdots, h_{\sigma(n)}) = d^{n}f (a) (h_{1},
+		\cdots, h_{n})
+	\end{equation*}
+\end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
 
 \subsection{Règles de calcul et résultats généralisés}
 
