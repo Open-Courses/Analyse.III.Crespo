@@ -378,8 +378,10 @@ obtient des assertions proches du cas linéaire.
 \end{proof}
 \fi
 
-On note $\GScontinueHomo{E_{1}, \ldots, E_{n}}{F}$ l'ensemble des applications
-$n$-linéaires continues, et $\GScontinueEndo{E_{1}, \ldots, E_{n}}$ si $F =
+On note $\GScontinueHomo[n]{E_{1}, \ldots, E_{n}}{F}$ ou
+$\GScontinueHomo[n]{E}{F}$ (dans le cas où $E = \prod_{i = 1}{n} E_{i}$) l'ensemble des applications
+$n$-linéaires continues, et $\GScontinueEndo[n]{E_{1}, \ldots, E_{n}}$ ou
+$\GScontinueEndo[n]{E}$ (dans le cas où $E = \prod_{i = 1}^{n} E_{i}$) si $F =
 \GSprodSet{i}{1}{n}{E}$.
 
 \begin{remarque}
@@ -391,7 +393,7 @@ Dans le cas particulier où chaque $E_{i}$ est de dimension finie, on a que
 chaque application linéaire continue, comme dans le cas linéaire.
 
 \begin{proposition}
-	Si chaque $E_{i}$ est de dimension finie, alors $\GScontinueHomo{E_{1},
+	Si chaque $E_{i}$ est de dimension finie, alors $\GScontinueHomo[n]{E_{1},
 	\ldots, E_{n}}{F} = \GShomomorphisme{E_{1}, \ldots, E_{n}}{F}$.
 \end{proposition}
 
