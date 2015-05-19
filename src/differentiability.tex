@@ -373,8 +373,26 @@ espace de départ un produit d'espaces vectoriels.
 	\end{equation*}
 \end{proposition}
 
-\subsubsection{Exemple fondamental avec $E = \real^{n}$}
+\subsubsection{Exemple fondamental}
 
+Prenons $E = F = \real^{n}$ pour $n \in \naturel^{> 0}$.
+
+Soit $\mathcal{U}$ un ouvert de $\real^{n}$.
+Soit $\GSfunction{f}{\mathcal{U}}{\real^{n}}$.
+
+Supposons que $f$ soit différentiable sur $\mathcal{U}$, et notions $f_{i}$ ses
+applications composantes. Alors les dérivées partielles de $f$ existent pour
+tout $j$ entre $1$ et $n$.
+
+\begin{definition}
+	Soit $a \in \mathcal{U}$.
+	On définit \textbf{la matrice Jacobienne de $f$ en $a$}, notée
+	$\jacobienneMatrix{f}{a}$ comme la matrice
+
+	\begin{equation*}
+		\jacobienneMatrix{f}{a} = \left(\pdv{f_{i}}{x_{j}} (a) \right)_{1 \leq i, j \leq n}
+	\end{equation*}
+\end{definition}
 
 \section{Formule de Leibniz et produit de fonction différentiable}
 
