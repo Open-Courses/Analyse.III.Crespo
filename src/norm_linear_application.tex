@@ -1,4 +1,4 @@
-\chapter{Normes, applications linéaires et multilinéaires}
+h\chapter{Normes, applications linéaires et multilinéaires}
 \label{chapter:linear_application}
 %Nous commencerons par rappeler la définition d'une norme, de la topologie
 %associée à une norme et d'équivalence de norme. Nous rappelerons aussi le
@@ -12,7 +12,8 @@
 \section{Normes et espace de Banach}
 
 \begin{definition}
-    Soit E un espace vectoriel, et $\GSfunction{N}{E}{\mathbb{R}}$ une fonction.
+    Soit E un espace vectoriel, et $\GSfunction{N}{E}{
+eal}$ une fonction.
     N est une norme si elle vérifie :
     \begin{enumerate}
         \item $\forall x \in E$, $N(x) \geq 0$
@@ -100,7 +101,9 @@ distinguer les liens entre les normes.
 
 \begin{exemple}
 	On peut faire le lien avec la norme 1 et la norme infinie sur
-	$\mathbb{R}^{n}$. On en déduit alors que $\mathbb{R}^{n}$ est un espace de
+	$
+eal^{n}$. On en déduit alors que $
+eal^{n}$ est un espace de
 	Banach, qui avait été montré précédemment.
 \end{exemple}
 
@@ -225,7 +228,9 @@ espace vectoriel de $\GShomomorphisme{E}{F}$ (resp $\GSendomorphism{E}$).
 \begin{remarque}
 	Pour une fonction quelconque entre deux espaces métriques, nous avons
 	toujours que la continuité uniforme implique la continuité, mais pas
-	nécéssairement l'inverse (voir $\GSfunction{f}{\mathbb{R}}{\mathbb{R}} : x \rightarrow x^2$ qui est continue mais pas uniformément).
+	nécéssairement l'inverse (voir $\GSfunction{f}{
+eal}{
+eal} : x \rightarrow x^2$ qui est continue mais pas uniformément).
 \end{remarque}
 
 Le théorème suivant nous donne une condition suffisante pour qu'une fonction
@@ -245,9 +250,11 @@ continue soit uniformément continue.
 \fi
 
 \begin{exemple}
-	Tout fonction f d'un intervalle $\GSintervalCC{a}{b}$ dans $\mathbb{R}$, continue, est
+	Toute fonction $f$ d'un intervalle $\GSintervalCC{a}{b}$ dans $
+eal$, continue, est
 	uniformément continue, comme
-	$\GSfunction{f}{\GSintervalCC{-1}{1}}{\mathbb{R}} : x \rightarrow x^2$.
+	$\GSfunction{f}{\GSintervalCC{-1}{1}}{
+eal} : x \rightarrow x^2$.
 \end{exemple}
 
 Encore une fois, nous allons montrer une résultat important quand E est de
@@ -325,7 +332,7 @@ ou tout simplement $f = (f_{1}, \ldots, f_{n})$.
 	On a $\GSfunction{f_{k}}{E_{k}}{F}$.
 \end{definition}
 
-On utilisera cette notation dans le chapitre ~\ref{chap:differential} lorsque nous
+On utilisera ces notations dans le chapitre ~\ref{chap:differential} lorsque nous
 étudierons la différentiabilité des applications à valeurs dans un produit
 d'espaces vectoriels dans la section~\ref{section_differential_composante}.
 
@@ -394,8 +401,8 @@ Dans cette section, nous allons nous intéresser aux suites
 $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 
 \begin{definition}
-\label{definition_serie_convergence}
-	$\GSsequence{u}{n}{\naturel}$ converge dans $E$ si
+\label{definition:serie_convergence}
+	La série $\displaystyle (\sum_{i = 0}^{n}u_{i})_{n \in \naturel}$ converge dans $E$ si
 	la suite des sommes partielles converge dans $E$.
 
 	Si la suite converge, on note la limite $\displaystyle \sum_{n = 0}^{\infty}
@@ -403,7 +410,7 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 \end{definition}
 
 \begin{definition}
-\label{definition_serie_normal_convergence}
+\label{definition:serie_normal_convergence}
 	Soit $\GSsequence{u}{n}{\naturel} \subseteq E$ où $E$ est un espace
 	vectoriel normé.
 
@@ -414,11 +421,15 @@ $\GSsequence{u}{n}{\naturel}$ à valeurs dans un espace vectoriel normé $E$.
 La définition de convergence normale se résume à l'étude d'une série réelle.
 
 \begin{proposition}
-\label{proposition_normal_imply_convergence}
-	Si $E$ est un espace de Banach, alors $\GSsequence{u}{n}{\naturel}$ elle
-	converge si elle converge normalement. De plus,
-	$\GSnormeDef{\GSsum{n}{0}{\infty}{u_{n}}}{E} \leq
-	\GSsum{u}{0}{\infty}{\GSnormeDef{u_{n}}{E}}$.
+\label{proposition:normal_imply_convergence}
+	Soit $E$ un espace de Banach.
+	Soit $\GSsequence{u}{n}{\naturel}$ une suite dans $E$.
+	Alors $\GSsequence{u}{n}{\naturel}$ converge ssi
+	$\GSsequence{u}{n}{\naturel}$ converge normalement. De plus, on a
+	\begin{equation*}
+		\GSnormeDef{\GSsum{n}{0}{\infty}{u_{n}}}{E} \leq
+		\GSsum{u}{0}{\infty}{\GSnormeDef{u_{n}}{E}}
+	\end{equation*}
 \end{proposition}
 
 \ifdefined\outputproof
@@ -428,8 +439,8 @@ La définition de convergence normale se résume à l'étude d'une série réell
 \fi
 
 \begin{definition}
-\label{definition_neumann_serie}
-	Pour $u \in \GScontinueEndo{E}$, on définit la série de Neumann comme la
+\label{definition:neumann_serie}
+	Pour $u \in \GScontinueEndo{E}$, on définit \textbf{la série de Neumann} comme la
 	série $\GSsum{n}{0}{\infty}{u^{n}}$ avec comme convention $u^{0} = Id_{E}$.
 \end{definition}
 
@@ -445,23 +456,20 @@ La définition de convergence normale se résume à l'étude d'une série réell
 	< 1$, on a que la série $\GSsum{n}{0}{\infty}{\norm{u^{n}}} \leq
 	\GSsum{n}{0}{\infty}{\norm{u}^{n}}$ converge. Donc
 	$\GSsum{n}{0}{\infty}{u^{n}}$ converge
-	par~\ref{proposition_normal_imply_convergence}.
+	par~\ref{proposition:normal_imply_convergence}.
 \end{proof}
 \fi
 
-\newcommand{\inverseU}[1]{$\GSsum{n}{0}{\infty}{(Id_{E} - #1)^{n}}$}
-
 \begin{proposition}
-	\label{proposition_inverse_identity_u}
+	\label{proposition:inverse_identity_u}
 	Soit $u \in \GScontinueEndo{E}$ tel que $\GSnormeDef{u}{\mathcal{L}_{E}} < 1$. Alors
 	$(Id_{E} - u)^{-1} \in \GScontinueEndo{E}$. De plus $(Id_{E} - u)^{-1} =
 	\GSsum{n}{0}{\infty}{u^{n}}$.
 \end{proposition}
 
-
 \ifdefined\outputproof
 \begin{proof}
-	Par~\ref{proposition_normal_imply_convergence}, on a
+	Par~\ref{proposition:normal_imply_convergence}, on a
 	$\GSsum{n}{0}{\infty}{u^{n}}$ qui converge, et par conséquence, $u^{n}$ tend
 	vers $0_{E}$.
 
@@ -482,10 +490,9 @@ La définition de convergence normale se résume à l'étude d'une série réell
 \begin{proof}
 	Soit $v = Id_{E} - u$, alors $u = Id_{E} - v$. Il reste à montrer que
 	$||v||_{\mathcal{L}_{E}} < 1$ pour rentrer dans les conditions de la
-	proposition~\ref{proposition_inverse_identity_u}.
+	proposition~\ref{proposition:inverse_identity_u}.
 \end{proof}
 \fi
-
 
 \section{Isomorphisme et isométrie}
 
@@ -523,7 +530,7 @@ sûr que la réciproque est continue.
 \fi
 
 \begin{definition}
-\label{definition_isomorphisme}
+\label{definition:isomorphisme}
 	Soit $\GSfunction{f}{E}{F}$ où $E$ et $F$ sont deux espaces vectoriels
 	normés.
 	On dit que $f$ est \textbf{un isomorphisme} si :
@@ -544,11 +551,21 @@ est donc liée aux applications d'$Isom(E, F)$.
 En effet, on a que $Isom(E, F)$ est liée à la topologie induite de la norme sur
 $\GScontinueHomo{E}{F}$.
 
-On définit aussi l'application:
+Regardons le cas particulier des espaces vectoriels normés de dimension finie.
 
-\begin{equation*}
-	\phi : Isom(E, F) \rightarrow \GScontinueHomo{F}{E} : u \rightarrow u^{-1}
-\end{equation*}
+\begin{remarque}
+	Soient $E, F$ deux espaces vectoriels de dimension finie. Alors
+	$\GScontinueHomo{E}{F} \isomorph \matrixSpace{n}{\mathbb{K}}$, et l'espace
+	$Isom(E, F) \isomorph \inversibleMatrixSpace{n}{\mathbb{K}}$ où
+	$\inversibleMatrixSpace{n}{\mathbb{K}}$ est l'ensemble des matrices carrées
+	de déterminant non nulle.
+
+	L'application déterminant étant $n$-linéaire (et donc en particulier
+	continue car nous sommes en dimension finie), nous avons que $Isom(E, F)$
+	est un ouvert de $\GScontinueHomo{E}{F}$.
+
+	En particulier, si $dim(E) \neq dim(F)$, alors $Isom(E, F) = \emptyset$.
+\end{remarque}
 
 \begin{proposition}
 	$Isom(E, F)$ est un ouvert de $\GScontinueHomo{E}{F}$.
@@ -568,6 +585,16 @@ On définit aussi l'application:
 \end{proof}
 \fi
 
+On définit alors l'application inverse.
+
+\begin{definition}
+	Soient $E, F$ deux espaces de Banach. On définit \textbf{l'application
+	inverse}
+	\begin{equation*}
+		\phi : Isom(E, F) \rightarrow \GScontinueHomo{F}{E} : u \rightarrow u^{-1}
+	\end{equation*}
+\end{definition}
+
 \begin{proposition}
 	Soit $S \in Isom(E, F)$, $T \in Isom(F, G)$.
 	Alors $T \circ S \in Isom(E, G)$. De plus, $(T \circ S)^{-1} = T^{-1} \circ
@@ -581,7 +608,7 @@ On définit aussi l'application:
 \fi
 
 \begin{definition}
-\label{definition_isometrie}
+\label{definition:isometrie}
 	Soit $f \in \GShomomorphisme{E}{F}$.
 	Alors $f$ est \textbf{une isométrie} si elle conserve les normes, c'est-à-dire si
 	$\forall x \in E$, $||x||_{E} =  ||f(x)||_{F}$.
@@ -608,7 +635,15 @@ Attention que tout isomorphisme n'est pas une isométrie. En effet, si on prend
 une fonction dilatant d'un facteur $\lambda \neq 1$, celle-ci ne conserve pas la
 norme.
 
-Donnons un exemple fondamental d'isométrie: celle entre
-$\GScontinueHomo{\mathbb{K}}{F}$ et $\mathbb{K}$.
+Donnons une isométrie fondamentale:
 
-\ldots
+\begin{proposition}
+	Soit $F$ un espace vectoriel normé. Alors $\GScontinueHomo{F}{\mathbb{K}}
+	\isomorph F$.
+\end{proposition}
+
+\ifdefined\outproof
+\begin{proof}
+
+\end{proof}
+\fi
