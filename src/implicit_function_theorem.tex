@@ -1,4 +1,71 @@
 \chapter{Théorème des fonctions implicites}
 
-Voir
-\href{http://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_des_fonctions_implicites}{wikipedia}
+\section{Introduction et motivation}
+
+
+\section*{Problématique}
+
+\section*{Solution 1 : cas favorable}
+
+\section*{Solution 2 : cas défavorable}
+
+\section*{Interprétation heuristique}
+
+
+\section{Enoncé et preuve du théorème des fonctions implicites}
+
+\begin{theorem}
+	\label{theorem:implicite_functions}
+	Soient $E, F, G$ trois espaces de Banach.
+
+	Soient $\mathcal{U}$ un ouvert de $E \cartprod F$, et $(a, b) \in
+	\mathcal{U}$.
+
+	Soit $\GSfunction{f}{\mathcal{U}}{G}$ une fonction de classe
+	$\mathcal{C}^{1}$ (ie continûment différentiable) tel que
+
+	\begin{itemize}
+		\item $f(a, b) = 0$
+		\item $\partial_{2}f (a, b) \in Isom(F, G)$
+	\end{itemize}
+
+	Alors il existe
+
+	\begin{itemize}
+		\item $\mathcal{V}_{a}$ voisinage ouvert de $a$ dans $E$,
+			$\mathcal{W}_{b}$ voisinage ouvert de $b$ dans $F$ tel que
+			$\mathcal{V}_{a} \cartprod \mathcal{W}_{b} \subseteq \mathcal{U}$.
+		\item une application $\phi$ de classe $\mathcal{C}^{1}$ (ie continûment
+			différentiable) de $\mathcal{V}_{a}$ dans $\mathcal{W}_{b}$ tel que
+
+			\begin{align*}
+			\left\{
+				\begin{array}{r c l}
+					(x, y) \in \mathcal{V}_{a} \cartprod \mathcal{W}_{b} \\
+					f(x, y) = 0
+				\end{array}
+			\right.
+			\Leftrightarrow
+			\left\{
+				\begin{array}{r c l}
+					\phi(x) = y \\
+					x \in \mathcal{V}_{a}
+				\end{array}
+			\right.
+			\end{align*}
+	\end{itemize}
+\end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\begin{remarque}
+	Le théorème nous dit que, \textbf{localement}, la ligne de niveau $0$,
+	c'est-à-dire les racines (locales), sont décrites par une fonction
+	continûment différentiable.
+\end{remarque}
+
+% Page 36 jusqu'à la fin de Sam.
