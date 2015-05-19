@@ -87,10 +87,12 @@ Soit $\mathcal{U}$ un ouvert de $E$.
 	l'ensemble $\segment{a}{b} := \GSsetDef{(1 - t) a + t b}{t \in [0, 1]}$.
 \end{definition}
 
-\begin{theorem}
-	Soit $\GSfunction{\mathcal{U}}{F}$ une application différentiable en tout
+\begin{theorem} [Inégalité des accroissements finis]
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application différentiable en tout
 	point de $\mathcal{U}$.
+
 	Soient $a, b$ tel que $\segment{a}{b} \subseteq \mathcal{U}$.
+
 	Alors:
 
 	\begin{equation*}
@@ -125,8 +127,11 @@ Soit $\mathcal{U}$ un ouvert de $E$.
 \subsection{Différentiabilité d'une limite d'applications différentiables}
 
 \begin{corollary}
-	Soit une suite $\GSsequence{f}{n}{\naturel}$ d'applications différentiables d'un ouvert convexe
-	$\mathcal{U} \subseteq E$ dans un espace de Banach $F$.
+	Soient $E, F$ deux espaces de Banach.
+	Soit $\mathcal{U}$ un ouvert convexe de $E$.
+
+	Soit une suite $\GSsequence{f}{n}{\naturel}$ d'applications différentiables
+	de $\mathcal{U}$ dans $F$.
 
 	Supposons:
 	\begin{enumerate}
@@ -157,9 +162,9 @@ Soit $\mathcal{U}$ un ouvert de $E$.
 \fi
 
 \begin{corollary}
-	Sous les mêmes hypothèses, avec $f_{n} = \GSsum{n}{0}{\infty}{u_{n}}$ où
-	$\GSsequence{u}{n}{\naturel}$ est une suite de fonctions différentiables de $\mathcal{U}$ ouvert
-	convexe de $E$ dans $F$ de Banach, on a les mêmes résultats.
+	Sous les mêmes hypothèses, avec $f_{n} = \GSsum{i}{0}{n}{u_{i}}$ où
+	$\GSsequence{u}{n}{\naturel}$ est une suite de fonctions différentiables de
+	$\mathcal{U}$ dans $F$, on a les mêmes résultats.
 \end{corollary}
 
 \ifdefined\outputproof
