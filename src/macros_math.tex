@@ -144,14 +144,29 @@
 \newcommand{\GSendomorphism}[1]{End(#1)}
 
 %GShomomorphisme
-\newcommand{\GShomomorphisme}[2]{Hom(#1, #2)}
-\newcommand{\GShomomorphismeDef}[3]{Hom_{#1}(#2; #3)}
+\newcommand{\GShomomorphisme}[3][]
+{
+	Hom_{#1}(#2, #3)
+}
+
+%GShomomorphismeDef
+% Deprecated !! Use instead directly \GShomomorsphisme
+\newcommand{\GShomomorphismeDef}[3][]
+{
+	\GShomomorphisme{#1}{#2}{#3}
+}
 
 %GScontinueEndo
-\newcommand{\GScontinueEndo}[1]{\mathcal{L}(#1)}
+\newcommand{\GScontinueEndo}[2][]
+{
+	\mathcal{L}_{#1}(#2)
+}
 
 %\GScontinueHomo
-\newcommand{\GScontinueHomo}[2]{\mathcal{L}(#1; #2)}
+\newcommand{\GScontinueHomo}[3][]
+{
+	\mathcal{L}_{#1}(#2; #3)
+}
 
 %\GScompactEndo
 \newcommand{\GScompactEndo}[1]{\mathcal{K}(#1)}
