@@ -3,28 +3,33 @@
 \section{Homéomorphismes et difféomorphismes}
 
 \begin{definition}
-\label{definition_homeomorphisme}
+	\label{definition:homeomorphisme}
 	Une fonction $\GSfunction{f}{X}{Y}$ où $X$ et $Y$ sont deux espaces
 	topologiques est un homémorphisme si elle est bijective, continue, et à
 	réciproque continue ($f^{-1}$ continue).
 \end{definition}
 
 \begin{definition}
-\label{definition_diffeomorphism}
-Une fonction $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$ où $\mathcal{U}
-\subseteq E$ et $\mathcal{V} \subseteq F$ sont des ouverts et $E$, $F$ des espaces
-	vectoriels normés est un difféomorphisme si elle est bijective,
+\label{definition:diffeomorphism}
+	Une fonction $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$ où $\mathcal{U}
+	\subseteq E$ et $\mathcal{V} \subseteq F$ sont des ouverts et $E$, $F$ des espaces
+	vectoriels normés est \textbf{un difféomorphisme} si elle est bijective,
 	de classe $\mathcal{C}^{1}$ et sa réciproque est de classe
 	$\mathcal{C}^{-1}$.
 \end{definition}
 
 \begin{proposition}
-	Soit $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$, et $\mathcal{U} \subseteq
-	E$ et $\mathcal{V} \subseteq F$ de classe $\mathcal{C}^{1}$, bijective tel
-	que $f^{-1}$ continue en $f(a) = b$.
+	Soient $E, F$ deux espaces vectoriels normés.
+	Soient $\mathcal{U}$ un ouvert de $E$ et $\mathcal{V}$ un ouvert de $F$.
+	Soit $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$ une application de classe
+	$\mathcal{C}^{1}$, bijective tel que $f^{-1}$ continue en $f(a) = b$.
 
-	On a que $f^{-1}$ est différentiable en $b$ ssi $df(a) \in Isom(E, F)$. On a
-	alors $df^{-1}(b) = {df(a)}^{-1}$.
+	On a
+	\begin{align*}
+		\text{$f^{-1}$ est différentiable en $b$ $\equiv$ $df(a) \in Isom(E, F)$}
+	\end{align*}
+	On a alors l'inverse de $df(a)$ qui est donné par ${df(a)}^{-1} =
+	df^{-1}(b)$.
 \end{proposition}
 
 \ifdefined\outputproof
@@ -34,9 +39,14 @@ Une fonction $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$ où $\mathcal{U}
 \fi
 
 \begin{proposition}
-	Soit $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$, et $ \mathcal{U} \subseteq
-	E$ et $\mathcal{V} \subseteq F$ un homéomorphisme. Alors on a que $f$ est un
-	difféomorphisme ssi $\forall x \in E$, $df(x) \in Isom(E, F)$.
+	\label{prop:homeo_diffeo_ssi_dfx_isom}
+	Soient $E, F$ deux espaces vectoriels normés.
+	Soient $\mathcal{U}$ un ouvert de $E$ et $\mathcal{V}$ un ouvert de $F$.
+	Soit $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$ un homéomorphisme. Alors on a
+	\begin{align*}
+		\text{$f$ est un difféomorphisme $\equiv$ $\forall x \in E$, $df(x) \in
+		Isom(E, F)$}
+	\end{align*}
 \end{proposition}
 
 \ifdefined\outputproof
@@ -45,14 +55,127 @@ Une fonction $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$ où $\mathcal{U}
 \end{proof}
 \fi
 
-\section{Théorèmes d'inversion locale}
-	Voir
-	\href{http://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_d%27inversion_locale}{wikipedia}
+\section{Exemple fondamental}
 
-\subsection{Introduction et motivation}
+Prenons $E = F = \real^{n}$ pour $n \in \naturel^{> 0}$.
 
-\subsection{Enoncé et preuve}
+Soit $\mathcal{U}$ un ouvert de $\real^{n}$.
+Soit $\GSfunction{f}{\mathcal{U}}{\real^{n}}$.
+
+Supposons que $f$ soit différentiable sur $\mathcal{U}$, et notions $f_{i}$ ses
+applications composantes. Alors les dérivées partielles de $f$ existent pour
+tout $j$ entre $1$ et $n$.
+
+Notons $\jacobienneMatrix{f}{a}$ sa matrice jacobienne en $a$.
+
+Supposons que $\mathcal{V} = f(\mathcal{U})$ et que $f$ soit un homéomorphisme
+de $\mathcal{U}$ dans $\mathcal{V}$.
+
+Alors, pour que $f$ soit un difféomorphisme de classe $\mathcal{C}^{1}$, il faut
+et il suffit, par \ref{prop:homeo_diffeo_ssi_dfx_isom}, que pour tout $a \in
+\mathcal{U}$, $df(a)$ soit un isomorphisme de $\real^{n}$ dans $\real^{n}$,
+c'est-à-dire, par la correspondance matricielle, que $\jacobienneMatrix{f}{a}$
+soit inversible (ie $det(\jacobienneMatrix{f}{a}) \neq 0$) pour tout $a \in
+\mathcal{U}$.
+
+\section{Théorème d'inversion locale}
+
+\begin{theorem} [d'inversion locale]
+	\label{theorem:inversion_locale}
+	Soient $E, F$ des espaces de Banach.
+	Soit $\mathcal{U}$ un ouvert de $E$.
+
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application différentiable sur
+	$\mathcal{U}$.
+
+	Soit $a \in \mathcal{U}$ tel que $df(a) \in Isom(E, F)$.
+
+	Alors il existe un voisinage $\mathcal{V}_{a}$ de $a$ compris dans
+	$\mathcal{U}$, et un voisinage $\mathcal{W}$ de $b := f(a)$ tel que
+
+	\begin{itemize}
+		\item $f^{|\mathcal{W}}_{|\mathcal{V}_{a}}$ est un $\mathcal{C}^{1}$-difféormorphisme.
+		\item $f(\mathcal{V}_{a}) = \mathcal{W}$.
+	\end{itemize}
+\end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+Rappelons la définition d'\textit{une fonction (strictement) contractante}.
+
+\begin{definition}
+	Soient $(X, d_{X})$, $(Y, d_{Y})$ deux espaces métriques.
+	Soit $\GSfunction{f}{(X, d_{X})}{(Y, d_{Y})}$ une fonction.
+
+	On dit que $f$ est \textbf{contractante} s'il existe $k \in [0, 1]$ tel que
+
+	\begin{equation*}
+		\forall x, y \in X, d_{Y}(f(x), f(y)) \leq d_{X}(x, y)
+	\end{equation*}
+
+	Si $k \in [0, 1[$, on dit que $f$  est \textbf{strictement contractante}.
+\end{definition}
+
+\begin{theorem} [du point fixe de Banach ou méthode des approximations
+	successives]
+	\label{theorem:point_fixe_banach}
+	Soit $(X, d)$ un espace métrique complet.
+
+	Soit $\GSfunction{f}{(X, d)}{(X, d)}$ une fonction strictement contractante.
+
+	Alors $f$ admet un unique point fixe $x^{*}$.
+	De plus, si $a \in X$, alors la suite de terme initiale $x_{0} = a$ et $x_{n
+	+ 1} = f(x_{n})$ tend vers $x^{*}$.
+\end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+% Page 31 Sam.
+%\begin{theorem}
+	%Soit $(X, d)$ un espace métrique et $Y$ un espace topologique.
+%\end{theorem}
 
 \begin{theorem}
-	\label{theorem:local_inversion}
+	\label{theorem:inversion_globale}
+	Soient $E, F$ deux espaces de Banach.
+
+	Soit $\mathcal{U}$ un ouvert de $E$.
+
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application de classe
+	$\mathcal{C}^{1}$ (ie continûment différentiable).
+
+	Alors, les assertions suivantes sont équivalentes.
+
+	\begin{itemize}
+		\item $f$ est un $\mathcal{C}^{1}$-difféomorphisme de $\mathcal{U}$ sur
+			un ouvert de $F$.
+		\item $f$ est injective et $\forall x \in \mathcal{U}$, $df(x) \in
+			Isom(E, F)$
+	\end{itemize}
 \end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+% Remarques page 32 et 33 Sam
+
+Donnons une application de ces deux théorèmes.
+
+\begin{exemple}
+	Il n'existe pas de sous-groupe de $\inversibleMatrixSpace{n}{\real}$
+	arbitrairement petit. C'est-à-dire qu'il existe un voisinage $\mathcal{V}$ ouvert de
+	$1_{n}$ dans $\inversibleMatrixSpace{n}{\real}$ tel que si $G$ est un
+	sous-groupe de $\inversibleMatrixSpace{n}{\real}$ avec $G \subseteq
+	\mathcal{V}$, alors $G = \GSset{1_{n}}$.
+\end{exemple}
