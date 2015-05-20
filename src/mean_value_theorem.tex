@@ -40,6 +40,7 @@ vectoriel. En effet, $\GSfunction{f}{[0, 2\pi]}{\real^{2}} : t \rightarrow
 
 \begin{theorem}
 	Soient $a, b \in \real$ tel que $a < b$, et $F$ un espace vectoriel normé.
+
 	Soient $\GSfunction{f}{[a, b]}{F}$ et $\GSfunction{g}{[a, b]}{\real}$ tel
 	que:
 
@@ -60,6 +61,7 @@ vectoriel. En effet, $\GSfunction{f}{[0, 2\pi]}{\real^{2}} : t \rightarrow
 
 \begin{corollary}
 	Soient $a, b \in \real$ tel que $a < b$ et $F$ un espace vectoriel normé.
+
 	Soit $\GSfunction{f}{[a, b]}{F}$ continues sur $[a, b]$ et dérivable sur
 	$]a, b[$.
 
@@ -82,16 +84,23 @@ vectoriel. En effet, $\GSfunction{f}{[0, 2\pi]}{\real^{2}} : t \rightarrow
 Soient $E$ et $F$ des espaces vectoriels normés.
 Soit $\mathcal{U}$ un ouvert de $E$.
 
+Rappelons d'abord quelques définitions.
+
 \begin{definition}
 	Soient $a, b \in E$. On définit \textbf{le segment d'extrémités $a$ et $b$}
 	l'ensemble $\segment{a}{b} := \GSsetDef{(1 - t) a + t b}{t \in [0, 1]}$.
+\end{definition}
+
+\begin{definition}
+	On dit que $\mathcal{U}$ est \textbf{convexe} si pour tout $a, b \in
+	\mathcal{U}$, $\segment{a}{b} \subseteq \mathcal{U}$.
 \end{definition}
 
 \begin{theorem} [Inégalité des accroissements finis]
 	Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application différentiable en tout
 	point de $\mathcal{U}$.
 
-	Soient $a, b$ tel que $\segment{a}{b} \subseteq \mathcal{U}$.
+	Soient $a, b \in \mathcal{U}$ tel que $\segment{a}{b} \subseteq \mathcal{U}$.
 
 	Alors:
 
@@ -111,14 +120,13 @@ Soit $\mathcal{U}$ un ouvert de $E$.
 
 \begin{remarque}
 	\begin{itemize}
-		\item Si $\mathcal{U}$ est convexe, c'est-à-dire que pour tout $a, b \in
-			E$, $\segment{a}{b} \subseteq \mathcal{U}$, alors on a:
+		\item Si $\mathcal{U}$ est convexe, alors on a:
 			\begin{equation*}
 				\GSnormeDef{f(b) - f(a)}{F} \leq \displaystyle \sup_{x \in \mathcal{U}}
 				\GSnorme{df(x)} \GSnormeDef{b - a}{E}.
 			\end{equation*}
-		\item Si la différentielle est nulle en tout point de $\mathcal{U}$,
-			alors $f$ est constante.
+		\item Si la différentielle est nulle en tout point de $\mathcal{U}$ avec
+			$\mathcal{U}$ convexe, alors $f$ est constante.
 	\end{itemize}
 \end{remarque}
 
@@ -173,12 +181,16 @@ Soit $\mathcal{U}$ un ouvert de $E$.
 \end{proof}
 \fi
 
+% TODO: Remarques Page 24 Sam
+
 \subsection{Différentiabilité et existence des dérivées partielles}
+
+% TODO: remarque page 25
 
 \begin{theorem}
 \label{theorem_partial_derivative_existence}
 
-	Soit $E = \GSprodSet{i}{1}{n}{E}$, et $\mathcal{U} =
+	Soient $E = \GSprodSet{i}{1}{n}{E}$, et $\mathcal{U} =
 	\GSprodSet{i}{1}{n}{\mathcal{U}}$ un ouvert de $E$.
 	Soit $\GSfunction{f}{\mathcal{U}}{F}$.
 	Alors les assertions suivantes sont équivalentes:
