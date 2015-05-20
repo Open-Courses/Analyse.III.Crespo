@@ -13,7 +13,7 @@ h\chapter{Normes, applications linéaires et multilinéaires}
 
 \begin{definition}
     Soit E un espace vectoriel, et $\GSfunction{N}{E}{
-eal}$ une fonction.
+\real}$ une fonction.
     N est une norme si elle vérifie :
     \begin{enumerate}
         \item $\forall x \in E$, $N(x) \geq 0$
@@ -102,8 +102,8 @@ distinguer les liens entre les normes.
 \begin{exemple}
 	On peut faire le lien avec la norme 1 et la norme infinie sur
 	$
-eal^{n}$. On en déduit alors que $
-eal^{n}$ est un espace de
+\real^{n}$. On en déduit alors que $
+\real^{n}$ est un espace de
 	Banach, qui avait été montré précédemment.
 \end{exemple}
 
@@ -229,8 +229,8 @@ espace vectoriel de $\GShomomorphisme{E}{F}$ (resp $\GSendomorphism{E}$).
 	Pour une fonction quelconque entre deux espaces métriques, nous avons
 	toujours que la continuité uniforme implique la continuité, mais pas
 	nécéssairement l'inverse (voir $\GSfunction{f}{
-eal}{
-eal} : x \rightarrow x^2$ qui est continue mais pas uniformément).
+\real}{
+\real} : x \rightarrow x^2$ qui est continue mais pas uniformément).
 \end{remarque}
 
 Le théorème suivant nous donne une condition suffisante pour qu'une fonction
@@ -251,10 +251,10 @@ continue soit uniformément continue.
 
 \begin{exemple}
 	Toute fonction $f$ d'un intervalle $\GSintervalCC{a}{b}$ dans $
-eal$, continue, est
+\real$, continue, est
 	uniformément continue, comme
 	$\GSfunction{f}{\GSintervalCC{-1}{1}}{
-eal} : x \rightarrow x^2$.
+\real} : x \rightarrow x^2$.
 \end{exemple}
 
 Encore une fois, nous allons montrer une résultat important quand E est de
@@ -550,9 +550,6 @@ isomorphismes ne sont pas nécessairement les mêmes avec des normes qui ne sont
 pas équivalentes. La norme définissant la topologie sur $\GScontinueHomo{E}{F}$
 est donc liée aux applications d'$Isom(E, F)$.
 
-En effet, on a que $Isom(E, F)$ est liée à la topologie induite de la norme sur
-$\GScontinueHomo{E}{F}$.
-
 Regardons le cas particulier des espaces vectoriels normés de dimension finie.
 
 \begin{remarque}
@@ -568,6 +565,9 @@ Regardons le cas particulier des espaces vectoriels normés de dimension finie.
 
 	En particulier, si $dim(E) \neq dim(F)$, alors $Isom(E, F) = \emptyset$.
 \end{remarque}
+
+Donc, en dimension finie, les applications inversibles forment un ensemble
+ouvert de $\GScontinueHomo{E}{F}$. Est-ce le cas en dimension quelconque ?
 
 \begin{proposition}
 	$Isom(E, F)$ est un ouvert de $\GScontinueHomo{E}{F}$.
@@ -599,8 +599,8 @@ On définit alors l'application inverse.
 
 \begin{proposition}
 	Soit $S \in Isom(E, F)$, $T \in Isom(F, G)$.
-	Alors $T \circ S \in Isom(E, G)$. De plus, $(T \circ S)^{-1} = T^{-1} \circ
-	S^{-1}$.
+	Alors $T \circ S \in Isom(E, G)$. De plus, $(T \circ S)^{-1} = S^{-1} \circ
+	T^{-1}$.
 \end{proposition}
 
 \ifdefined\outputproof
