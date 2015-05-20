@@ -330,11 +330,11 @@ k_{n}) \in \real^{n}$.
 
 On a donc $\displaystyle d^{2}f(a)(h, k) \in F$.
 
-Par bilinéarité, on a $\displaystyle \pdv{f}{x_{i}}{x_{j}} (a) (\lambda e_{i}, \mu
-e_{j}) = \lambda \mu \pdv{f}{x_{i}}{x_{j}} (a) (e_{i}, e_{j})$.
+%Par bilinéarité, on a $\displaystyle \pdv{f}{x_{i}}{x_{j}} (a) (\lambda e_{i}, \mu
+%e_{j}) = \lambda \mu \pdv{f}{x_{i}}{x_{j}} (a) (e_{i}, e_{j})$.
 
-On remarque alors qu'il nous suffit de connaitre comment agit
-$\pdv{f}{x_{i}}{x_{j}} (a)$ sur les éléments de la base.
+%On remarque alors qu'il nous suffit de connaitre comment agit
+%$\pdv{f}{x_{i}}{x_{j}} (a)$ sur les éléments de la base.
 
 \subsection{Exemple fondamental où $E = \real^{n}$ et $F = \real$}
 
@@ -366,8 +366,7 @@ On a donc $\displaystyle d^{2}f(a)(h, k) \in \real$.
 \end{definition}
 
 La matrice hessienne $\hessienneMatrix{f}{a}$ est la matrice représentative de
-la forme bilinéaire $d^{2}f (a) \in \GScontinueHomo{\real^{n},
-\real^{n}}{\real}$.
+la forme bilinéaire $d^{2}f (a) \in \GScontinueHomo[2]{\real^{n}}{\real}$.
 En effet, on a
 
 \begin{align*}
@@ -524,12 +523,11 @@ Nous pouvons alors généraliser la notion de symétrie.
 
 \begin{definition} [Application symétrique]
 	Soient $n \geq 1$ et $T : \overbrace{X \cartprod \cdots \cartprod X}^{n
-		\text{ fois}} \rightarrow Y$ une application où $X$ et $Y$ sont des
-		ensembles quelconques.
+	\text{ fois}} \rightarrow Y$ une application où $X$ et $Y$ sont des
+	ensembles quelconques.
 
 	On dit que $T$ est \textbf{symétrique} si
-	$\forall \sigma \in S_{n}$, $\forall x_{1}, \cdots, x_{n} \in X$
-
+	pour tout $\sigma \in S_{n}$, pour tout $x_{1}, \cdots, x_{n} \in X$
 	\begin{equation*}
 		T(x_{\sigma(1)}, \cdots, x_{\sigma(n)}) = T(x_{1}, \cdots, x_{n})
 	\end{equation*}
@@ -551,12 +549,12 @@ et $F$ sont des espaces vectoriels normés, et où $T$ est une application $n$-l
 Donnons d'abord un moyen de construire des fonctions symétriques.
 
 \begin{proposition}
-	Soit $T$ une application $n$-linéaire de $E \cartprod \cdots \cartprod E$
+	Soit $T$ une application $n$-linéaire de $E^{n}$
 	dans $F$ où $E$ et $F$ sont des espaces vectoriels normés.
 
 	Alors l'application
 	\begin{equation*}
-		\tilde{T} : E \cartprod \cdots \cartprod E \rightarrow F : (x_{1},
+		\tilde{T} : E^{n} \rightarrow F : (x_{1},
 		\cdots, x_{n}) \rightarrow \frac{1}{n !} \sum_{\sigma \in S_{n}}
 		T_{\sigma} (x_{1}, \cdots, x_{n})
 	\end{equation*}
@@ -575,7 +573,9 @@ Donnons d'abord un moyen de construire des fonctions symétriques.
 
 \begin{lemma}
 	Soient $E$ et $F$ des espaces vectoriels normés.
+
 	Soient $\mathcal{U}$ un ouvert de $E$, et $a \in \mathcal{U}$.
+
 	Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application différentiable en $a$.
 
 	Soit $G$ un sous-espace vectoriel \textbf{fermé} de $F$ tel que
@@ -889,11 +889,169 @@ d'inversion local (\ref{theorem:local_inversion}).
 
 \subsection{Dérivées partielles d'ordre supérieur}
 
-% TODO. Notation lourde.
+Soient $E_{1}, \cdots, E_{d}$ et $F$ des espaces vectoriels normés.
+
+Soit $E = \displaystyle \prod_{i = 1}^{d}$.
+
+Soient $\mathcal{U}_{i}$ un ouvert de $E_{i}$ et $\mathcal{U} = \displaystyle
+\prod_{i = 1}^{d} \mathcal{U}_{i}$ un ouvert de $E$.
+
+Alors, on définit par récurrence:
+
+\begin{definition}
+	Soit $a \in \mathcal{U}$.
+	Soit $n \geq 2$. Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application
+	$n$-fois différentiable en $a$.
+
+	On sait qu'il existe $\mathcal{V}_{a} \subseteq \mathcal{U}$ tel que $f$
+	soit $n - 1$ fois différentiable sur $\mathcal{V}_{a}$.
+
+	Alors, pour tout $2 \leq l \leq n$ et pour tout $1 \leq j_{l} \leq d$, les
+	applications
+
+	\begin{equation*}
+		\frac{\partial f^{n - 1}}{\partial x_{j_{2}} \partial x_{j_{3}} \cdots
+		\partial x_{j_{n}}} : \mathcal{V}_{a} \rightarrow \GScontinueHomo[n -
+		1]{E_{j_{2}}, E_{j_{3}}, \cdots, E_{j_{n}}}{F}
+	\end{equation*}
+
+	admettent une dérivée partielle suivant $E_{j_{1}}$ ($1 \leq j_{1} \leq
+	n$) au point $a$. On a alors
+	\begin{equation*}
+		\frac{\partial}{\partial x_{j_{1}}} (
+		\frac{\partial^{n - 1} f}{\partial x_{j_{2}} \partial x_{j_{3}} \cdots
+		\partial x_{j_{n}}}) (a) \in
+		\underbrace{\GScontinueHomo{E_{j_{1}}}{\GScontinueHomo[n -
+		1]{E_{j_{2}}, E_{j_{3}}, \cdots, E_{j_{n}}}{F}}}_{\isomorph
+			\GScontinueHomo[n]{E_{j_{1}}, E_{j_{2}}, \cdots, E_{j_{n}}}{F}}
+	\end{equation*}
+
+	On note alors cette dérivée partielle
+
+	\begin{equation*}
+		\frac{\partial^{n} f}{\partial x_{j_{1}} \partial x_{j_{2}} \partial x_{j_{3}} \cdots
+		\partial x_{j_{n}}} (a)
+	\end{equation*}
+
+	et on l'appelle \textbf{la dérivée partielle d'ordre $n$ de $f$ en $a$
+		suivant $E_{j_{1}}, \cdots, E_{j_{n}}$}.
+\end{definition}
+
+\begin{proposition}
+	Posons $S = \GSset{j : \GSset{1, \cdots, n} \rightarrow \GSset{1, \cdots, d}}$.
+
+	On a
+
+	\begin{equation*}
+		d^{n} f(a) (h_{1}, \cdots, h_{n}) = \sum_{j \in S} \frac{\partial^{n} f}{\partial x_{j_{1}}, \cdots, \partial x_{j_{n}}}
+		(a) (h_{j_{1}}, \ldots, h_{j_{n}})
+	\end{equation*}
+\end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+Dans ce cas, le théorème de Schwarz nous dit
+
+\begin{theorem}
+	\label{theorem:symetry_schwarz_generalized_partial}
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application $n$-fois
+	différentiable en un point $a \in \mathcal{U}$.
+
+	Alors, pour tout $\sigma \in S_{n}$ et pour tout $j : \GSset{1, \cdots, n}
+	\rightarrow \GSset{1, \cdots, d}$
+
+	\begin{equation*}
+		\frac{\partial^{n} f}{\partial x_{j_{\sigma(1)}} \cdots \partial
+		x_{j_{\sigma(n)}}} (a) (x_{j_{\sigma(1)}}, \cdots, x_{j_{\sigma(n)}}) =
+		\frac{\partial^{n} f}{\partial x_{j_{1}} \cdots \partial
+		x_{j_{n}}} (a) (x_{j_{1}}, \cdots, x_{j_{n}})
+	\end{equation*}
+
+	En particulier, pour tout $1 \leq j \leq d$, l'application
+
+	\begin{equation*}
+		\frac{\partial^{n} f}{\partial x_{j}^{n}} (a) \in \GScontinueHomo[n]{E_{j}}{F}
+	\end{equation*}
+	est symétrique.
+\end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+% TODO: Remarque page 16 recto perso
+
+\begin{proposition} [Condition nécessaire et suffisante de classe
+	$\mathcal{C}^{n}$]
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application.
+
+	Alors les assertions suivantes sont équivalentes:
+
+	\begin{itemize}
+		\item $f$ est de classe $\mathcal{C}^{n}$
+		\item $f$ admet des dérivées partielles d'ordre $n$ en tout point $x$ de
+			$\mathcal{U}$ et pour tout $j : \GSset{1, \cdots, n} \rightarrow
+			\GSset{1, \cdots, d}$
+
+			\begin{equation*}
+				\frac{\partial^{n} f}{\partial x_{j_{1}} \cdots \partial
+				x_{j_{n}}} (x)
+			\end{equation*}
+
+			et les applications
+
+			\begin{equation*}
+				\frac{\partial^{n} f}{\partial x_{j_{1}} \cdots \partial
+				x_{j_{n}}} : \mathcal{U} \rightarrow
+				\GScontinueHomo[n]{E_{j_{1}}, \cdots, E_{j_{n}}}{F}
+			\end{equation*}
+			sont continues.
+	\end{itemize}
+\end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
 
 \subsection{Exemple fondamental $E = \real^{d}$}
 
 % TODO. Assez court.
+Prenons le cas où, pour tout $1 \leq i \leq d$, $E_{i} = \real$.
+
+On fait l'identification
+
+\begin{equation*}
+	\GScontinueHomo[n]{\overbrace{E_{j_{1}}}^{= \real}, \cdots,
+	\overbrace{E_{j_{n}}}^{= \real}}{F} \isomorph F
+\end{equation*}
+
+Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application $n$-fois différentiable en
+un point $a$ de $\mathcal{U}$.
+
+On regroupe alors les dérivées partielles par rapport à la même variable. Si $j
+\in S$, on a
+
+\begin{equation*}
+	\frac{\partial^{n} f}{\partial x_{j_{1}} \cdots \partial x_{j_{n}}} (a) =
+	\frac{\partial^{n} f}{\partial x_{i_{1}}^{r_{1}} \cdots \partial
+	x_{i_{m}}^{r_{m}}} (a)
+\end{equation*}
+
+avec $m \leq n$, $1 \leq i_{1} \leq i_{2} \leq \cdots \leq i_{m} \leq d$, $r_{k}
+= \GSsetDef{l}{1 \leq l \leq n, \, i_{k} = j_{k}}$ et où on note
+
+\begin{equation*}
+	\partial x_{i_{k}}^{r_{k}} = \overbrace{\partial x_{i_{k}} \cdots \partial
+	x_{i_{k}}}^{r_{k} \text{ fois}}
+\end{equation*}
 
 \subsection{Notations multi-indicielles}
 
@@ -1035,10 +1193,51 @@ est $n$-fois différentiable.
 \end{proof}
 \fi
 
+
+\subsubsection{Dérivées partielles}
+
+On note
+
+\begin{equation*}
+	\frac{\partial^{n} f}{\partial x_{j_{1}}^{r_{1}} \cdots \partial
+	x_{j_{n}}^{r_{n}}} (a) = \frac{\partial^{n} f}{\partial
+		x_{j_{1}}^{\alpha_{1}} \cdots \partial x_{j_{n}}^{\alpha_{n}}} (a)
+\end{equation*}
+
+où $\alpha_{i_{k}} = r_{k}$ pour $1 \leq k \leq n$ et $\alpha_{l} = 0$ si $l
+\neq i_{k}$.
+
+\begin{remarque}
+	Par convention, $\partial_{x_{j}}^{\alpha_{j}}$ si $\alpha_{j} = 0$ signifie
+	qu'on ne dérive pas par rapport à $x_{j}$.
+\end{remarque}
+
+On note alors
+
+\begin{equation*}
+	\partial^{\alpha} f (a) = \frac{\partial^{\miLength{\alpha}} f}{\partial
+		x_{1}^{\alpha_{1}} \cdots \partial x_{n}^{\alpha_{n}}} (a)
+\end{equation*}
+\textbf{la dérivée partielle de $f$ en $a$ suivant $\alpha$}, l'ordre de
+dérivation étant $n = \miLength{\alpha}$.
+
+\begin{remarque}
+	\begin{itemize}
+		\item On utilise parfois $\displaystyle \frac{\partial^{\miLength{\alpha}} f}{\partial
+		x^{\alpha}}$, ou $D^{\alpha} f(a)$.
+	\item Pour tout $\alpha$, $\beta \in \naturel^{d}$, on a
+		\begin{equation*}
+			\partial^{\alpha +
+			\beta} f(a) = \partial^{\alpha} \partial^{\beta} f (a) = \partial^{\beta}
+			\partial^{\alpha} f (a)
+		\end{equation*}
+	\end{itemize}
+\end{remarque}
 \subsubsection{Intégrations par parties}
 
 \begin{proposition}
-	Soit $\Omega$ un ouvert de $\real^{d}$
+	Soit $\Omega$ un ouvert de $\real^{d}$.
+
 	Soient $u$ et $v$ deux fonctions lisses à support compact (ie $u, v \in
 	\mathcal{C}_{C}^{\infty}$).
 
