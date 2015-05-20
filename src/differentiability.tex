@@ -1,7 +1,7 @@
 \chapter{Applications différentiables}
 \label{chap:differential}
 \section{Motivation}
-	Étant donné une application entre deux espaces vectoriels, on veut pouvoir
+	Étant donnée une application entre deux espaces vectoriels, on veut pouvoir
 	approcher l'image de la fonction sur un interval grace à une fonction
 	affine, facile à calculer.
 
@@ -13,8 +13,8 @@
 
 \begin{definition} [Différentielle en un point a]
 \label{a_differential}
-	Soit $E$ et $F$ deux espaces vectoriels normés.
-	Soit $\mathcal{U}$ un ouvert de $E$, et soit $a \in \mathcal{U}$.
+	Soient $E$ et $F$ deux espaces vectoriels normés.
+	Soient $\mathcal{U}$ un ouvert de $E$, et $a \in \mathcal{U}$.
 
 	Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application.
 
@@ -24,8 +24,12 @@
 	$\forall h \in \mathcal{U}$,
 	$f(a + h) = f(a) + \mathcal{L}(h) + \psi(h)$ où
 	et $\phi(h) = o(\GSnormeDef{h}{E})$.
-
 \end{definition}
+
+\begin{remarque}
+	Si $f$ est différentiable en tout point $a$ de $\mathcal{U}$, on dit que
+	\textbf{$f$ est différentiable}.
+\end{remarque}
 
 On appelle $\mathcal{L}$ \textbf{la différentielle de $f$ en $a$}, et on la note
 $df(a)$.
@@ -55,6 +59,23 @@ montrer que celle-ci est unique:
 De manière évidente, on a que si $f$ est différentiable en $a$, alors $-f$ est
 différentiable en $a$.
 
+Nous obtenons aussi la continuité de $f$ si $f$ est différentiable.
+
+\begin{proposition}
+	Soient $E$ et $F$ deux espaces vectoriels normés.
+	Soient $\mathcal{U}$ un ouvert de $E$, et $a \in \mathcal{U}$.
+
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ différentiable.
+
+	Alors $f$ est continue.
+\end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
 La définition dépend, à première vue, de la norme choisie sur $E$, et $F$. Est-ce
 qu'une application différentiable pour une norme l'est telle également pour une
 autre?
@@ -80,23 +101,15 @@ vraie dans une même classe de norme.
 	pour que la notion de différentiabilité reste vraie dans deux classes (ou
 	sous-classes) de normes.
 \end{question}
-%Pour l'instant, nous avons étudier la différentiabilité d'une fonction.
-%Supposons qu'on note l'ensemble des fonctions différentiables par $D(E, F)$, qui
-%est un sous ensemble de $\GScontinueHomo{E}{F}$.
 
-%On peut alors construire la fonction $d : D(E, F) \rightarrow
-%\GScontinueHomo{\mathcal{U}}{\GScontinueHomo{E}{F}} : f \rightarrow df$.
-
-%Dans la section suivante, nous allons étudier $D(E, F)$ et $d$.
-
-Intéressons nous maintenant à des fonctions particulières:\textbf{les applications
-linéaires}.
+Intéressons nous maintenant à des fonctions particulières: \textbf{les applications
+linéaires continues}.
 Celles-ci ont la propriété suivante:
 
 \begin{proposition}
-	Soit $f \in \GScontinueHomo{E}{F}$ où $E$ et $F$ sont normés. Alors $f$ est
-	différentiable en tout point $a$ de $E$, et $df(a) = f$, c'est-à-dire que
-	l'application $df$ est constante.
+	Soit $f \in \GScontinueHomo{E}{F}$ où $E$ et $F$ sont des espaces vectoriels
+	normés. Alors $f$ est différentiable en tout point $a$ de $E$, et $df(a) =
+	f$, c'est-à-dire que l'application $df$ est constante.
 \end{proposition}
 
 \ifdefined\outputproof
@@ -115,6 +128,8 @@ Celles-ci ont la propriété suivante:
 %	$\forall f, g \in D(E, F)$, $d(f + g) = df + dg$
 %\end{proposition}
 %
+
+Soient deux espaces vectoriels normés $E$ et $F$.
 
 Prenons un ouvert $\mathcal{U}$ de $E$, un point $a \in \mathcal{U}$ et deux
 fonctions $f$ et $g$ définies sur l'ouvert $\mathcal{U}$ à valeurs dans $F$.
@@ -152,7 +167,11 @@ formule pour la calculer.
 
 	Alors, si $f$ est différentiable en $a$, et $g$ est différentiable en
 	$f(a)$, alors \textbf{$g \circ f$ est différentiable en $a$} et
-	$d(g \circ f)(a) = dg(f(a)) \circ df(a)$.
+	\begin{equation*}
+		\overbrace{d(g \circ f)(a)}^{\in \GScontinueHomo{E}{G}} =
+		\overbrace{dg(f(a))}^{\in \GScontinueHomo{F}{G}} \circ
+		\underbrace{df(a)}_{\in \GScontinueHomo{E}{F}}
+	\end{equation*}
 \end{theorem}
 
 \ifdefined\outputproof
@@ -164,10 +183,15 @@ formule pour la calculer.
 \section{Différentielle de l'application inverse}
 
 On a parlé dans le premier chapitre de l'application inverse
-$\GSfunction{\phi}{Isom(E, F)}{\GScontinueHomo{F}{E}} : u \rightarrow
-u^{-1}$ qui est continue, et où $Isom(F, E)$ est ouvert dans
-$\GScontinueHomo{F}{E}$.
-On peut alors se demander si $\phi$ est différentiable.
+
+\begin{equation*}
+	\GSfunction{\phi}{Isom(E, F)}{\GScontinueHomo{F}{E}} : u \rightarrow u^{-1}
+\end{equation*}
+
+qui est continue, et où $Isom(E, F)$ est ouvert dans
+$\GScontinueHomo{E}{F}$.
+On peut alors se demander si $\phi$ est différentiable (en tout point de
+$Isom(E, F)$.
 
 Remarquons d'abord que si $\phi$ est différentiable, sa différentielle serait
 une fonction allant de $Isom(E, F)$ dans $\mathcal{L}(\GScontinueHomo{E}{F}, \mathcal{L}(F,
@@ -178,8 +202,10 @@ On va montrer que $\phi$ est différentiable et donner sa différentielle.
 \begin{theorem}
 \label{differential_inverse_application}
 	L'application inverse $\phi$ est différentiable en tout point $u \in Isom(E,
-	F)$, et sa différentielle en $u$, appliquée en un point $h$ vaut $d\phi(u)(h)
-	= -u^{-1} \circ h \circ u^{-1}$.
+	F)$, et sa différentielle en $u$, appliquée en un point $h$ vaut
+	\begin{equation*}
+		d\phi(u)(h) = -u^{-1} \circ h \circ u^{-1}
+	\end{equation*}
 \end{theorem}
 
 \ifdefined\outputproof
@@ -208,10 +234,15 @@ On a alors le théorème suivant:
 
 \begin{theorem}
 	\label{differential_composante}
-	Soient $\mathcal{U}$ un ouvert de $E$, et $a \in \mathcal{U}$. Alors,
-	$f = (f_{1}, \ldots, f_{n})$ est différentiable en $a$ ssi pour tout $i$
-	entre $1$ et $n$, $f_{i}$ est différentiable en $a$. On a alors $df_{i}(a) =
-	p_{i} \circ df(a)$.
+	Soient $\mathcal{U}$ un ouvert de $E$, et $a \in \mathcal{U}$. Alors, les
+	assertions suivantes sont équivalentes:
+
+	\begin{itemize}
+		\item $f = (f_{1}, \ldots, f_{n})$ est différentiable en $a$
+		\item Pour tout $i$ entre $1$ et $n$, $f_{i}$ est différentiable en $a$.
+	\end{itemize}
+
+	On a alors $df_{i}(a) = p_{i} \circ df(a)$.
 \end{theorem}
 
 \ifdefined\outputproof
@@ -231,17 +262,21 @@ On a alors le théorème suivant:
 
 \section{Différentielle des applications multilinéaires}
 
+Soient $E_{1}$, $E_{2}$, $F$ trois espaces vectoriels normés.
+
 Prenons le cas où nous avons une fonction $f$ qui est bilinéaire continue. Le cas
 multilinéaire pourra être déduit. Les résultats du cas multilinéaire seront
 donnés à la fin de cette section.
 
 \begin{proposition}
-\label{bilinear_differential_application}
-Prenons une fonction $f : E_{1} \times E_{2} \rightarrow F : (x, y) \rightarrow
-f(x, y)$ bilinéaire continue. Soit $a = (a_{1}, a_{2}) \in E_{1} \times E_{2}$.
+	\label{bilinear_differential_application}
+	Prenons une fonction $f : E_{1} \times E_{2} \rightarrow F : (x, y) \rightarrow
+	f(x, y)$ bilinéaire continue. Soit $a = (a_{1}, a_{2}) \in E_{1} \times E_{2}$.
 
-On a que $f$ est différentiable en $a$, et $df(a)(h) = f(a_{1}, h_{2}) +
-f(h_{1}, a_{2})$.
+	On a que $f$ est différentiable en $a$, et
+	\begin{equation*}
+		df(a)(h) = f(h_{1}, a_{2}) + f(a_{1}, h_{2})
+	\end{equation*}
 \end{proposition}
 
 \ifdefined\outputproof
@@ -272,7 +307,8 @@ On peut alors généraliser ce résultat aux fonctions multilinéaires continues
 \begin{proposition}
 \label{multilinear_differential_application}
 	Soit $E = \GSprodSet{i}{1}{n}{E}$ et $F$.
-	Soit $\GSfunction{f}{E}{F}$ une fonction multilinéaire continue.
+	Soit $\GSfunction{f}{E}{F}$ une fonction multilinéaire continue (ie $f \in
+	\GScontinueHomo[n]{E}{F}$).
 
 	Alors $f$ est de classe $\mathcal{C}^{1}$,
 	$df(a) \in \mathcal{L}(E, \mathcal{L}(E, F))$ avec
@@ -293,8 +329,11 @@ On peut alors généraliser ce résultat aux fonctions multilinéaires continues
 Prenons maintenant $E = \GSprodSet{i}{1}{n}{E}$, et $F$ des espaces vectoriels
 normés.
 
+Soit $\mathcal{U}_{i}$ un ouvert de $E_{i}$ et posons $\mathcal{U} =
+\displaystyle \prod_{i = 1}^{n} \mathcal{U}_{i}$.
+
 Dans la section précédente~\ref{section_differential_composante}, nous avons
-étudier les fonctions $f$ qui avaient comme espace d'arrivée un produit d'espaces
+étudié les fonctions $f$ qui avaient comme espace d'arrivée un produit d'espaces
 vectoriels. Dans celle-ci, nous allons étudier les fonctions $f$ qui ont comme
 espace de départ un produit d'espaces vectoriels.
 
@@ -304,14 +343,17 @@ espace de départ un produit d'espaces vectoriels.
 %Réécrire
 \begin{definition}
 \label{directionnal_application_definition}
-	Soit $\mathcal{U}$ un ouvert de $E$.
-	Soit $a = (a_{1}, \ldots, a_{n}) \in E$ et $e = (e_{1}, \ldots, e_{n}) \in E$,
+	Soient $a = (a_{1}, \ldots, a_{n}) \in \mathcal{U}$ et $e = (e_{1}, \ldots,
+	e_{n}) \in \mathcal{U}$,
 	et $\GSfunction{f}{\mathcal{U}}{F}$.
 
-	Définissons $\GSfunction{f_{e, a}}{\mathbb{K}}{F}: t \rightarrow f(a + te)$.
+	Posons
+	\begin{equation*}
+		\GSfunction{f_{e, a}}{\mathbb{K}}{F}: t \rightarrow f(a + te).
+	\end{equation*}
 
-	On définit la dérivée directionnelle de $f$ en $a$ suivant la direction (le
-	vecteur) $e$, comme la dérivée en $0$ de la fonction $f_{e, a}$, si celle-ci
+	On définit \textbf{la dérivée directionnelle de $f$ en $a$ suivant la direction (le
+	vecteur) $e$}, comme la dérivée en $0$ de la fonction $f_{e, a}$, si celle-ci
 	existe et on la note ${\partial_{e} f}(a)$.
 
 	Remarquons que $\partial_{e} f (a) \in F$.
@@ -319,8 +361,10 @@ espace de départ un produit d'espaces vectoriels.
 
 \begin{proposition}
 	Si $f$ est différentiable en un point $a \in \mathcal{U}$, alors toutes les
-	dérivées directionnels de $f$ en $a$ existent et on a $\partial_{e}f(a) =
-	df(a)(e)$.
+	dérivées directionnels de $f$ en $a$ existent et on a
+	\begin{equation*}
+		\partial_{e}f(a) = df(a)(e)
+	\end{equation*}
 \end{proposition}
 
 \ifdefined\outputproof
@@ -346,12 +390,15 @@ espace de départ un produit d'espaces vectoriels.
 \end{proof}
 \fi
 
+\begin{remarque}
+	La réciproque est fausse.
+	% TODO: donner l'exemple page 18 Sam
+\end{remarque}
 
 \begin{definition}
 	\label{partial_application_definition}
 	On dit que \textbf{$f$ admet une dérivée partielle au point $a$ selon
-		$E_{i}$} si
-	l'application:
+		$E_{i}$} si l'application:
 
 	\begin{equation*}
 		\mathcal{U}_{i} \rightarrow F : x \rightarrow f(a_{1}, \cdots, a_{i -
@@ -364,23 +411,55 @@ espace de départ un produit d'espaces vectoriels.
 
 \begin{proposition}
 	Supposons que $f$ soit différentiable en $a$. Alors $f$ admet des dérivées
-	partielles par rapport à $E_{i}$ pour tout $1 \leq i \leq n$.
+	partielles en $a$ par rapport à $E_{i}$ pour tout $1 \leq i \leq n$.
 
-	De plus:
+	De plus, pour tout $h = (h_{1}, \ldots, h_{n}) \in E$:
 
 	\begin{equation*}
-		df(a)(h) = \displaystyle \sum_{i = 1}^{n} \pdv{f}{x_{i}} (a) (h_{i})
+		\underbrace{\overbrace{df(a)}^{\in \GScontinueHomo{E}{F}}(h)}_{\in F} =
+		\displaystyle \sum_{i = 1}^{n} \underbrace{\overbrace{\pdv{f}{x_{i}} (a)}^{\in
+			\GScontinueHomo{E_{i}}{F}} (h_{i})}_{\in F}
 	\end{equation*}
 \end{proposition}
 
-\subsubsection{Exemple fondamental}
+
+\section{Formule de Leibniz et produit de fonctions différentiables}
+
+\begin{definition}
+	Soit $A$ une algèbre de Banach.
+
+	Soient $\GSsequence{x}{n}{\naturel}$ et $\GSsequence{y}{n}{\naturel}$ des
+	suites à coefficients dans $A$.
+
+	On définit \textbf{le produit de Cauchy} comme la suite
+	\begin{equation*}
+		{(x \ast y)}_{n} =
+		\GSsum{k}{0}{n}{x_{n - k} . y_{k}}
+	\end{equation*}
+\end{definition}
+
+\begin{theorem}
+	\label{theorem_cauchy_mertens}
+	Si $\GSsum{n}{0}{\infty}{x_{n}}$ et $\GSsum{n}{0}{\infty}{y_{n}}$ convergent
+	normalement, alors $\GSsum{n}{0}{\infty}{{(x \ast y)}_{n}}$ converge normalement.
+	De plus, on a
+
+	\begin{equation*}
+		\GSsum{n}{0}{\infty}{{(x \ast y)}_{n}} =
+		(\GSsum{n}{0}{\infty}{x_{n}}) . (\GSsum{n}{0}{\infty}{y_{n}})
+	\end{equation*}
+\end{theorem}
+
+\section{Exemple fondamental}
+
+% TODO: Page 19, 20, 21 Sam
 
 Prenons $E = F = \real^{n}$ pour $n \in \naturel^{> 0}$.
 
 Soit $\mathcal{U}$ un ouvert de $\real^{n}$.
 Soit $\GSfunction{f}{\mathcal{U}}{\real^{n}}$.
 
-Supposons que $f$ soit différentiable sur $\mathcal{U}$, et notions $f_{i}$ ses
+Supposons que $f$ soit différentiable sur $\mathcal{U}$, et notons $f_{i}$ ses
 applications composantes. Alors les dérivées partielles de $f$ existent pour
 tout $j$ entre $1$ et $n$.
 
@@ -393,25 +472,3 @@ tout $j$ entre $1$ et $n$.
 		\jacobienneMatrix{f}{a} = \left(\pdv{f_{i}}{x_{j}} (a) \right)_{1 \leq i, j \leq n}
 	\end{equation*}
 \end{definition}
-
-\section{Formule de Leibniz et produit de fonction différentiable}
-
-\begin{definition}
-	Soit $A$ une algèbre de Banach. Soit $\GSsequence{x}{n}{\naturel}$ et
-	$\GSsequence{y}{n}{\naturel}$ des suites à coefficients dans $A$.
-	On définit \textbf{le produit de Cauchy} comme la suite ${(x \ast y)}_{n} =
-	\GSsum{k}{0}{n}{x_{n - k} . y_{k}}$
-\end{definition}
-
-\begin{theorem}
-\label{theorem_cauchy_mertens}
-Si $\GSsum{n}{0}{\infty}{x_{n}}$ et $\GSsum{n}{0}{\infty}{y_{n}}$ convergent
-normalement, alors $\GSsum{n}{0}{\infty}{{(x \ast y)}_{n}}$ converge normalement.
-De plus, on a $\GSsum{n}{0}{\infty}{{(x \ast y)}_{n}} =
-(\GSsum{n}{0}{\infty}{x_{n}}) . (\GSsum{n}{0}{\infty}{y_{n}})$.
-\end{theorem}
-
-\section{Exemple fondamental}
-
-Prenons $E = \real^{n}$ et $F = \real^{m}$.
-% Page 19, 20, 21 Sam
