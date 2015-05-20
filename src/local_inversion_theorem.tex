@@ -4,32 +4,83 @@
 
 \begin{definition}
 	\label{definition:homeomorphisme}
-	Une fonction $\GSfunction{f}{X}{Y}$ où $X$ et $Y$ sont deux espaces
-	topologiques est un homémorphisme si elle est bijective, continue, et à
-	réciproque continue ($f^{-1}$ continue).
+	Soient $(X, \tau_{X})$ et $(Y, \tau_{Y})$ deux espaces topologiques.
+
+	Une fonction $\GSfunction{f}{X}{Y}$ est \textbf{un homémorphisme} si elle
+	est bijective, continue, et à réciproque continue ($f^{-1}$ continue).
 \end{definition}
 
+% TODO: Remarques page 26.
+
 \begin{definition}
-\label{definition:diffeomorphism}
-	Une fonction $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$ où $\mathcal{U}
-	\subseteq E$ et $\mathcal{V} \subseteq F$ sont des ouverts et $E$, $F$ des espaces
-	vectoriels normés est \textbf{un difféomorphisme} si elle est bijective,
+	Soient $(X, \tau_{X})$ et $(Y, \tau_{Y})$ deux espaces topologiques.
+
+	Une fonction $\GSfunction{f}{X}{Y}$ est \textbf{ouverte} (resp.
+	\textbf{fermée}) si pour tout ouvert $\mathcal{O}_{X}$ de $(X, \tau_{X})$,
+	$f(\mathcal{O}_{X})$ est un ouvert de $(Y, \tau_{Y})$ (resp. pour tout fermé
+	$\mathcal{F}_{X}$ de $(X, \tau_{X})$, $f(\mathcal{F}_{X})$ est un fermé de
+	$(Y, \tau_{Y})$).
+\end{definition}
+
+\begin{theorem}
+	Soient $(X, \tau_{X})$ et $(Y, \tau_{Y})$ deux espaces topologiques.
+
+	Soit $\GSfunction{f}{X}{Y}$ une fonction bijective continue. Alors, les
+	assertions suivantes sont équivalentes:
+
+	\begin{itemize}
+		\item $f$ est un homéomorphisme.
+		\item $f$ est ouverte.
+		\item $f$ est fermée.
+	\end{itemize}
+\end{theorem}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\begin{definition}
+	\label{definition:diffeomorphism}
+	Soient $E$, $F$ des espaces vectoriels normés.
+
+	Soient $\mathcal{U}$ un ouvert de $E$ et $\mathcal{V}$ un ouvert de $F$.
+
+	Soit $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$.
+
+	On dit que $f$ est \textbf{un difféomorphisme} si elle est bijective,
 	de classe $\mathcal{C}^{1}$ et sa réciproque est de classe
 	$\mathcal{C}^{-1}$.
 \end{definition}
 
+\begin{remarque}
+	\begin{itemize}
+		\item Un $\mathcal{C}^{1}$-difféomorphisme est un homémorphisme.
+		\item En revanche, un homéomorphisme de classe $\mathcal{C}^{1}$ n'est
+			pas nécessairement un $\mathcal{C}^{1}$-difféomorphisme.
+			% TODO: Donner l'exemple page 26 Sam
+	\end{itemize}
+\end{remarque}
+
 \begin{proposition}
 	Soient $E, F$ deux espaces vectoriels normés.
-	Soient $\mathcal{U}$ un ouvert de $E$ et $\mathcal{V}$ un ouvert de $F$.
-	Soit $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$ une application de classe
-	$\mathcal{C}^{1}$, bijective tel que $f^{-1}$ continue en $f(a) = b$.
 
-	On a
-	\begin{align*}
-		\text{$f^{-1}$ est différentiable en $b$ $\equiv$ $df(a) \in Isom(E, F)$}
-	\end{align*}
-	On a alors l'inverse de $df(a)$ qui est donné par ${df(a)}^{-1} =
-	df^{-1}(b)$.
+	Soient $\mathcal{U}$ un ouvert de $E$, $\mathcal{V}$ un ouvert de $F$, et
+	$a \in \mathcal{U}$.
+
+	Soit $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$ une application bijective et
+	différentiable en $a$.
+
+	Alors, les assertions suivantes sont équivalentes:
+
+	\begin{itemize}
+		\item $f^{-1}$ est différentiable en $b := f(a)$
+		\item $df(a) \in Isom(E, F)$
+	\end{itemize}
+
+	On a alors l'inverse de $df(a)$ qui est donné par $[{df(a)}]^{-1} =
+	d(f^{-1})(b)$.
 \end{proposition}
 
 \ifdefined\outputproof
@@ -41,12 +92,18 @@
 \begin{proposition}
 	\label{prop:homeo_diffeo_ssi_dfx_isom}
 	Soient $E, F$ deux espaces vectoriels normés.
+
 	Soient $\mathcal{U}$ un ouvert de $E$ et $\mathcal{V}$ un ouvert de $F$.
-	Soit $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$ un homéomorphisme. Alors on a
-	\begin{align*}
-		\text{$f$ est un difféomorphisme $\equiv$ $\forall x \in E$, $df(x) \in
-		Isom(E, F)$}
-	\end{align*}
+
+	Soit $\GSfunction{f}{\mathcal{U}}{\mathcal{V}}$ un homéomorphisme de classe
+	$\mathcal{C}^{1}$.
+
+	Alors les assertions suivantes équivalentes:
+
+	\begin{itemize}
+		\item $f$ est un $\mathcal{C}^{1}$-difféomorphisme
+		\item $df(a) \in Isom(E, F)$ pour tout $a \in \mathcal{U}$
+	\end{itemize}
 \end{proposition}
 
 \ifdefined\outputproof
@@ -91,11 +148,11 @@ soit inversible (ie $det(\jacobienneMatrix{f}{a}) \neq 0$) pour tout $a \in
 	Soit $a \in \mathcal{U}$ tel que $df(a) \in Isom(E, F)$.
 
 	Alors il existe un voisinage $\mathcal{V}_{a}$ de $a$ compris dans
-	$\mathcal{U}$, et un voisinage $\mathcal{W}$ de $b := f(a)$ tel que
+	$\mathcal{U}$, et un voisinage $\mathcal{W}_{b}$ de $b := f(a)$ tel que
 
 	\begin{itemize}
-		\item $f^{|\mathcal{W}}_{|\mathcal{V}_{a}}$ est un $\mathcal{C}^{1}$-difféormorphisme.
-		\item $f(\mathcal{V}_{a}) = \mathcal{W}$.
+		\item $f^{|\mathcal{W}_{b}}_{|\mathcal{V}_{a}}$ est un $\mathcal{C}^{1}$-difféormorphisme.
+		\item $f(\mathcal{V}_{a}) = \mathcal{W}_{b}$.
 	\end{itemize}
 \end{theorem}
 
@@ -109,6 +166,7 @@ Rappelons la définition d'\textit{une fonction (strictement) contractante}.
 
 \begin{definition}
 	Soient $(X, d_{X})$, $(Y, d_{Y})$ deux espaces métriques.
+
 	Soit $\GSfunction{f}{(X, d_{X})}{(Y, d_{Y})}$ une fonction.
 
 	On dit que $f$ est \textbf{contractante} s'il existe $k \in [0, 1]$ tel que
