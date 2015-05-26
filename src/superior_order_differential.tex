@@ -633,6 +633,19 @@ Donnons d'abord un moyen de construire des fonctions symétriques.
 \end{proof}
 \fi
 
+On peut alors généraliser la notion de difféomorphisme.
+
+\begin{definition}
+	Soient $E, F$ des espaces vectoriels normés, et $\mathcal{U}$ un ouvert de
+	$E$.
+
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application.
+
+	On dit que $f$ est \textbf{un $\mathcal{C}^{n}$ difféomorphisme} si $f$ est
+	bijective, de classe $\mathcal{C}^{n}$, et son application réciproque
+	$f^{-1}$ est aussi de classe $\mathcal{C}^{n}$.
+\end{definition}
+
 \subsection{Règles de calcul et résultats généralisés}
 
 Dans cette partie, nous allons étudier les propriétés de différentiabilité de
@@ -698,16 +711,16 @@ Nous pouvons alors généraliser aux applications $k$-linéaires.
 	Soient $E, F_{1}, F_{2}, G$ des espaces vectoriels normés.
 
 	Soit $\mathcal{U} \subseteq E$ un ouvert de $E$.
+
 	Soient $\GSfunction{f}{\mathcal{U}}{F_{1}}$, et
 	$\GSfunction{g}{\mathcal{U}}{F_{2}}$ des applications $n$-fois différentiables
 	(resp. de classe $\mathcal{C}^{n}$)
 
-	Soit $b \in \GScontinueHomo{F_{1}, F_{2}}{G}$.
+	Soit $b \in \GScontinueHomo[2]{F_{1}, F_{2}}{G}$.
 	Alors l'application:
-
 	\begin{align*}
-		W : & \mathcal{U} \rightarrow G \\
-			& x \rightarrow b(f(x), g(x))
+		W : \mathcal{U} &\rightarrow G \\
+			x &\rightarrow b(f(x), g(x))
 	\end{align*}
 
 	est $n$-fois différentiables (resp. de classe $\mathcal{C}^{n}$).
@@ -832,13 +845,13 @@ d'inversion local (\ref{theorem:local_inversion}).
 	$\mathcal{C}^{n}$.
 
 	Si $df(a) \in \GSisomorphismeHomo{E}{F}$ pour un $a \in \mathcal{U}$, alors il existe un
-	voisinage ouvert $\mathcal{V}$ de $f(a)$ dans $F$, et $\mathcal{W} \subseteq
+	voisinage ouvert $\mathcal{W}_{f(a)}$ de $f(a)$ dans $F$, et $\mathcal{V}_{a} \subseteq
 	\mathcal{U}$ tel que:
 
 	\begin{itemize}
-		\item $f_{\mathcal{V}}(\mathcal{W}) = \mathcal{V}$
-		\item $f_{\mathcal{V}}^{\mathcal{W}} : \mathcal{W} \rightarrow
-			\mathcal{V}$ est un $\mathcal{C}^{n}$ difféomorphisme.
+		\item $f(\mathcal{V}_{a}) = \mathcal{W}_{f(a)}$
+		\item $f_{\mathcal{V}_{a}}^{\mathcal{W}_{f(a)}} : \mathcal{V}_{a} \rightarrow
+			\mathcal{W}_{f(a)}$ est un $\mathcal{C}^{n}$ difféomorphisme.
 	\end{itemize}
 \end{theorem}
 

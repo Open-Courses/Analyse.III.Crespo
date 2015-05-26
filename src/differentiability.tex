@@ -1,5 +1,6 @@
 \chapter{Applications différentiables}
 \label{chap:differential}
+
 \section*{Motivation}
 	Étant donnée une application entre deux espaces vectoriels, on veut pouvoir
 	approcher l'image de la fonction sur un interval grace à une fonction
@@ -21,18 +22,20 @@
 	On dit que $f$ est \textbf{différentiable en $a$} s'il existe $\mathcal{L}
 	\in \GScontinueHomo{E}{F}$ tel que
 
-	$\forall h \in \mathcal{U}$,
-	$f(a + h) = f(a) + \mathcal{L}(h) + \psi(h)$ où
-	et $\psi(h) = o(\GSnormeDef{h}{E})$.
-\end{definition}
+	\begin{equation}
+		\forall h \in \mathcal{U}, f(a + h) = f(a) + \mathcal{L}(h) + \psi(h)
+	\end{equation}
+	où $\psi(h) = o(\GSnormeDef{h}{E})$.
 
-\begin{remarque}
 	Si $f$ est différentiable en tout point $a$ de $\mathcal{U}$, on dit que
 	\textbf{$f$ est différentiable}.
-\end{remarque}
+\end{definition}
 
 On appelle $\mathcal{L}$ \textbf{la différentielle de $f$ en $a$}, et on la note
-$df(a)$.
+$df(a)$. On a alors la définition de différentiabilité en $a$ qui devient
+\begin{equation}
+	\forall h \in \mathcal{U}, f(a + h) = f(a) + df(a)(h) + \psi(h)
+\end{equation}
 
 Si f est différentiable en tout point $a \in \mathcal{U}$, on définit alors
 \textbf{la fonction différentielle}
@@ -72,6 +75,7 @@ Nous obtenons aussi la continuité de $f$ si $f$ est différentiable.
 
 \ifdefined\outputproof
 \begin{proof}
+
 
 \end{proof}
 \fi
@@ -114,7 +118,9 @@ Celles-ci ont la propriété suivante:
 
 \ifdefined\outputproof
 \begin{proof}
-
+	On a $f(a + h) = f(a) + f(h)$ par linéarité de $f$.
+	On obtient directement ce qu'on souhaite en prenant $\mathcal{L} = f$, et en
+	prenant $\psi(h) = 0$.
 \end{proof}
 \fi
 
@@ -145,15 +151,15 @@ fonctions $f$ et $g$ définies sur l'ouvert $\mathcal{U}$ à valeurs dans $F$.
 \end{proof}
 \fi
 
-Le théorème suivant, appelé parfois Chain Rules, donne un résultat intéressant
+Le théorème suivant, appelé parfois Chain Rule, donne un résultat intéressant
 lorsqu'on regarde la composition de deux fonctions différentiables. En effet, on
 peut se demander si, quand on a une composée de deux fontions différentiables
 si elle est elle-même différentiable, et comment calculer sa différentielle. La
 Chain Rules nous montre que c'est différentiable, et nous donne en plus une
 formule pour la calculer.
 
-\begin{theorem}
-\label{theorem:chain_rule}
+\begin{theorem} [Chain Rule]
+	\label{theorem:chain_rule}
 	Soient $E$, $F$, $G$ trois espaces vectoriels normés.
 
 	Soient $\mathcal{U}$ un ouvert de $E$, et $\mathcal{V}$ un ouvert de $F$.
@@ -253,6 +259,8 @@ On a alors le théorème suivant:
 	\GScontinueHomo{E}{F_{i}}$ car $p_{i} \in
 	\GScontinueHomo{F}{F_{i}}$.
 
+	Rappelons que $f_{i} := p_{i} \circ f$.
+
 	Dans un sens, si $f$ est différentiable en $a$, et comme $p_{i}$ est
 	linéaire donc différentiable aussi en $a$, par composition, $f_{i}$ est
 	différentiable et $df_{i}(a) = p_{i} \circ df(a)$ (en se rappelant que
@@ -305,7 +313,7 @@ donnés à la fin de cette section.
 On peut alors généraliser ce résultat aux fonctions multilinéaires continues:
 
 \begin{proposition}
-\label{multilinear_differential_application}
+	\label{proposition:multilinear_differential_application}
 	Soit $E = \GSprodSet{i}{1}{n}{E}$ et $F$.
 	Soit $\GSfunction{f}{E}{F}$ une fonction multilinéaire continue (ie $f \in
 	\GScontinueHomo[n]{E}{F}$).
@@ -323,6 +331,13 @@ On peut alors généraliser ce résultat aux fonctions multilinéaires continues
 	\end{aligned}
 	$
 \end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
 \section{Dérivée directionnelle et dérivée partielle}
 \label{section_directionnal_partial_derivative}
 
@@ -342,7 +357,7 @@ espace de départ un produit d'espaces vectoriels.
 
 %Réécrire
 \begin{definition}
-\label{directionnal_application_definition}
+	\label{definition:directionnal_application_definition}
 	Soient $a = (a_{1}, \ldots, a_{n}) \in \mathcal{U}$ et $e = (e_{1}, \ldots,
 	e_{n}) \in \mathcal{U}$,
 	et $\GSfunction{f}{\mathcal{U}}{F}$.
@@ -422,8 +437,29 @@ espace de départ un produit d'espaces vectoriels.
 	\end{equation*}
 \end{proposition}
 
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
 
 \section{Formule de Leibniz et produit de fonctions différentiables}
+
+\begin{definition} [Algèbre]
+
+\end{definition}
+
+\begin{definition} [Algèbre normée]
+
+\end{definition}
+
+\begin{definition} [Algèbre de Banach]
+
+\end{definition}
+
+\begin{definition} [Application produit]
+
+\end{definition}
 
 \begin{definition}
 	Soit $A$ une algèbre de Banach.
@@ -450,6 +486,69 @@ espace de départ un produit d'espaces vectoriels.
 	\end{equation*}
 \end{theorem}
 
+\ifdefined\outputproof
+\begin{proof}
+
+\end{proof}
+\fi
+
+\begin{proposition} [Règle de Leibniz]
+	Soient $E, F_{1}, F_{2}, G$ des espaces vectoriels normés.
+	Soit $\mathcal{U}$ un ouvert de $E$.
+
+	Soient $\GSfunction{f}{\mathcal{U}}{F_{1}}$ et
+	$\GSfunction{g}{\mathcal{U}}{F_{2}}$
+	deux applications différentiables en un point $a \in \mathcal{U}$.
+
+	Soit $B \in \GScontinueHomo[2]{F_{1}, F_{2}}{G}$.
+
+	Alors l'application
+	\begin{align}
+		B(f, g) : 	\mathcal{U} &\rightarrow G \\
+					x &\rightarrow B(f(x), g(x))
+	\end{align}
+	est différentiable en $a$ et
+	\begin{equation}
+		dB(f, g)(a) = B(df(a), g(a)) + B(f(a), dg(a))
+	\end{equation}
+
+	De plus, si $f$ et $g$ sont différentiables (resp. de classe
+	$\mathcal{C}^{1}$), alors $B(f, g)$ est différentiable (resp. de classe
+	$\mathcal{C}^{1}$).
+\end{proposition}
+
+\ifdefined\outputproof
+\begin{proof}
+	Posons $\gamma : \mathcal{U} \rightarrow F_{1} \cartprod F_{2} : x
+	\rightarrow (f(x), g(x))$.
+	Cette fonction est différentiable en $a$ car ses fonctions composantes sont
+	différentiables en $a$ par hypothèse.
+
+	De plus, $B$ est différentiable en tout point de $F_{1} \cartprod F_{2}$ car
+	bilinéaire continue. En particulier, elle est différentiable en $(f(a),
+	g(a))$.
+
+	Pour finir, on remarque que $B(f, g) = B \circ \gamma$. Par la chain rule,
+	$B(f, g)$ est différentiable en $a$ car c'est une composition de fonctions
+	différentiables en $a$.
+\end{proof}
+\fi
+
+\begin{remarque}
+	La règle de Leibniz telle que donnée précédemment généralise la proposition
+	montrant la différentiabilité d'un produit de fonctions différentiables
+	lorsque nous sommes dans une algèbre $A$. En effet, la seconde opération sur
+	$A$ est bilinéaire continue, ce qui permet d'utiliser la règle.
+\end{remarque}
+
+\begin{exemple}
+	\begin{itemize}
+		\item Dans le cas d'un espace de hilbert $\mathcal{H}$, nous avons que le
+			produit scalaire répond à la règle de Leibniz car celui-ci est
+			bilinéaire continue.
+	\end{itemize}
+\end{exemple}
+
 \section{Exemple fondamental}
 
 % TODO: Page 19, 20, 21 Sam
@@ -460,8 +559,10 @@ Soit $\mathcal{U}$ un ouvert de $\real^{n}$.
 Soit $\GSfunction{f}{\mathcal{U}}{\real^{n}}$.
 
 Supposons que $f$ soit différentiable sur $\mathcal{U}$, et notons $f_{i}$ ses
-applications composantes. Alors les dérivées partielles de $f$ existent pour
-tout $j$ entre $1$ et $n$.
+applications composantes.
+
+Alors, pour tout $1 \leq i \leq n$, les dérivées partielles de $f_{i}$ existent pour
+tout $j$ entre $1$ et $n$. On peut alors définir $\pdv{f_{i}}{x_{j}}$.
 
 \begin{definition}
 	Soit $a \in \mathcal{U}$.

@@ -111,12 +111,14 @@ Nous en venons alors à la formule de Taylor avec reste intégral.
 		{
 			\int_{0}^{1} \frac{(1 - t)^{n}}{n!} \underbrace{[d^{n + 1}f(x +
 			th)]}_{\in \GScontinueHomo{E^{n+1}}{F}} \underbrace{(h^{n+1})}_{\in E^{n +
-			1}}
+			1}} dt
 		}_{\text{Erreur}}
 	\end{align*}
 
 	Remarquons que $x + th \in \mathcal{U}$ par hypothèse sur $\mathcal{U}$,
-	donc c'est bien défini.
+	donc c'est bien défini. De plus, nous demandons que la fonction soit de
+	classe $\mathcal{C}^{n + 1}$, c'est-à-dire que $d^{n + 1}(f(a + th))$ soit
+	continue.
 \end{theorem}
 
 \ifdefined\outputproof
@@ -161,7 +163,7 @@ On en vient alors à la formule de Taylor-Lagrange:
 	Soient $E$ et $F$ deux espaces de Banach. Soit $\mathcal{U}$ un ouvert de
 	$E$.
 
-	Soit $\GSfunction{f}{\mathcal{U}}{F}$ $n + 1$-fois différentiable.
+	Soit $\GSfunction{f}{\mathcal{U}}{F}$ $(n + 1)$-fois différentiable.
 	Soit $(x, h) \in (\mathcal{U} \cartprod E)$ tel que $\segment{x}{x + h}
 	\subseteq \mathcal{U}$.
 

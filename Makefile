@@ -2,13 +2,13 @@ SRC_DIR	= src
 NAME	= Analyse.III.Crespo
 SRC		= $(NAME).tex
 
-noproof:
-	cd src && pdflatex -output-directory ../ $(SRC)
-	cd src && pdflatex -output-directory ../ $(SRC)
-
 $(NAME):
 	cd src && pdflatex -output-directory ../ "\def\outputproof{0} \input{$(SRC)}"
 	cd src && pdflatex -output-directory ../ "\def\outputproof{0} \input{$(SRC)}"
+
+noproof:
+	cd src && pdflatex -output-directory ../ $(SRC)
+	cd src && pdflatex -output-directory ../ $(SRC)
 
 zip: fclean $(NAME)
 	$(MAKE) clean
