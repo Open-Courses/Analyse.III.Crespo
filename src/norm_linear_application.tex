@@ -302,6 +302,9 @@ On remarque que $\GSsum{k}{0}{n}{i_{k} \circ p_{k}} = Id_{E}$ et $p_{k} \circ
 i_{k} = Id_{E_{k}}$.
 
 Il est facile de montrer que ces applications sont linéaires, et continues.
+On a donc $p_{k} \in \GScontinueHomo{E}{E_{k}}$ et $i_{k} \in
+\GScontinueHomo{E_{k}}{E}$.
+
 De plus, pour la définition de l'injection canonique, nous pouvons remplacer les
 $0$ par n'importe quelle autre valeur, tant que celle-ci reste constante.
 
@@ -380,10 +383,10 @@ obtient des assertions proches du cas linéaire.
 \fi
 
 On note $\GScontinueHomo[n]{E_{1}, \ldots, E_{n}}{F}$ ou
-$\GScontinueHomo[n]{E}{F}$ (dans le cas où $E = \prod_{i = 1}{n} E_{i}$) l'ensemble des applications
+$\GScontinueHomo[n]{E}{F}$ (dans le cas où $E = \prod_{i = 1}^{n} E_{i}$) l'ensemble des applications
 $n$-linéaires continues, et $\GScontinueEndo[n]{E_{1}, \ldots, E_{n}}$ ou
 $\GScontinueEndo[n]{E}$ (dans le cas où $E = \prod_{i = 1}^{n} E_{i}$) si $F =
-\GSprodSet{i}{1}{n}{E}$.
+\GSprodSet{i}{1}{n}{E} = E$.
 
 \begin{remarque}
 	Toute application bilinéaire non nulle n'est pas uniformément continue. En
@@ -544,45 +547,43 @@ sûr que la réciproque est continue.
 	$f \circ g = Id_{F}$.
 \end{definition}
 
-On définit alors $Isom(E, F)$ comme l'ensemble des isomorphismes de $E$ dans
+On définit alors $\GSisomorphismeHomo{E}{F}$ comme l'ensemble des isomorphismes de $E$ dans
 $F$.
 Remarquons que la propriété d'être continue dépend de la norme, donc les
 isomorphismes ne sont pas nécessairement les mêmes avec des normes qui ne sont
 pas équivalentes. La norme définissant la topologie sur $\GScontinueHomo{E}{F}$
-est donc liée aux applications d'$Isom(E, F)$.
+est donc liée aux applications d'$\GSisomorphismeHomo{E}{F}$.
 
 Regardons le cas particulier des espaces vectoriels normés de dimension finie.
 
 \begin{remarque}
-	Soient $E, F$ deux espaces vectoriels de dimension finie. Alors
-	$\GScontinueHomo{E}{F} \isomorph \matrixSpace{n}{\mathbb{K}}$, et l'espace
-	$Isom(E, F) \isomorph \inversibleMatrixSpace{n}{\mathbb{K}}$ où
+	Soient $E$ un espace vectoriel de dimension finie $n$. Alors
+	$\GScontinueEndo{E} \isomorphe \matrixSpace{n}{\mathbb{K}}$, et l'espace
+	$\GSisomorphisme{E} \isomorphe \inversibleMatrixSpace{n}{\mathbb{K}}$ où
 	$\inversibleMatrixSpace{n}{\mathbb{K}}$ est l'ensemble des matrices carrées
 	de déterminant non nulle.
 
 	L'application déterminant étant $n$-linéaire (et donc en particulier
-	continue car nous sommes en dimension finie), nous avons que $Isom(E, F)$
-	est un ouvert de $\GScontinueHomo{E}{F}$.
-
-	En particulier, si $dim(E) \neq dim(F)$, alors $Isom(E, F) = \emptyset$.
+	continue car nous sommes en dimension finie), nous avons que $\GSisomorphisme{E}$
+	est un ouvert de $\GScontinueEndo{E}$.
 \end{remarque}
 
 Donc, en dimension finie, les applications inversibles forment un ensemble
-ouvert de $\GScontinueHomo{E}{F}$. Est-ce le cas en dimension quelconque ?
+ouvert de $\GScontinueEndo{E}$. Est-ce le cas en dimension quelconque ?
 
 \begin{proposition}
-	$Isom(E, F)$ est un ouvert de $\GScontinueHomo{E}{F}$.
+	$\GSisomorphismeHomo{E}{F}$ est un ouvert de $\GScontinueHomo{E}{F}$.
 \end{proposition}
 
 \ifdefined\outputproof
 \begin{proof}
-	Prenons $u_{0} \in Isom(E, F)$. Montrons que $u_{0}$ est le centre d'une
-	boule de rayon $r$ contenue dans $Isom(E, F)$.
+	Prenons $u_{0} \in \GSisomorphismeHomo{E}{F}$. Montrons que $u_{0}$ est le centre d'une
+	boule de rayon $r$ contenue dans $\GSisomorphismeHomo{E}{F}$.
 
 	Posons $r = \frac{1}{||u_{0}^{-1}||}$.
 
 	Soit $u \in \GScontinueHomo{E}{F}$ tel que $||u - u_{0}|| < r$. Montrons
-	que $u \in Isom(E, F)$.
+	que $u \in \GSisomorphismeHomo{E}{F}$.
 
 	\ldots
 \end{proof}
@@ -594,13 +595,13 @@ On définit alors l'application inverse.
 	Soient $E, F$ deux espaces de Banach. On définit \textbf{l'application
 	inverse}
 	\begin{equation*}
-		\phi : Isom(E, F) \rightarrow \GScontinueHomo{F}{E} : u \rightarrow u^{-1}
+		\phi : \GSisomorphismeHomo{E}{F} \rightarrow \GScontinueHomo{F}{E} : u \rightarrow u^{-1}
 	\end{equation*}
 \end{definition}
 
 \begin{proposition}
-	Soit $S \in Isom(E, F)$, $T \in Isom(F, G)$.
-	Alors $T \circ S \in Isom(E, G)$. De plus, $(T \circ S)^{-1} = S^{-1} \circ
+	Soit $S \in \GSisomorphismeHomo{E}{F}$, $T \in \GSisomorphismeHomo{F}{G}$.
+	Alors $T \circ S \in \GSisomorphismeHomo{E}{G}$. De plus, $(T \circ S)^{-1} = S^{-1} \circ
 	T^{-1}$.
 \end{proposition}
 
@@ -618,7 +619,7 @@ On définit alors l'application inverse.
 \end{definition}
 
 On obtient alors une propriété, qu'importe les espaces vectoriels donnés, et
-permet de savoir si $Isom(E, F)$ est vide ou non.
+permet de savoir si $\GSisomorphismeHomo{E}{F}$ est vide ou non.
 
 \begin{proposition}
 	Une isométrie est toujours injective et continue. De plus, si $f$ est une
@@ -642,7 +643,7 @@ Donnons une isométrie fondamentale:
 
 \begin{proposition}
 	Soit $F$ un espace vectoriel normé. Alors $\GScontinueHomo{F}{\mathbb{K}}
-	\isomorph F$.
+	\isomorphe F$.
 \end{proposition}
 
 \ifdefined\outproof

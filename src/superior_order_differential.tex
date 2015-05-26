@@ -307,7 +307,7 @@ On a donc:
 \subsection{Exemple fondamental où $E = \real^{n}$}
 
 Posons $\mathcal{B} = (e_{i})_{1 \leq i \leq n}$ la base canonique de $R^{n}$,
-et $E_{i} = \spanspace{e_{i}} \isomorph \real$.
+et $E_{i} = \spanspace{e_{i}} \isomorphe \real$.
 
 Prenons $\mathcal{U}$ un ouvert de $\real^{n}$.
 Soit $\GSfunction{f}{\mathcal{U}}{F}$ une fonction de classe $\mathcal{C}^{2}$ où
@@ -782,7 +782,7 @@ Nous avons construit l'application:
 \begin{center}
 $
 \begin{aligned}
-	\phi : 	Isom(E, F) &\rightarrow& Isom(F, E) \\
+	\phi : 	\GSisomorphismeHomo{E}{F} &\rightarrow& Isom(F, E) \\
 			u &\rightarrow& u^{-1}
 \end{aligned}
 $
@@ -812,7 +812,7 @@ ce résultat.
 \end{proposition}
 
 Remarquons que pour $n = 1$, on n'a pas toujours que $f^{-1} \in
-\mathcal{C}^{1}$. On a $f^{-1} \in \mathcal{C}^{1}$ ssi $df(x) \in Isom(E, F)$
+\mathcal{C}^{1}$. On a $f^{-1} \in \mathcal{C}^{1}$ ssi $df(x) \in \GSisomorphismeHomo{E}{F}$
 pour tout $x \in \mathcal{U}$.
 
 \ifdefined\outputproof
@@ -831,7 +831,7 @@ d'inversion local (\ref{theorem:local_inversion}).
 	Soit $\GSfunction{f}{\mathcal{U}}{F}$ une fonction de classe
 	$\mathcal{C}^{n}$.
 
-	Si $df(a) \in Isom(E, F)$ pour un $a \in \mathcal{U}$, alors il existe un
+	Si $df(a) \in \GSisomorphismeHomo{E}{F}$ pour un $a \in \mathcal{U}$, alors il existe un
 	voisinage ouvert $\mathcal{V}$ de $f(a)$ dans $F$, et $\mathcal{W} \subseteq
 	\mathcal{U}$ tel que:
 
@@ -860,7 +860,7 @@ d'inversion local (\ref{theorem:local_inversion}).
 
 	\begin{itemize}
 		\item $f(a, b) = 0$
-		\item $\partial_{2}f (a, b) \in Isom(F, G)$
+		\item $\partial_{2}f (a, b) \in \GSisomorphismeHomo{F}{G}$
 	\end{itemize}
 
 	Alors il existe un voisinage ouvert $\mathcal{V}$ de $a$ dans $E$ et
@@ -927,7 +927,7 @@ Alors, on définit par récurrence:
 		\frac{\partial^{n - 1} f}{\partial x_{j_{2}} \partial x_{j_{3}} \cdots
 		\partial x_{j_{n}}}) (a) \in
 		\underbrace{\GScontinueHomo{E_{j_{1}}}{\GScontinueHomo[n -
-		1]{E_{j_{2}}, E_{j_{3}}, \cdots, E_{j_{n}}}{F}}}_{\isomorph
+		1]{E_{j_{2}}, E_{j_{3}}, \cdots, E_{j_{n}}}{F}}}_{\isomorphe
 			\GScontinueHomo[n]{E_{j_{1}}, E_{j_{2}}, \cdots, E_{j_{n}}}{F}}
 	\end{equation*}
 
@@ -1035,7 +1035,7 @@ On fait l'identification
 
 \begin{equation*}
 	\GScontinueHomo[n]{\overbrace{E_{j_{1}}}^{= \real}, \cdots,
-	\overbrace{E_{j_{n}}}^{= \real}}{F} \isomorph F
+	\overbrace{E_{j_{n}}}^{= \real}}{F} \isomorphe F
 \end{equation*}
 
 Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application $n$-fois différentiable en
