@@ -23,6 +23,7 @@ On va s'intéresser à la différentielle de $df$.
 
 	-- $\GSfunction{df}{\mathcal{V}_{a}}{\GScontinueHomo{E}{F}}$ est diffentiable
 	en $a$.
+
 	Dans ce cas, on note $d^{2}f(a)$ la différentielle de $df$ en $a$, et on dit
 	que c'est \textbf{la différentielle seconde de $f$ en $a$}.
 \end{definition}
@@ -65,7 +66,7 @@ E$ dans $F$.
 	Soit $E, F, G$ des espaces vectoriels normés.
 
 	Alors $\GScontinueHomo{E}{\GScontinueHomo{F}{G}} \identification
-	\GScontinueHomo{E,F}{G}$.
+	\GScontinueHomo[2]{E,F}{G}$.
 \end{proposition}
 
 \ifdefined\outputproof
@@ -144,7 +145,7 @@ Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application.
 
 	où $\displaystyle \pdv{f}{x_{i}}{x_{j}} \in
 	\GScontinueHomo{E_{i}}{\GScontinueHomo{E_{j}}{F}} \identification
-	\GScontinueHomo{E_{i}, E_{j}}{F}$.
+	\GScontinueHomo[2]{E_{i}, E_{j}}{F}$.
 
 	De plus, $d^{2}f(a)$ peut être calculée grace à ces dernières avec la
 	formule:
@@ -203,7 +204,7 @@ pour $1 \leq i \leq d$.
 	On a donc:
 	\begin{equation*}
 		\pdv{x_{i}} (df)(a) \in \GScontinueHomo{E_{i}}{\GScontinueHomo{E}{F}}
-		\identification \GScontinueHomo{E_{i}, E}{F}
+		\identification \GScontinueHomo[2]{E_{i}, E}{F}
 	\end{equation*}
 
 	On a en plus, pour $h = (h_{1}, \cdots, h_{d}) \in E$ :
@@ -229,9 +230,9 @@ Nous obtenons alors, pour le théorème de symétrie de Schwarz:
 	k \in E$, et pour tout $1 \leq i, j \leq n$:
 
 	\begin{equation}
-		\overbrace{\pdv{f}{x_{i}}{x_{j}} (a)}^{\in \GScontinueHomo{E_{i},
+		\overbrace{\pdv{f}{x_{i}}{x_{j}} (a)}^{\in \GScontinueHomo[2]{E_{i},
 		E_{j}}{F}} (h_{i}, k_{j}) = \underbrace{\pdv{f}{x_{j}}{x_{i}} (a)}_{\in
-			\GScontinueHomo{E_{j}, E_{i}}{F}}
+			\GScontinueHomo[2]{E_{j}, E_{i}}{F}}
 		(k_{j}, h_{i})
 	\end{equation}
 \end{theorem}
@@ -251,7 +252,7 @@ Nous obtenons alors, pour le théorème de symétrie de Schwarz:
 
 	\begin{equation}
 		\pdv{f}{x_{i}}{x_{j}} (a) : \mathcal{U} \rightarrow
-		\GScontinueHomo{E_{i}, E_{j}}{F}
+		\GScontinueHomo[2]{E_{i}, E_{j}}{F}
 	\end{equation}
 	soient continues.
 \end{proposition}
@@ -315,7 +316,7 @@ $F$ un $\real$-espace vectoriel normé.
 On a alors l'identification
 
 \begin{align*}
-	\GScontinueHomo{E_{i}, E_{j}}{F} \identification F
+	\GScontinueHomo[2]{E_{i}, E_{j}}{F} \identification F
 \end{align*}
 
 et donc $ \displaystyle \pdv{f}{x_{i}}{x_{j}} (a) \in F$.
@@ -397,8 +398,7 @@ l'identification \ref{prop:identification_bilineaire}.
 
 \begin{proposition}
 	Soient $E_{1}, \cdots, E_{n}$ et $F$ des espaces vectoriels normés.
-	Alors, pour tout $1 \leq p \leq n$, il existe une isométrie linéaire
-	bijective
+	Alors, pour tout $1 \leq p \leq n$, il existe une isométrie
 
 	\begin{equation*}
 		\phi : \GScontinueHomo[n]{E_{1}, \cdots, E_{n}}{F} \rightarrow
@@ -480,7 +480,7 @@ de différentielle et de classe $\mathcal{C}^{1}$.
 	Soient $E$ et $F$ deux espaces vectoriels normés. Soient $\mathcal{U}$ un ouvert de $E$,
 	et $a \in \mathcal{U}$.
 
-	Soient $\GSfunction{f}{\mathcal{U}}{F}$ et $\GSfunction{\mathcal{U}}{F}$
+	Soient $\GSfunction{f}{\mathcal{U}}{F}$ et $\GSfunction{g}{\mathcal{U}}{F}$
 	deux applications $n$-fois différentiables en $a$ (resp. de classe $\mathcal{C}^{n}$).
 	Soit $\lambda \in \mathbb{K}$.
 
@@ -491,7 +491,7 @@ de différentielle et de classe $\mathcal{C}^{1}$.
 			$\mathcal{C}^{n}$) et $d^{n}(f + g) (a) = d^{n}f(a) + d^{n}g(a)$
 			(resp. $d^{n} (f + g) = d^{n} f + d^{n} g$).
 		\item $\lambda f$ est $n$-fois différentiable en $a$ (resp. de classe
-			$\mathcal{C}^{n}$ et $d^{n} (\lambda f) (a) = \lambda d^{n} f (a)$
+			$\mathcal{C}^{n}$) et $d^{n} (\lambda f) (a) = \lambda d^{n} f (a)$
 			(resp $d^{n} (\lambda f) = \lambda d^{n} f$).
 	\end{itemize}
 \end{proposition}
@@ -513,6 +513,9 @@ de différentielle et de classe $\mathcal{C}^{1}$.
 Continuons à généraliser les concepts de la section précédente. Passons au
 théorème de symétrie de Schwarz. Nous l'avions montré pour $n = 2$.
 
+Cependant, avant de donner la généralisation du théorème de symétrie de Schwarz,
+il va nous falloir définir ce qu'est une application $n$-linéaire symétrique.
+
 \begin{definition}
 	Soit $n \in \naturel^{> 0}$, on note $S_{n}$ l'ensemble des applications
 	bijectives de l'ensemble à $n$ éléments sur lui-même, c'est-à-dire le groupe
@@ -531,8 +534,10 @@ Nous pouvons alors généraliser la notion de symétrie.
 	\begin{equation*}
 		T(x_{\sigma(1)}, \cdots, x_{\sigma(n)}) = T(x_{1}, \cdots, x_{n})
 	\end{equation*}
-
 \end{definition}
+
+La définition d'application symétrique est simple à décrire: toute permutation
+des variables ne change rien à la valeur de sortie de l'application.
 
 \begin{remarque}
 	On note parfois $T_{\sigma} (x_{1}, \cdots, x_{n}) = T(x_{\sigma(1)},
