@@ -173,20 +173,79 @@ pour $1 \leq i \leq d$.
 
 \ifdefined\outputproof
 \begin{proof}
-   % Remarquons que si $f$ est deux fois différentiable en $a$, on a que $f$ est différentiable sur un
-	%$\mathcal{V} \subseteq \mathcal{U}$, et même que $f$ est de classe
-	%$\mathcal{C}^{1}$.
-	%Donc, $\GSfunction{df}{\mathcal{V}}{\GScontinueHomo{E}{F}}$ admet des
-	%dérivées partielles selon $E_{i}$ pour chaque $1 \leq i \leq n$ au point $a$.
+	On a
+	\begin{equation}
+		df(x) (h) = \sum_{1 \leq j \leq d} \pdv{f}{x_{j}} (x) (h_{j})
+	\end{equation}
+	pour tout $x \in \mathcal{V}$ et pour tout $h = (h_{1}, \cdots, h_{j},
+	\cdots, h_{d}) \in E$.
 
-	%On a donc que les applications:
+	On a vu que
+	\begin{equation}
+		\pdv{f}{x_{j}} (x) (h_{j}) = df (x) (i_{E_{j}} (h))
+	\end{equation}
+	où $\GSfunction{i_{E_{j}}}{E_{j}}{E}$ est l'injection canonique.
 
-	%\begin{equation}
-		%\pdv{x_{i}} (df) (a) \in \GScontinueHomo{E_{i}}{\GScontinueHomo{E}{F}}
-	%\end{equation}
+	C'est-à-dire que nous avons
+	\begin{equation}
+		df (x) \circ i_{E_{j}} = \pdv{f}{x_{j}} (x)
+	\end{equation}
 
-	%existent. N'oublions pas que $\GScontinueHomo{E_{i}}{\GScontinueHomo{E}{F}}
-	%\identification \GScontinueHomo{E_{i}, E}{F}$.
+	Soient, pour tout $1 \leq l \leq d$, un voisinage $\mathcal{V}_{l}$ de $a_{l}$ dans
+	$E_{l}$ tel que $\mathcal{V} = \displaystyle \prod_{1 \leq l \leq d}
+	\mathcal{V}_{l}$.
+
+	Nous allons maintenant étudier la variation de $\pdv{f}{x_{j}} (a)$ quand la
+	$i$-ème composante varie, et que les autres sont fixes. C'est-à-dire, par
+	définition, que nous allons regarder si la dérivée partielle de
+	$\pdv{f}{x_{j}}$ admet elle-même une dérivée partielle selon $E_{i}$ en $a$.
+
+	Posons alors
+	\begin{align}
+		\phi_{i} : \mathcal{V}_{i} & \rightarrow \GScontinueHomo{E_{j}}{F} \\
+					x_{i} &\rightarrow \pdv{f}{x_{j}} (a) (a_{1}, \cdots, a_{i - 1},
+					x_{i}, \cdots, a_{d})
+	\end{align}
+	et regardons si $\phi_{i}$ est différentiable en $a_{i}$. Si elle l'est,
+	alors $\pdv{f}{x_{j}} (a)$ admet une dérivée partielle selon $E_{i}$ en $a$
+	et $d\phi_{i} (a_{i}) := \pdv{f}{x_{i}}{x_{j}} (a)$ par définition
+	(\ref{definition:partial_application}).
+
+	Commençons par regarder du coté de la différentielle de $f$ en $a$.
+
+	Comme $f$ est deux fois différentiable en $a$, on a $df(a)$ qui est
+	différentiable en $a$ ie
+	\begin{equation}
+		df(a + h) = df(a) + d^{2} f(a) (h) + \psi(h) \text{ (dans
+			$\GScontinueHomo{E}{F}$)}
+	\end{equation}
+	avec
+	\begin{equation}
+		\psi : B_{\infty}(0, r) \rightarrow \GScontinueHomo{E}{F}
+	\end{equation}
+	avec $r > 0$ tel que $B_{\infty}(a, r) \subseteq \mathcal{V}$ et
+	\begin{equation}
+		\frac{\GSnormeDef{\psi(h)}{\GScontinueHomo{E}{F}}}{\GSnormeDef{h}{\infty}}
+		\stackrel{h \rightarrow 0_{E}}{\rightarrow} 0_{\GScontinueHomo{E}{F}}
+	\end{equation}
+
+	Soit $h_{i} \in E_{i}$ tel que $\GSnormeDef{h_{i}}{E_{i}} < r$. On a
+	$\GSnormeDef{i_{E_{i}}(h_{i})}{E} = \GSnormeDef{h_{i}} < r$. Donc
+
+	\begin{equation}
+		df (a + i_{E_{i}} (h_{i})) = df (a) + d^{2} f (a) (i_{E_{i}} (h_{i}))+
+		\psi(h_{i})
+	\end{equation}
+
+	Regardons maintenant du coté de $\phi_{i}$.
+
+	On a
+	\begin{align}
+		\phi_{i} (a_{i} + h_{i}) &:= \pdv{f}{x_{j}} (a + i_{E_{i}} (h)) \\
+		& = (df (a + i_{E_{i}}) \circ i_{E_{j}}) (h)
+	\end{align}
+
+	% TODO : terminer
 \end{proof}
 \fi
 
@@ -195,7 +254,7 @@ pour $1 \leq i \leq d$.
 	sur un voisinage ouvert $\mathcal{V}_{a}$ de $a$ contenu dans $\mathcal{U}$.
 	Nous avons même que $f$ est de classe $\mathcal{C}^{1}$ sur
 	$\mathcal{V}_{a}$ car $df$ est différentiable sur $\mathcal{V}_{a}$ (et donc
-	.continue en particulier).
+	continue en particulier).
 	On a aussi que $df : \mathcal{V}_{a} \rightarrow \GScontinueHomo{E}{F}$ est
 	différentiable en $a$.
 
@@ -221,13 +280,13 @@ pour $1 \leq i \leq d$.
 		(df)(a)(h_{i}, k)
 	\end{equation*}
 	pour $h = (h_{1}, \cdots, h_{d}) \in E$ et $k \in E$.
-
 \end{remarque}
+
 Nous obtenons alors, pour le théorème de symétrie de Schwarz:
 
 \begin{theorem}
-	Si $f$ est deux fois différentiable au point $a$, alors on a, pour tout $h,
-	k \in E$, et pour tout $1 \leq i, j \leq n$:
+	Si $f$ est deux fois différentiable au point $a$, alors on a, pour tout $1
+	\leq i, j \leq n$, pour tout $h_{i} \in E_{i}$ et $k_{j} \in E_{j}$:
 
 	\begin{equation}
 		\overbrace{\pdv{f}{x_{i}}{x_{j}} (a)}^{\in \GScontinueHomo[2]{E_{i},
@@ -239,7 +298,34 @@ Nous obtenons alors, pour le théorème de symétrie de Schwarz:
 
 \ifdefined\outputproof
 \begin{proof}
+	Comme $f$ est deux fois différentiable en $a$, on a, pour tout $h, k \in E$
+	\begin{equation}
+		d^{2}f(a) (h, k) = d^{2}f(a) (k, h)
+	\end{equation}
 
+	Montrons l'égalité. Pour cela, prenons $h_{i} \in E_{i}$ et $k_{j} \in
+	E_{j}$, et montrons
+
+	\begin{equation}
+		\pdv{f}{x_{i}}{x_{j}} (a) (h_{i}, k_{j}) = \pdv{f}{x_{j}}{x_{i}} (a)
+		(k_{j}, h_{i})
+	\end{equation}
+
+	Posons $h = i_{E_{i}}(h_{i})$ et $k = i_{E_{j}} (k_{j})$.
+
+	On obtient
+	\begin{align*}
+		d^{2} f(a) (h, k) &= d^{2} f(a) (i_{E_{i}} (h_{i}), i_{E_{j}}(k_{j})) \\
+		&= \pdv{f}{x_{i}}{x_{j}} (h_{i}, k_{j})
+	\end{align*}
+
+	De même, on a
+	\begin{align*}
+		d^{2} f(a) (k, h) &= d^{2} f(a) (i_{E_{j}} (k_{j}), i_{E_{i}}(h_{i})) \\
+		&= \pdv{f}{x_{j}}{x_{i}} (k_{j}, h_{i})
+	\end{align*}
+
+	Comme $d^{2}f(a)$ est symétrique, on obtient l'égalité.
 \end{proof}
 \fi
 
