@@ -124,6 +124,7 @@ $\mathcal{U} = \GSprodSet{i}{1}{d}{\mathcal{U}}$.
 Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application.
 
 \begin{proposition}
+	\label{proposition:second_partial_derivative}
 	Supposons que $f$ soit deux fois différentiable en un point $a \in
 	\mathcal{U}$. Par définition, il existe un voisinage ouvert
 	$\mathcal{V}_{a}$ de $a$, compris dans $\mathcal{U}$ tel que $f$ est
@@ -159,7 +160,7 @@ Soit $\GSfunction{f}{\mathcal{U}}{F}$ une application.
 
 \end{proposition}
 
-On appelle 
+On appelle
 \begin{equation*}
 	\pdv{f}{x_{i}}{x_{j}} (a)
 \end{equation*}
@@ -285,6 +286,7 @@ pour $1 \leq i \leq d$.
 Nous obtenons alors, pour le théorème de symétrie de Schwarz:
 
 \begin{theorem}
+	\label{theorem:symetry_schwarz_partial_derivative}
 	Si $f$ est deux fois différentiable au point $a$, alors on a, pour tout $1
 	\leq i, j \leq n$, pour tout $h_{i} \in E_{i}$ et $k_{j} \in E_{j}$:
 
@@ -337,12 +339,73 @@ Nous obtenons alors, pour le théorème de symétrie de Schwarz:
 	de $\mathcal{U}$ et que les applications:
 
 	\begin{equation}
-		\pdv{f}{x_{i}}{x_{j}} (a) : \mathcal{U} \rightarrow
+		\pdv{f}{x_{i}}{x_{j}} : \mathcal{U} \rightarrow
 		\GScontinueHomo[2]{E_{i}, E_{j}}{F}
 	\end{equation}
 	soient continues.
 \end{proposition}
 
+\ifdefined\outputproof
+\begin{proof}
+	\begin{itemize}
+		\item Supposons que $f$ soit de classe $\mathcal{C}^{2}$ sur $\mathcal{U}$.
+			Alors les applications dérivées partielles
+			\begin{equation}
+				\pdv{f}{x_{j}} : \mathcal{U} \rightarrow
+				\GScontinueHomo{E_{j}}{F}
+			\end{equation}
+			existent pour tout $1 \leq j \leq d$.
+
+			De plus, nous avons que les applications dérivées partielles sont
+			\begin{equation}
+				\pdv{f}{x_{j}} (a) := df (a) \circ i_{E_{j}}
+			\end{equation}
+
+			Posons
+			\begin{align}
+				B : \GScontinueHomo{E}{F} \cartprod \GScontinueHomo{E_{j}}{E}
+				& \rightarrow \GScontinueHomo{E_{j}}{F} \\
+				(h_{1}, h_{2}) & \rightarrow h_{1} \circ h_{2}
+			\end{align}
+
+			\begin{align}
+				g : \mathcal{U} & \rightarrow \GScontinueHomo{E_{j}}{E} \\
+				a & \rightarrow i_{E_{j}}
+			\end{align}
+			et
+			\begin{align}
+				B(df, g) : \mathcal{U} & \rightarrow \GScontinueHomo{E_{j}}{F}
+				\\
+				a & \rightarrow B(df(a), g(a)) = B(df(a), i_{E_{j}})
+			\end{align}
+
+			On remarque que $B(df, g)$ a été construite de telle manière à avoir
+			$B(df, g) (a) = \pdv{f}{x_{j}} (a)$, ie $B(df, g) = \pdv{f}{x_{j}}$.
+
+			On a, par la proposition
+			\ref{proposition:composition_linear_application_is_bounded_bilinear},
+			que $B$ est bilinéaire continue.
+
+			De plus, $g$ est constante, donc $g$ est de classe
+			$\mathcal{C}^{1}$ sur $\mathcal{U}$.
+
+			Nous avons aussi que $df$ est de classe $\mathcal{C}^{1}$ car $f$
+			est de classe $\mathcal{C}^{2}$.
+
+			Et finalement, par la règle de Leibniz
+			(\ref{proposition:leibniz_rule}) que $B(df, g)$ est de classe
+			$\mathcal{C}^{1}$, et donc $\pdv{f}{x_{j}}$ aussi.
+
+			En particulier, $\pdv{f}{x_{j}}$ admet des dérivées partielles pour
+			tout $1 \leq i \leq d$, qui sont continues par la proposition
+			\ref{theorem:partial_derivative_existence}.
+
+			Par définition, les dérivées partielles secondes de $f$ sont les
+			dérivées partielles des applications $\pdv{f}{x_{j}}$, d'où le
+			resultat.
+	\end{itemize}
+\end{proof}
+\fi
 \subsection{Dérivées directionnelles du second ordre}
 
 Soient $E, F$ des espaces vectoriels normés, et $\mathcal{U}$ un ouvert de $E$.
