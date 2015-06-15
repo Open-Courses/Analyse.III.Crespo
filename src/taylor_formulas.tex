@@ -31,7 +31,7 @@ dans un espace de Banach:
 
 	\begin{equation*}
 		\displaystyle \dv{t} [g(t) + \sum_{p = 1}^{n} \frac{(1 - t)^{p}}{p!}
-		g^{(p)}(t)] = \frac{(1 - t)^{n}}{t!} g^{(n+1)}(t)
+		g^{(p)}(t)] = \frac{(1 - t)^{n}}{n!} g^{(n+1)}(t)
 	\end{equation*}
 \end{lemma}
 
@@ -92,8 +92,10 @@ Nous en venons alors à la formule de Taylor avec reste intégral.
 
 \begin{theorem} [Formule de Taylor avec reste intégral]
 	\label{theorem:taylor_formula_reste_integral}
-	Soient $E$ et $F$ deux espaces de Banach. Soit $\mathcal{U}$ un ouvert de
-	$E$.
+	Soient $E$ et $F$ deux espaces de Banach.
+
+	Soit $\mathcal{U}$ un ouvert de $E$.
+
 	Soit $\GSfunction{f}{\mathcal{U}}{F}$ tel que $f \in \mathcal{C}^{n + 1}$.
 
 	Soit $(x, h) \in (\mathcal{U} \cartprod E)$ tel que $\segment{x}{x + h}
@@ -278,7 +280,7 @@ Dans le cas de la formule de Taylor-Young, on obtient une formule semblable.
 	\begin{equation*}
 		f(a + h) = f(a) + \sum_{\substack{\alpha \in \naturel^{d} \\
 		\miLength{\alpha} \leq n}} \frac{h^{\alpha}}{\alpha!}
-		\partial^{\alpha}f(a) + o(\GSnormeDef{h}{\real^{d}})
+		\partial^{\alpha}f(a) + o(\GSnormeDef{h}{\real^{d}}^{n})
 	\end{equation*}
 	quand $h \rightarrow 0_{\real^{d}}$.
 \end{theorem}
